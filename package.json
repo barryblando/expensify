@@ -1,0 +1,52 @@
+{
+  "name": "expensify",
+  "version": "1.0.0",
+  "description": "An application made with React",
+  "main": "index.js",
+  "repository": "https://github.com/barryblando/expensify.git",
+  "author": "Retr0_0x315 <barryblando@gmail.com>",
+  "license": "Apache-2.0",
+  "private": false,
+  "scripts": {
+    "build:dev": "babel-node devServer.js",
+    "build:prod": "babel-node buildProd.js",
+    "serve:dev": "live-server public/",
+    "serve:prod": "babel-node prodServer.js",
+    "playground:watch": "babel src/playground/counter-example-state.js --out-file=public/scripts/app.js --presets=env,react -w",
+    "test": ""
+  },
+  "devDependencies": {
+    "autoprefixer": "^8.4.1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "6.26.3",
+    "babel-loader": "7.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "chalk": "^2.4.1",
+    "compression": "^1.7.2",
+    "compression-webpack-plugin": "^1.1.11",
+    "css-loader": "^0.28.11",
+    "express": "^4.16.3",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.9.0",
+    "open": "^0.0.5",
+    "postcss-loader": "^2.1.4",
+    "react-hot-loader": "^4.1.2",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.21.0",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "validator": "^9.4.1",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.1.2",
+    "webpack-dev-server": "3.1.3",
+    "webpack-md5-hash": "^0.0.6"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-modal": "^3.4.4"
+  }
+}
