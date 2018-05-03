@@ -192,7 +192,7 @@ class AddOption extends React.Component {
       e.target.elements.option.value = ''
     }
   }
-
+  /* Don't forget to put div, every jsx syntax needs root element in order to render (like div) */
   render() {
     return (
       <div>
