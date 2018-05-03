@@ -1,6 +1,8 @@
 class IndecisionApp extends React.Component {
   constructor(props) {
     super(props);
+    // Manually bind the 'this' to the current instance for event handlers
+    // Event handlers have problem maintaining 'this' binding
     this.handleDeleteOptions = this.handleDeleteOptions.bind(this); // bind to the current instance
     this.handlePick = this.handlePick.bind(this); // bind to the current instance
     this.handleAddOption = this.handleAddOption.bind(this); // bind to the current instance
@@ -101,6 +103,16 @@ class IndecisionApp extends React.Component {
 //   options: []
 // };
 
+// STATELESS FUNCTIONAL COMPONENTS - Use this method if your Component is simple
+// const User = (props) => { // to access props via functional based component, class based component uses 'this' to access props
+//   return (
+//     <div>
+//       <p>Name: { props.name} </p>
+//       <p>Age: { props.age} </p>
+//     </div>
+//   );
+// };
+
 const Header = (props) => {
   return (
     <div>
@@ -162,7 +174,7 @@ const Option = (props) => {
 
 class AddOption extends React.Component {
   constructor(props) {
-    super(props);
+    super(props); // Set props in constructor & super so it can be access by methods
     this.handleAddOption = this.handleAddOption.bind(this);
     this.state = {
       error: undefined // set to undefined

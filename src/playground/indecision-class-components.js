@@ -113,7 +113,7 @@ class Option extends React.Component {
 
 class AddOption extends React.Component {
   constructor(props) {
-    super(props);
+    super(props); // Set props in constructor & super so it can be access by methods
     this.handleAddOption = this.handleAddOption.bind(this);
     this.state = {
       error: undefined // set to undefined
@@ -146,16 +146,6 @@ class AddOption extends React.Component {
     );
   }
 }
-
-// STATELESS FUNCTIONAL COMPONENTS - Use this method if your Component is simple
-// const User = (props) => { // to access props via functional based component, class based component uses 'this' to access props
-//   return (
-//     <div>
-//       <p>Name: { props.name} </p>
-//       <p>Age: { props.age} </p>
-//     </div>
-//   );
-// };
 
 // render IndecisionApp & its Components to REACT DOM
 // ReactDOM.render(<User name="Barry" age={26}/>, document.getElementById('app'));

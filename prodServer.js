@@ -5,6 +5,8 @@ import express from 'express';
 import path from 'path';
 import open from 'open';
 import compress from 'compression';
+import chalk from 'chalk';
+
 /* eslint-disable no-console */
 
 const port = 5000;
@@ -19,18 +21,13 @@ const checkForHTML = req => {
   const url = req.url.split('.');
   const extension = url[url.length -1];
 
-  if (['/'].indexOf(extension) > -1) {
-      return true; //compress only .html files sent from server
-  }
-
-  return false;
+  return ['/'].indexOf(extension) > -1 ? true : false; // for true - compress only .html files sent from server
 };
 
 const encodeResToGzip = contentType => (req, res, next) => {
   req.url = req.url + '.gz';
   res.set('Content-Encoding', 'gzip');
   res.set('Content-Type', contentType);
-
   next();
 };
 
@@ -52,9 +49,5 @@ app.get('/', function(req, res) {
 });
 
 app.listen(port, function(err) {
-  if (err) {
-    console.log(err);
-  } else {
-    open('http://localhost:' + port);
-  }
+  return err ? console.log(chalk.red(error)) : open('http://localhost:' + port);
 });

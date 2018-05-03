@@ -1,4 +1,4 @@
-// -------- New Class Syntax --------
+// -------- Old Class Syntax --------
 class OldSyntax {
   constructor() {
     this.name = 'Mike';
