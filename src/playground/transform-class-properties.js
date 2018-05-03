@@ -18,7 +18,7 @@ console.log(oldGetGreeting());
 // -------- New Class Syntax --------
 class NewSyntax {
   name = 'Jen';
-  // arrow function don't bind their own 'this' value, it's gonna use what upper scope chain 'this' in this case it is the 'this' of class instance
+  // arrow function don't bind their own 'this' value, it's gonna use what 'this' in scope, in this case it is the 'this' of class instance
   getGreeting = () => {
     return `Hi. My name is ${this.name}`;
   }
