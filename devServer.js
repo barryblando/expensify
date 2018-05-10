@@ -24,6 +24,6 @@ const server = new webpackDevServer(compiler, options);
 
 const port = 5000;
 
-server.listen(port, 'localhost', (error) => {
+server.listen(port, 'localhost', (err) => {
   return err ? console.log(chalk.red(err)) : console.log(chalk.blue(`--> [DevServer] [Listening] on port: ${port}`));
 });
