@@ -1,5 +1,7 @@
 /**
  * PRE-PRODUCTION SERVER
+ * This is NOT for actual production use.
+ * This is just useful for hosting the minified production build for local debugging purposes.
  */
 import express from 'express';
 import path from 'path';
@@ -12,11 +14,7 @@ import chalk from 'chalk';
 const port = 5000;
 const app = express();
 
-/**
- * This is NOT for actual production use.
- * This is just useful for hosting the minified production build for local debugging purposes.
- */
-
+// Reserved fn
 const checkForHTML = req => {
   const url = req.url.split('.');
   const extension = url[url.length -1];
@@ -49,5 +47,5 @@ app.get('/', function(req, res) {
 });
 
 app.listen(port, function(err) {
-  return err ? console.log(chalk.red(error)) : open('http://localhost:' + port);
+  return err ? console.log(chalk.red(err)) : open('http://localhost:' + port);
 });
