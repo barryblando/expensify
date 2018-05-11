@@ -10,15 +10,21 @@
 
 - 3-1 CSS Architecture
 
+## Redux 101
+
+- [What Does Redux Do? (and when should you use it?)](https://daveceddia.com/what-does-redux-do/)
+- [How Redux Works: A Counter-Example](https://daveceddia.com/how-does-redux-work/)
+
 ## Webpack Dev Server & React-Hot-Loader
 
 - [React Hot Reloader Github](https://github.com/gaearon/react-hot-loader)
 - [React Hot Reloader Get Started](http://gaearon.github.io/react-hot-loader/getstarted/)
 - [Issues 2016 - RHL](https://github.com/gaearon/react-hot-loader/issues/243)
 
-## Babel Stage 2 Plugin [will update after stage 4]
+## Babel Stage 2 & 3 Plugin [will update after stage 4]
 
-- ...
+- [transform-object-rest-spread (Stage 3)](https://babeljs.io/docs/plugins/transform-object-rest-spread/)
+- [transform-class-properties (Stage 2)](https://babeljs.io/docs/plugins/transform-class-properties/)
 
 ## Third Party Component Used
 
