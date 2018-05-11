@@ -10,7 +10,7 @@ const demoState = {
   filters: {
     text: 'rent', // search keyword
     sortBy: 'amount', // date or amount
-    startDate: undefined,
-    endDate: undefined
+    startDate: undefined, // timestamps (milliseconds based)
+    endDate: undefined // timestamps (milliseconds based)
   }
 };
