@@ -1,6 +1,10 @@
 {
   "nodeTdd.activateOnStartup": false,
   "cSpell.words": [
-    "expensify"
+    "add",
+    "dev",
+    "entrypoints",
+    "expensify",
+    "server"
   ]
 }
