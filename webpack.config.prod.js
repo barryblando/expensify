@@ -1,15 +1,14 @@
 /**
  * WEBPACK PRODUCTION
  */
-
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin');
-const autoprefixer = require('autoprefixer');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const WebpackMd5Hash = require('webpack-md5-hash');
+import path from 'path';
+import webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import CompressionPlugin from 'compression-webpack-plugin';
+import autoprefixer from 'autoprefixer';
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
+import WebpackMd5Hash from 'webpack-md5-hash';
 
 const sourcePath = path.join(__dirname, 'src');
 const buildPath = path.join(__dirname, 'dist');
@@ -17,7 +16,7 @@ const buildPath = path.join(__dirname, 'dist');
 module.exports = {
   mode: 'production',
   entry: {
-    app: path.resolve(sourcePath, 'app.js')
+    app: path.resolve(sourcePath, 'app.js'),
   },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -32,31 +31,28 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
-        }
+        },
       },
       {
         test: /\.(css|scss)$/,
         use: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: [
-              {
-                loader: 'css-loader',
-                options: { minimize: true }
-              },
-              'postcss-loader',
-              'sass-loader'
-            ],
-            publicPath: buildPath,
-        })
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: { minimize: true },
+            },
+            'postcss-loader',
+            'sass-loader',
+          ],
+          publicPath: buildPath,
+        }),
       },
-    ]
+    ],
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],
-    modules: [
-      sourcePath,
-      'node_modules'
-    ]
+    modules: [sourcePath, 'node_modules'],
   },
   plugins: [
     // PROD PLUGINS
@@ -64,55 +60,52 @@ module.exports = {
     new webpack.HashedModuleIdsPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new UglifyJsPlugin({
-      sourceMap: true
+      sourceMap: true,
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'public/index.html'),
       path: buildPath,
       filename: 'index.html',
       minify: {
-          collapseWhitespace: true,
-          collapseInlineTagWhitespace: true,
-          removeComments: true,
-          removeRedundantAttributes: true,
-          useShortDoctype: true,
-          removeEmptyAttributes: true,
-          removeStyleLinkTypeAttributes: true,
-          keepClosingSlash: true,
-          minifyJS: true,
-          minifyCSS: true,
-          minifyURLs: true
-      }
+        collapseWhitespace: true,
+        collapseInlineTagWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true,
+      },
     }),
     new ExtractTextPlugin({
       filename: '[name].[hash].css',
-      allChunks: true
+      allChunks: true,
     }),
     new webpack.LoaderOptionsPlugin({
       options: {
         postcss: [
           autoprefixer({
-            browsers: [
-              'last 5 versions',
-              'ie >= 10'
-            ]
-          })
+            browsers: ['last 5 versions', 'ie >= 10'],
+          }),
         ],
-      }
+      },
     }),
     new CompressionPlugin({
       asset: '[path].gz[query]',
       algorithm: 'gzip',
       test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.svg?.+$/,
       threshold: 10240,
-      minRatio: 0.8
-    })
+      minRatio: 0.8,
+    }),
   ],
   optimization: {
     minimize: true,
     runtimeChunk: true,
     splitChunks: {
-      chunks: "async",
+      chunks: 'async',
       minSize: 1000,
       minChunks: 2,
       maxAsyncRequests: 5,
@@ -126,9 +119,9 @@ module.exports = {
         },
         vendors: {
           test: /[\\/]node_modules[\\/]/,
-          priority: -10
-        }
-      }
-    }
-  }
+          priority: -10,
+        },
+      },
+    },
+  },
 };

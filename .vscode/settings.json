@@ -1,10 +1,19 @@
 {
   "nodeTdd.activateOnStartup": false,
-  "cSpell.words": [
-    "add",
-    "dev",
-    "entrypoints",
-    "expensify",
-    "server"
-  ]
+  "cSpell.words": ["add", "dev", "entrypoints", "expensify", "flowtype", "prettier", "scss", "server", "stylelint"],
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[scss]": {
+    "editor.formatOnSave": false
+  },
+  "files.associations": {
+    "*.js": "javascript"
+  },
+  "prettier.disableLanguages": ["js"],
+  "editor.formatOnSave": true,
+  "files.autoSave": "onFocusChange",
+  "eslint.autoFixOnSave": true,
+  "eslint.alwaysShowStatus": true,
+  "stylelint.enable": true
 }

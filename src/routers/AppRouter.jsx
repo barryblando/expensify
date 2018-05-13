@@ -19,16 +19,15 @@ const AppRouter = () => (
     <div>
       <Header />
       <Switch>
-        <Route path="/" component={ ExpenseDashboardPage } exact={ true } />
-        <Route path="/create" component={ AddExpensePage } />
+        <Route path="/" component={ExpenseDashboardPage} exact />
+        <Route path="/create" component={AddExpensePage} />
         {/* This is the same as express routes, :id will be pass as props.match.params key in EditExpensePage dynamically */}
-        <Route path="/edit/:id" component={ EditExpensePage } />
-        <Route path="/help" component={ HelpPage } />
-        <Route component={ NotFoundPage }/>
+        <Route path="/edit/:id" component={EditExpensePage} />
+        <Route path="/help" component={HelpPage} />
+        <Route component={NotFoundPage} />
       </Switch>
     </div>
   </BrowserRouter>
 );
 
 export default AppRouter;
-
