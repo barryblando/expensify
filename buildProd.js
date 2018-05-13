@@ -1,16 +1,17 @@
 /* eslint-disable no-console */
+import chalk from 'chalk';
 import webpack from 'webpack';
 import webpackConfig from './webpack.config.prod';
-import chalk from 'chalk';
 
 process.env.NODE_ENV = 'production'; // Mode
 
 console.log(chalk.blue('Generating minified bundle for Production. This will take a moment...'));
 
 webpack(webpackConfig).run((err, stats) => {
-  if (err) { // so a fatal error occurred. Stop here.
+  if (err) {
+    // so a fatal error occurred.
     console.log(chalk.red(err));
-    return 1;
+    return 1; // Stop here.
   }
 
   const jsonStats = stats.toJson();

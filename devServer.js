@@ -2,11 +2,11 @@
  * DEVELOPMENT SERVER
  */
 
+import chalk from 'chalk';
 import webpack from 'webpack';
-import webpackDevServer from 'webpack-dev-server';
+import WebpackDevServer from 'webpack-dev-server';
 import path from 'path';
 import config from './webpack.config.dev';
-import chalk from 'chalk';
 
 const options = {
   contentBase: path.resolve(__dirname, 'public'),
@@ -15,15 +15,17 @@ const options = {
   host: 'localhost',
   // open: true,
   // openPage: path.resolve(__dirname, 'public'),
-  compress: true
+  compress: true,
 };
 
-webpackDevServer.addDevServerEntrypoints(config, options);
+WebpackDevServer.addDevServerEntrypoints(config, options);
 const compiler = webpack(config);
-const server = new webpackDevServer(compiler, options);
+const server = new WebpackDevServer(compiler, options);
 
 const port = 5000;
 
-server.listen(port, 'localhost', (err) => {
-  return err ? console.log(chalk.red(err)) : console.log(chalk.blue(`--> [DevServer] [Listening] on port: ${port}`));
-});
+server.listen(
+  port,
+  'localhost',
+  err => (err ? console.log(chalk.red(err)) : console.log(chalk.blue(`--> [DevServer] [Listening] on port: ${port}`)))
+);

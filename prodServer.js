@@ -17,35 +17,35 @@ const app = express();
 // Reserved fn
 const checkForHTML = req => {
   const url = req.url.split('.');
-  const extension = url[url.length -1];
+  const extension = url[url.length - 1];
 
-  return ['/'].indexOf(extension) > -1 ? true : false; // for true - compress only .html files sent from server
+  return ['/'].indexOf(extension) > -1; // for true - compress only .html files sent from server
 };
 
 const encodeResToGzip = contentType => (req, res, next) => {
-  req.url = req.url + '.gz';
+  req.url += '.gz';
   res.set('Content-Encoding', 'gzip');
   res.set('Content-Type', contentType);
   next();
 };
 
-app.use(compress({
-  filter: (req, res) => {
-    const x = compress.filter(req, res);
-    console.log('To-be-Compressed', x, ' ', req.originalUrl);
-    return x;
-  }
-}));
+app.use(
+  compress({
+    filter: (req, res) => {
+      const x = compress.filter(req, res);
+      console.log('To-be-Compressed', x, ' ', req.originalUrl);
+      return x;
+    },
+  })
+);
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.get('*.js', encodeResToGzip('text/javascript'));
 app.get('*.css', encodeResToGzip('text/css'));
 
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
-app.listen(port, function(err) {
-  return err ? console.log(chalk.red(err)) : open('http://localhost:' + port);
-});
+app.listen(port, err => (err ? console.log(chalk.red(err)) : open(`http://localhost:${port}`)));
