@@ -1,4 +1,6 @@
-class Counter extends React.Component {
+import React, { Component } from 'react';
+
+class Counter extends Component {
   // to fix binding this keyword
   constructor(props) {
     super(props); // important to access this.props
@@ -12,7 +14,7 @@ class Counter extends React.Component {
     // Step 4: Component re-rendered using new state values
     // Step 5: Start again at Step 3
     this.state = {
-      count: 0
+      count: 0,
     };
   }
 
@@ -20,7 +22,8 @@ class Counter extends React.Component {
     const stringCount = localStorage.getItem('count');
     const count = parseInt(stringCount, 10);
 
-    if (!isNaN(count)) { // if it isn't NaN
+    if (!isNaN(count)) {
+      // if it isn't NaN
       // set count to current localStorage data
       this.setState(() => ({ count }));
     }
@@ -39,32 +42,28 @@ class Counter extends React.Component {
     // auto render state using built-in setState
     // state is changing just the specific value it doesn't override other declared values in the object
     // prevState is a first argument for setState function & it is a previous state before changes have been applied
-    this.setState((prevState) => {
-      return {
-        count: prevState.count + 1
-      };
-    });
+    this.setState(prevState => ({
+      count: prevState.count + 1,
+    }));
   }
 
   handleMinusOne(e) {
-    this.setState((prevState) => {
-      return {
-        count: prevState.count - 1
-      };
-    });
+    this.setState(prevState => ({
+      count: prevState.count - 1,
+    }));
   }
 
   handleReset(e) {
-    this.setState(() => { return { count: 0 } });
+    this.setState(() => ({ count: 0 }));
   }
 
   render() {
     return (
       <div>
-        <h1>Count: { this.state.count }</h1>
-        <button onClick={ this.handleAddOne }>+1</button>
-        <button onClick={ this.handleMinusOne }>-1</button>
-        <button onClick={ this.handleReset }>Reset</button>
+        <h1>Count: {this.state.count}</h1>
+        <button onClick={this.handleAddOne}>+1</button>
+        <button onClick={this.handleMinusOne}>-1</button>
+        <button onClick={this.handleReset}>Reset</button>
       </div>
     );
   }
