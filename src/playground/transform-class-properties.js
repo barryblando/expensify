@@ -19,9 +19,7 @@ console.log(oldGetGreeting());
 class NewSyntax {
   name = 'Jen';
   // arrow function don't bind their own 'this' value, it's gonna use what 'this' in scope, in this case it is the 'this' of class instance
-  getGreeting = () => {
-    return `Hi. My name is ${this.name}`;
-  }
+  getGreeting = () => `Hi. My name is ${this.name}`;
 }
 
 const newSyntax = new NewSyntax();

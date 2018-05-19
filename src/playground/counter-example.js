@@ -16,7 +16,7 @@ const reset = () => {
   // Reset count then re-render
   count = 0;
   renderCounterApp();
-}
+};
 
 const renderCounterApp = () => {
   // JSX - Javascript XML
@@ -31,7 +31,6 @@ const renderCounterApp = () => {
   );
 
   ReactDOM.render(templateTwo, appRoot);
-
 };
 
 renderCounterApp(); // Init

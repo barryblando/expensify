@@ -9,22 +9,13 @@ function ListItem(props) {
 }
 
 function NumberList(props) {
-  const numbers = props.numbers;
-  const listItems = numbers.map((number) =>
+  const {numbers} = { props.numbers };
+  const listItems = numbers.map(number => (
     // Correct! Key should be specified inside the array.
-    <ListItem key={number.toString()}
-              value={number} />
-
-  );
-  return (
-    <ul>
-      {listItems}
-    </ul>
-  );
+    <ListItem key={number.toString()} value={number} />
+  ));
+  return <ul>{listItems}</ul>;
 }
 
 const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('app')
-);
+ReactDOM.render(<NumberList numbers={numbers} />, document.getElementById('app'));

@@ -7,35 +7,28 @@ import EditExpensePage from '../components/EditExpensePage';
 // ------------------------------------------
 
 // -- ADD_EXPENSE --
-const addExpense = (
-  {
-    description = '',
-    note = '',
-    amount = 0,
-    createdAt = 0
-  } = {}
-) => ({
+const addExpense = ({ description = '', note = '', amount = 0, createdAt = 0 } = {}) => ({
   type: 'ADD_EXPENSE',
   expense: {
     id: uuid(),
     description,
     note,
     amount,
-    createdAt
-  }
+    createdAt,
+  },
 });
 
 // -- REMOVE_EXPENSE 'no default required' --
 const removeExpense = ({ id } = {}) => ({
   type: 'REMOVE_EXPENSE',
-  id
+  id,
 });
 
 // -- EDIT_EXPENSE --
 const editExpense = (id, updates) => ({
   type: 'EDIT_EXPENSE',
   id,
-  updates
+  updates,
 });
 
 // ------------------------------------------
@@ -45,7 +38,7 @@ const editExpense = (id, updates) => ({
 // -- SET_TEXT_FILTER --
 const setTextFilter = (text = '') => ({
   type: 'SET_TEXT_FILTER',
-  text
+  text,
 });
 
 // -- SORT_BY_AMOUNT --
@@ -55,19 +48,19 @@ const sortByAmount = () => ({
 
 // -- SORT_BY_DATE --
 const sortByDate = () => ({
-  type: 'SORT_BY_DATE'
+  type: 'SORT_BY_DATE',
 });
 
 // -- SET_START_DATE --
-const setStartDate = (startDate) => ({
+const setStartDate = startDate => ({
   type: 'SET_START_DATE',
-  startDate
+  startDate,
 });
 
 // -- SET_END_DATE --
-const setEndDate = (endDate) => ({
+const setEndDate = endDate => ({
   type: 'SET_END_DATE',
-  endDate
+  endDate,
 });
 
 // ------------------------------------------
@@ -78,30 +71,23 @@ const expenseReducerDefaultState = [];
 const expenseReducer = (state = expenseReducerDefaultState, action) => {
   // console.log('Expenses Running..');
   switch (action.type) {
-    case 'ADD_EXPENSE' :
-      return [
-        ...state,
-        action.expense
-      ]; // using spread op same result as concat creating new array state rather than changing the prevState
-      break;
+    case 'ADD_EXPENSE':
+      return [...state, action.expense]; // using spread op same result as concat creating new array state rather than changing the prevState
     case 'REMOVE_EXPENSE':
       // state.map(expense => console.log(expense)); destruct expense array object only id in filter
       return state.filter(({ id }) => id !== action.id); // filtered out if not match
-      break;
     case 'EDIT_EXPENSE':
-      return state.map((expense) => {
+      return state.map(expense => {
         // check if current expense iterating over by map match to action id
         if (expense.id === action.id) {
           // return brand new object & by using object spread operator
           return {
             ...expense, // grab all existing properties
-            ...action.updates // override any of the ones in expense that are pass down by updates
+            ...action.updates, // override any of the ones in expense that are pass down by updates
           };
-        } else {
-          return expense; // if no changes return
         }
+        return expense; // if no changes return
       });
-     break;
     default:
       return state;
   }
@@ -114,7 +100,7 @@ const filterReducerDefaultState = {
   text: '',
   sortBy: 'date',
   startDate: undefined,
-  endDate: undefined
+  endDate: undefined,
 };
 
 const filtersReducer = (state = filterReducerDefaultState, action) => {
@@ -123,33 +109,28 @@ const filtersReducer = (state = filterReducerDefaultState, action) => {
     case 'SET_TEXT_FILTER':
       return {
         ...state,
-        text: action.text
+        text: action.text,
       };
-      break;
-      case 'SORT_BY_AMOUNT':
-        return {
-          ...state,
-          sortBy: 'amount'
-        }
-        break;
+    case 'SORT_BY_AMOUNT':
+      return {
+        ...state,
+        sortBy: 'amount',
+      };
     case 'SORT_BY_DATE':
       return {
         ...state,
-        sortBy: 'date'
+        sortBy: 'date',
       };
-      break;
     case 'SET_START_DATE':
       return {
         ...state,
-        startDate: action.startDate
+        startDate: action.startDate,
       };
-      break;
     case 'SET_END_DATE':
       return {
         ...state,
-        endDate: action.endDate
+        endDate: action.endDate,
       };
-      break;
     default:
       return state;
   }
@@ -158,28 +139,31 @@ const filtersReducer = (state = filterReducerDefaultState, action) => {
 // ------------------------------------------
 // GET VISIBLE EXPENSES
 // ------------------------------------------
-const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate })  => {
+const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) =>
   // Filtering out
-  return expenses.filter((expense) => {
-    // -------- LOGIC START --------
-    // if startDate or endDate is a number then proceed to next condition (otherwise won't be filtered)
-    // if createdAt is greater than startDate or less than endDate, do included in filter expenses (otherwise filtered out)
-    // and if expenses.description has the text variable string inside of it (lowercase sensitive)
-    // -------- LOGIC END --------
-    const startDateMatch = typeof startDate !== 'number' || expense.createdAt >= startDate;
-    const endDateMatch = typeof endDate !== 'number' || expense.createdAt <= endDate;
-    const textMatch = expense.description.toLowerCase().includes(text.toLowerCase());
+  expenses
+    .filter(expense => {
+      // -------- LOGIC START --------
+      // if startDate or endDate is a number then proceed to next condition (otherwise won't be filtered)
+      // if createdAt is greater than startDate or less than endDate, do included in filter expenses (otherwise filtered out)
+      // and if expenses.description has the text variable string inside of it (lowercase sensitive)
+      // -------- LOGIC END --------
+      const startDateMatch = typeof startDate !== 'number' || expense.createdAt >= startDate;
+      const endDateMatch = typeof endDate !== 'number' || expense.createdAt <= endDate;
+      const textMatch = expense.description.toLowerCase().includes(text.toLowerCase());
 
-    return startDateMatch && endDateMatch && textMatch;
-  }).sort((a, b) => {
-    if (sortBy === 'date') {
-      // <reference https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-      return a.createdAt < b.createdAt ? 1 : -1; // if true return b/1 else a/-1
-    } else if(sortBy === 'amount') {
-      return a.amount < b.amount ? 1 : -1;
-    }
-  });
-};
+      return startDateMatch && endDateMatch && textMatch;
+    })
+    .sort((a, b) => {
+      let sortedValue;
+      if (sortBy === 'date') {
+        // <reference https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+        sortedValue = a.createdAt < b.createdAt ? 1 : -1; // if true return b/1 else a/-1
+      } else if (sortBy === 'amount') {
+        sortedValue = a.amount < b.amount ? 1 : -1;
+      }
+      return sortedValue;
+    });
 
 // ------------------------------------------
 // Store Creation using combineReducer
@@ -190,7 +174,7 @@ const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate })  => 
 const store = createStore(
   combineReducers({
     expenses: expenseReducer,
-    filters: filtersReducer
+    filters: filtersReducer,
   })
 );
 
@@ -206,7 +190,9 @@ store.subscribe(() => {
 });
 
 const expenseOne = store.dispatch(addExpense({ description: 'January rent payment', amount: 100, createdAt: 1000 }));
-const expenseTwo = store.dispatch(addExpense({ description: 'Gaming PC', note: 'Hardcore Gaming', amount: 1000000, createdAt: -1000 }));
+const expenseTwo = store.dispatch(
+  addExpense({ description: 'Gaming PC', note: 'Hardcore Gaming', amount: 1000000, createdAt: -1000 })
+);
 
 // store.dispatch(removeExpense({ id: expenseOne.expense.id }));
 // store.dispatch(editExpense(expenseTwo.expense.id, { amount: 500 }))

@@ -12,54 +12,7 @@ class IndecisionApp extends React.Component {
   state = {
     options: [],
     selectedOption: undefined, // handle modal open close fetch state
-    selectedOpt: undefined // after closing modal selected work should be highlighted
-  }
-
-  handleClearSelectedOption = () => {
-    this.setState(() => ({ selectedOption: undefined}));
-  }
-
-  handlePick = () => {
-    const randomNum = Math.floor(Math.random() * this.state.options.length);
-    const option = this.state.options[randomNum];
-    this.setState(() => ({
-      selectedOption: option,
-      selectedOpt: option
-    }))
-  };
-
-  handleDeleteOption = (optionToRemove, selectedOptToRemove) => {
-    // if optionToRemove equal to selectedOptToRemove then remove highlighted
-    if (optionToRemove === selectedOptToRemove) {
-      // implicitly return object state
-      this.setState((prevState) => ({
-        options: prevState.options.filter((option) => optionToRemove !== option),
-        selectedOpt: undefined
-      }));
-    }
-
-    this.setState((prevState) => ({
-      options: prevState.options.filter((option) => optionToRemove !== option)
-    }));
-  };
-
-  handleDeleteOptions = () => {
-    // implicitly return object state ({})
-    this.setState(() => ({
-      options: [],
-      selectedOpt: undefined // set to undefined also, to be sure
-    }));
-  };
-
-  handleAddOption = (option) => {
-    if (!option) {
-      return 'Enter valid option to add';
-    } else if (this.state.options.indexOf(option) > -1) { // if found match in array, P.S -1 is not found in indexOf.
-      return 'This option already exists';
-    }
-
-    // push to the array using concat
-    this.setState((prevState) => ({ options: prevState.options.concat(option) }));
+    selectedOpt: undefined, // after closing modal selected work should be highlighted
   };
 
   componentDidMount() {
@@ -74,7 +27,7 @@ class IndecisionApp extends React.Component {
     } catch (error) {
       // Do nothing at all
     }
-  };
+  }
 
   componentDidUpdate(prevProps, prevState) {
     console.log('ComponentDidUpdate', prevState);
@@ -86,32 +39,77 @@ class IndecisionApp extends React.Component {
     // console.log('Data Saved!');
   }
 
+  handleClearSelectedOption = () => {
+    this.setState(() => ({ selectedOption: undefined }));
+  };
+
+  handlePick = () => {
+    const randomNum = Math.floor(Math.random() * this.state.options.length);
+    const option = this.state.options[randomNum];
+    this.setState(() => ({
+      selectedOption: option,
+      selectedOpt: option,
+    }));
+  };
+
+  handleDeleteOption = (optionToRemove, selectedOptToRemove) => {
+    // if optionToRemove equal to selectedOptToRemove then remove highlighted
+    if (optionToRemove === selectedOptToRemove) {
+      // implicitly return object state
+      this.setState(prevState => ({
+        options: prevState.options.filter(option => optionToRemove !== option),
+        selectedOpt: undefined,
+      }));
+    }
+
+    this.setState(prevState => ({
+      options: prevState.options.filter(option => optionToRemove !== option),
+    }));
+  };
+
+  handleDeleteOptions = () => {
+    // implicitly return object state ({})
+    this.setState(() => ({
+      options: [],
+      selectedOpt: undefined, // set to undefined also, to be sure
+    }));
+  };
+
+  handleAddOption = option => {
+    if (!option) {
+      return 'Enter valid option to add';
+    } else if (this.state.options.indexOf(option) > -1) {
+      // if found match in array, P.S -1 is not found in indexOf.
+      return 'This option already exists';
+    }
+
+    // push to the array using concat
+    this.setState(prevState => ({ options: prevState.options.concat(option) }));
+  };
+
   render() {
     const subtitle = 'Put your life in the hands of a computer.';
     return (
       // Set Components & their props / properties chaining to sub components,
       <div>
-        <Header subtitle={ subtitle }/>
+        <Header subtitle={subtitle} />
         <div className="container">
-          <Action
-            hasOptions={ this.state.options.length > 0 }
-            handlePick={ this.handlePick }
-          />
+          <Action hasOptions={this.state.options.length > 0} handlePick={this.handlePick} />
           <div className="widget">
             <Options
-              options={ this.state.options }
-              handleDeleteOptions={ this.handleDeleteOptions }
-              handleDeleteOption={ this.handleDeleteOption }
-              selectedOption={ this.state.selectedOpt }
+              options={this.state.options}
+              handleDeleteOptions={this.handleDeleteOptions}
+              handleDeleteOption={this.handleDeleteOption}
+              selectedOption={this.state.selectedOpt}
             />
-            <AddOption
-              handleAddOption={ this.handleAddOption }
-            />
-          </div> {/* .widget end */}
-        </div> {/* .container end */}
+            <AddOption handleAddOption={this.handleAddOption} />
+          </div>{' '}
+          {/* .widget end */}
+        </div>{' '}
+        {/* .container end */}
         <OptionModal
-          selectedOption={ this.state.selectedOption }
-          handleClearSelectedOption={ this.handleClearSelectedOption }
+          selectedOption={this.state.selectedOption}
+          handleClearSelectedOption={this.handleClearSelectedOption}
         />
       </div>
     );

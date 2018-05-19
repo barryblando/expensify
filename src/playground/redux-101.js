@@ -6,22 +6,22 @@ import { createStore } from 'redux';
 // Implicit return object when using arrow function: ({ key: value })
 const incrementCount = ({ incrementBy = 1 } = {}) => ({
   type: 'INCREMENT',
-  incrementBy
+  incrementBy,
 });
 
-const decrementCount = ({ decrementBy = 1} = {}) => ({
+const decrementCount = ({ decrementBy = 1 } = {}) => ({
   type: 'DECREMENT',
-  decrementBy
+  decrementBy,
 });
 
 // no default value empty object cause set count is mandatory when setting
 const setCount = ({ count = 1 }) => ({
   type: 'SET',
-  count
+  count,
 });
 
 const resetCount = () => ({
-  type: 'RESET'
+  type: 'RESET',
 });
 
 // Reducers
@@ -32,17 +32,13 @@ const countReducer = (state = { count: 0 }, action) => {
     case 'INCREMENT':
       // return state
       return { count: state.count + action.incrementBy };
-      break;
     case 'DECREMENT':
       // return state
       return { count: state.count - action.decrementBy };
-      break;
     case 'RESET':
       return { count: 0 };
-      break;
     case 'SET':
       return { count: action.count };
-      break;
     default:
       return state;
   }
@@ -76,4 +72,3 @@ store.dispatch(decrementCount({ decrementBy: 5 }));
 store.dispatch(resetCount());
 
 store.dispatch(setCount({ count: 100 }));
-
