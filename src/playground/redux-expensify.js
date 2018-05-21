@@ -68,7 +68,7 @@ const setEndDate = endDate => ({
 // ------------------------------------------
 const expenseReducerDefaultState = [];
 
-const expenseReducer = (state = expenseReducerDefaultState, action) => {
+const expensesReducer = (state = expenseReducerDefaultState, action) => {
   // console.log('Expenses Running..');
   switch (action.type) {
     case 'ADD_EXPENSE':
@@ -173,7 +173,7 @@ const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) =>
 // ------------------------------------------
 const store = createStore(
   combineReducers({
-    expenses: expenseReducer,
+    expenses: expensesReducer,
     filters: filtersReducer,
   })
 );

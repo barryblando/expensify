@@ -1,3 +1,5 @@
+import { render } from 'react-dom';
+
 console.log('app.js is running!');
 
 const app = {
@@ -52,7 +54,7 @@ const renderForm = () => {
   );
 
   // render app
-  ReactDOM.render(template, appRoot);
+  render(template, appRoot);
 };
 
 renderForm(); // Init
