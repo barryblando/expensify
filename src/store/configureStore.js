@@ -16,7 +16,7 @@ export default () => {
       filters: filtersReducer,
     })
   );
-
+  // </reference https://stackoverflow.com/questions/47343572/react-hot-reload-with-redux
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
     module.hot.accept([expensesReducer, filtersReducer], () => {
