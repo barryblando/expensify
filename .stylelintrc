@@ -1,7 +1,6 @@
 {
   "extends": [
-    "stylelint-scss",
-    "stylelint-config-recommended"
+    "stylelint-scss"
   ],
   "rules": {
     "at-rule-no-unknown": [
