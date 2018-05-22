@@ -1,18 +1,21 @@
 # EXPENSIFY
 
-## Features
+## Development Features
 
 * B.E.M
 
 * Mobile-First Approach
 
-* SASS
+* SASS incl. 3-1 CSS Architecture
 
-* 3-1 CSS Architecture
+* ESLint & Stylelint
 
-* ESLint
+* Unit Test
 
-* Stylelint
+## Ebooks for Reference
+
+* [Pure React](https://daveceddia.com/pure-react/)
+* [Full-Stack React - The Complete Guide to ReactJS and Friends](https://www.fullstackreact.com/)
 
 ## Redux 101
 
@@ -32,7 +35,8 @@
 
 ## Third Party Component Used
 
-* ...
+* [MomentJS](http://momentjs.com/)
+* [React-Dates](https://github.com/airbnb/react-dates)
 
 ## Production Build Guides & Using GZIP
 
@@ -45,3 +49,8 @@
 
 * [Prettier + ESLint + Facebook Code Quality Tutorial](https://medium.com/@eliotjunior/prettier-eslint-facebook-code-quality-the-auto-magical-react-styling-tutorial-19481acb10dd)
 * [My VSCode Setup Prettier + ESLint + StyleLint for React](https://gist.github.com/barryblando/d6753c07324fac302c5a01d39bee4397)
+* [Stylelint Config rules](https://stylelint.io/user-guide/example-config/)
+
+## Misc
+
+* [react/prefer-stateless-function](https://stackoverflow.com/questions/43378911/eslint-component-should-be-written-as-a-pure-function-react-prefer-stateless)
