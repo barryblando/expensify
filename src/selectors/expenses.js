@@ -1,3 +1,5 @@
+const moment = require('moment'); // temp fix for moment not working when using es6 modules
+
 // ------------------------------------------
 // GET VISIBLE EXPENSES
 // ------------------------------------------
@@ -11,8 +13,11 @@ export default (expenses, { text, sortBy, startDate, endDate }) =>
       // if createdAt is greater than startDate or less than endDate, do included in filter expenses (otherwise filtered out)
       // and if expenses.description has the text variable string inside of it (lowercase sensitive)
       // -------- LOGIC END --------
-      const startDateMatch = typeof startDate !== 'number' || expense.createdAt >= startDate;
-      const endDateMatch = typeof endDate !== 'number' || expense.createdAt <= endDate;
+      // const startDateMatch = typeof startDate !== 'number' || expense.createdAt >= startDate;
+      // const endDateMatch = typeof endDate !== 'number' || expense.createdAt <= endDate;
+      const createdAtMoment = moment(expense.createdAt);
+      const startDateMatch = startDate ? startDate.isSameOrBefore(createdAtMoment, 'day') : true;
+      const endDateMatch = endDate ? endDate.isSameOrAfter(createdAtMoment, 'day') : true;
       const textMatch = expense.description.toLowerCase().includes(text.toLowerCase());
 
       return startDateMatch && endDateMatch && textMatch;
