@@ -15,5 +15,11 @@
   "files.autoSave": "onFocusChange",
   "eslint.autoFixOnSave": true,
   "eslint.alwaysShowStatus": true,
-  "stylelint.enable": true
+  "stylelint.enable": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "emmet.syntaxProfiles": {
+    "javascript": "{jsx|js}"
+  }
 }
