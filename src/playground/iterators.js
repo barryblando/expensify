@@ -19,6 +19,7 @@ const fibonacciRecursion = function (num) {
 fibonacciRecursion(20); /*?.*/
 
 // ------------------------------------------------------------------------------------
+// </reference https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators
 
 const randomNumber =
   require('random-number');
@@ -42,7 +43,8 @@ const dragonArmy = {
   [Symbol.iterator]: () => {
     return {
       next: () => {
-        const enoughDragonsSpawned = Math.random() > 0.75; //?
+        const enoughDragonsSpawned = Math.random() > 0.75;
+        enoughDragonsSpawned //?
         if (!enoughDragonsSpawned)
           return {
             value: makeDragon(),

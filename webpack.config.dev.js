@@ -10,6 +10,7 @@ module.exports = {
   mode: 'development',
   entry: [
     './src/app.js',
+    // './src/playground/hoc.js',
     // './src/playground/redux-101.js',
     // './src/playground/redux-expensify.js',
   ],
@@ -27,7 +28,7 @@ module.exports = {
         loader: 'babel-loader',
       },
       {
-        test: /\.s?css$/,
+        test: /\.(css|scss)$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],

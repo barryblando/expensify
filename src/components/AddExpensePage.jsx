@@ -1,11 +1,21 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
+import { addExpense } from '../actions/expenses';
 
-const AddExpensePage = () => (
+// When you connect a component to redux store its reactive
+// When the store changes the component gets re-rendered w/ new values
+const AddExpensePage = props => (
   <div>
     <h1>Add Expense</h1>
-    <ExpenseForm />
+    <ExpenseForm
+      onSubmit={expense => {
+        props.dispatch(addExpense(expense));
+        // go back to dashboard by Access props from react router
+        props.history.push('/');
+      }}
+    />
   </div>
 );
 
-export default AddExpensePage;
+export default connect()(AddExpensePage);

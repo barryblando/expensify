@@ -14,7 +14,7 @@ const ExpenseList = props => (
 );
 
 // a function that maps the store state to component props
-// this will use the filter selector
+// this will use the selector expenses
 const mapStateToProps = state => ({
   expenses: selectExpenses(state.expenses, state.filters),
 });
