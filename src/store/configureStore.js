@@ -14,7 +14,8 @@ export default () => {
     combineReducers({
       expenses: expensesReducer,
       filters: filtersReducer,
-    })
+    }),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() // for redux dev tool
   );
   // </reference https://stackoverflow.com/questions/47343572/react-hot-reload-with-redux
   if (module.hot) {
