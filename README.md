@@ -49,6 +49,8 @@
 
 * [Prettier + ESLint + Facebook Code Quality Tutorial](https://medium.com/@eliotjunior/prettier-eslint-facebook-code-quality-the-auto-magical-react-styling-tutorial-19481acb10dd)
 * [My VSCode Setup Prettier + ESLint + StyleLint for React](https://gist.github.com/barryblando/d6753c07324fac302c5a01d39bee4397)
+* [Linting SCSS with Stylelint](https://medium.com/@bjankord/how-to-lint-scss-with-stylelint-dc87809a9878)
+* [Stylelint SASS Guidelines](https://github.com/bjankord/stylelint-config-sass-guidelines)
 * [Stylelint Config rules](https://stylelint.io/user-guide/example-config/)
 
 ## Misc
