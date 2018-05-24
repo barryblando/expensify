@@ -17,7 +17,8 @@
   "env": {
     "browser": true,
     "node": true,
-    "jquery": true
+    "jquery": true,
+    "jest/globals": true
   },
   "rules": {
     "no-unused-vars": [1, {
@@ -29,6 +30,7 @@
         "spec/**",
         "test/**",
         "tests/**",
+        "src/__tests__/**",
         "**/__tests__/**",
         "webpack.config.js",
         "webpack.config.*.js",
@@ -101,6 +103,7 @@
   },
   "plugins": [
     "prettier",
-    "jsx-a11y"
+    "jsx-a11y",
+    "jest"
   ]
 }
