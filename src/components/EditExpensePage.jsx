@@ -11,6 +11,7 @@ const EditExpensePage = props => {
   return (
     <div>
       <h1>Edit Expense</h1>
+      {/* Pass prop expense & onSubmit to ExpenseForm */}
       <ExpenseForm
         expense={props.expense}
         onSubmit={expense => {
