@@ -8,10 +8,11 @@ import { addExpense } from '../actions/expenses';
 const AddExpensePage = props => (
   <div>
     <h1>Add Expense</h1>
+    {/* Pass prop onSubmit to ExpenseForm */}
     <ExpenseForm
       onSubmit={expense => {
         props.dispatch(addExpense(expense));
-        // go back to dashboard by Access props from react router
+        // go back to dashboard by Accessing props from react router
         props.history.push('/');
       }}
     />
