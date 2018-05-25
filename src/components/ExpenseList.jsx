@@ -5,11 +5,16 @@ import selectExpenses from '../selectors/expenses';
 
 // When you connect a component to redux store its reactive
 // When the store changes the component gets re-rendered w/ new values
-const ExpenseList = props => (
+// export named this unconnected Component for snapshot test case
+export const ExpenseList = props => (
   <div>
     <h1>ExpenseList</h1>
-    {/* To pass state expense. Destruct it through the props in ExpenseListItem */}
-    {props.expenses.map(expense => <ExpenseListItem {...expense} key={expense.id} />)}
+    {/* To pass state expense. spread it out through the props in ExpenseListItem so destruct is possible */}
+    {props.expenses.length === 0 ? (
+      <p>No Expenses</p>
+    ) : (
+      props.expenses.map(expense => <ExpenseListItem {...expense} key={expense.id} />)
+    )}
   </div>
 );
 
@@ -21,4 +26,5 @@ const mapStateToProps = state => ({
 
 // Connect component to redux store using Higher Order Component
 // function in connect determines what information from the store we want our ExpenseList to be able to access
+// Export default the Connected Component
 export default connect(mapStateToProps)(ExpenseList);
