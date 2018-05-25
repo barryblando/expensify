@@ -10,7 +10,7 @@
 
 * ESLint & Stylelint
 
-* Unit Test
+* Test Suite
 
 ## Ebooks for Reference
 
@@ -21,6 +21,15 @@
 
 * [What Does Redux Do? (and when should you use it?)](https://daveceddia.com/what-does-redux-do/)
 * [How Redux Works: A Counter-Example](https://daveceddia.com/how-does-redux-work/)
+
+## Test Suite
+
+* [Jest](https://facebook.github.io/jest/)
+* [Enzyme for rendering React Components](https://github.com/airbnb/enzyme)
+
+```json
+  "snapshotSerializers": ["enzyme-to-json/serializer"] // fix enzyme snapshot overloaded with infos
+```
 
 ## Webpack Dev Server & React-Hot-Loader
 
