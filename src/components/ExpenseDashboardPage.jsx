@@ -1,5 +1,5 @@
 import React from 'react';
-import ExpenseList from './ExpenseList';
+import ExpenseList from './ExpenseList'; /* eslint-disable-line */
 import ExpenseListFilters from './ExpenseListFilters';
 
 const ExpenseDashboardPage = () => (
