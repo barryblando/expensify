@@ -1,4 +1,4 @@
-const moment = require('moment'); // temp fix for moment not working when using es6 modules
+import moment from 'moment'; // temp fix for moment not working when using es6 modules
 
 // ------------------------------------------
 // GET VISIBLE EXPENSES

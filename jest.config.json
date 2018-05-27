@@ -3,6 +3,9 @@
     "raf/polyfill",
     "<rootDir>/src/__tests__/setupTests.js"
   ],
+  "moduleDirectories": [
+    "node_modules"
+  ],
   "testMatch": ["**/?(*.)+(spec|test).js?(x)"],
   "snapshotSerializers": ["enzyme-to-json/serializer"]
 }

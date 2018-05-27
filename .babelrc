@@ -3,8 +3,27 @@
     "env",
     "react"
   ],
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "env"
+        ],
+        "react"
+      ],
+      "plugins": [
+        "transform-object-rest-spread", [
+          "transform-class-properties",
+          {
+            "spec": true
+          }
+        ]
+      ]
+    }
+  },
   "plugins": [
-    "transform-class-properties",
-    "transform-object-rest-spread"
+    "transform-object-rest-spread", ["transform-class-properties", {
+      "spec": true
+    }]
   ]
 }
