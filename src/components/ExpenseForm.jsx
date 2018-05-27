@@ -1,7 +1,6 @@
 import React from 'react';
 import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
-import 'react-dates/lib/css/_datepicker.css'; // import default style for date picker
 
 export default class ExpenseForm extends React.Component {
   // --------------------------------------------------
@@ -58,6 +57,7 @@ export default class ExpenseForm extends React.Component {
     }
   };
 
+  // focused property object is either true or false
   onFocusChange = ({ focused }) => {
     this.setState(() => ({ calendarFocused: focused }));
   };
