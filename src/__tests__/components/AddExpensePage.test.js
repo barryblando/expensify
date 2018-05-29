@@ -3,23 +3,25 @@ import { shallow } from 'enzyme';
 import { AddExpensePage } from '../../components/AddExpensePage';
 import expenses from '../fixtures/expenses';
 
-let addExpense;
-let history;
-let wrapper;
+describe('Add Expense Page', () => {
+  let addExpense;
+  let history;
+  let wrapper;
 
-beforeEach(() => {
-  // create Spies to access AddExpense props
-  addExpense = jest.fn(); // 1st spy
-  history = { push: jest.fn() }; // 2nd spy
-  wrapper = shallow(<AddExpensePage addExpense={addExpense} history={history} />);
-});
+  beforeEach(() => {
+    // create Spies to access AddExpense props
+    addExpense = jest.fn(); // 1st spy
+    history = { push: jest.fn() }; // 2nd spy
+    wrapper = shallow(<AddExpensePage addExpense={addExpense} history={history} />);
+  });
 
-test('should render AddExpensePage correctly', () => {
-  expect(wrapper).toMatchSnapshot();
-});
+  test('should render AddExpensePage correctly', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
 
-test('should handle editExpense', () => {
-  wrapper.find('ExpenseForm').prop('onSubmit')(expenses[1]);
-  expect(history.push).toHaveBeenLastCalledWith('/'); // expect history to have been last called with '/' route
-  expect(addExpense).toHaveBeenLastCalledWith(expenses[1]);
+  test('should handle editExpense', () => {
+    wrapper.find('ExpenseForm').prop('onSubmit')(expenses[1]);
+    expect(history.push).toHaveBeenLastCalledWith('/'); // expect history to have been last called with '/' route
+    expect(addExpense).toHaveBeenLastCalledWith(expenses[1]);
+  });
 });
