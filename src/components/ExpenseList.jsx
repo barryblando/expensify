@@ -5,7 +5,8 @@ import selectExpenses from '../selectors/expenses';
 
 // When you connect a component to redux store its reactive
 // When the store changes the component gets re-rendered w/ new values
-// export named this unconnected Component for snapshot test case
+// </reference https://redux.js.org/faq/react-redux#why-is-my-component-re-rendering-too-often
+// export this unconnected Component for snapshot test case
 export const ExpenseList = props => (
   <div>
     <h1>ExpenseList</h1>
@@ -18,13 +19,13 @@ export const ExpenseList = props => (
   </div>
 );
 
-// a function that maps the store state to component props
-// this will use the selector expenses
+// when connected this maps the redux store to access and pass state to component as props
+// will use the selector expenses
 const mapStateToProps = state => ({
   expenses: selectExpenses(state.expenses, state.filters),
 });
 
 // Connect component to redux store using Higher Order Component
 // function in connect determines what information from the store we want our ExpenseList to be able to access
-// Export default the Connected Component
+// Implicitly Export default the Connected Component
 export default connect(mapStateToProps)(ExpenseList);
