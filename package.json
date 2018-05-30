@@ -22,12 +22,12 @@
     "serve:dev": "live-server public/",
     "serve:prod": "babel-node prodServer.js",
     "playground:watch": "babel src/playground/counter-example-state.js --out-file=public/scripts/app.js --presets=env,react -w",
-    "clean:package": "rm -rf node_modules && yarn cache clean --force && yarn install --force",
     "test": "jest --config=jest.config.json",
-    "stylelint": "stylelint \"src/styles/**/*.scss\" --config .stylelintrc.json"
+    "stylelint": "stylelint \"src/styles/**/*.scss\" --config .stylelintrc.json",
+    "clean:package": "rm -rf node_modules && yarn cache clean --force && yarn install --force"
   },
   "devDependencies": {
-    "autoprefixer": "^8.5.0",
+    "autoprefixer": "^8.5.1",
     "babel-cli": "^6.26.0",
     "babel-core": "6.26.3",
     "babel-eslint": "^8.2.3",
@@ -74,7 +74,7 @@
     "stylelint-scss": "^3.1.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "validator": "^10.2.0",
-    "webpack": "^4.8.3",
+    "webpack": "^4.9.1",
     "webpack-cli": "^2.1.4",
     "webpack-dev-server": "3.1.4",
     "webpack-md5-hash": "^0.0.6"
@@ -82,6 +82,7 @@
   "dependencies": {
     "moment": "^2.22.1",
     "normalize.css": "^8.0.0",
+    "prop-types": "^15.6.1",
     "random-number": "^0.0.9",
     "react": "^16.4.0",
     "react-dates": "^16.7.0",
