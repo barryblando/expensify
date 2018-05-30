@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
 import { addExpense } from '../actions/expenses';
 
-// When you connect a component to redux store its reactive
-// When the store changes the component gets re-rendered w/ new values
 // export the unconnected component for Testing
 export class AddExpensePage extends Component {
   onSubmit = expense => {
@@ -24,7 +22,7 @@ export class AddExpensePage extends Component {
   }
 }
 
-// pass this dispatch as prop on Add Expense
+// pass this dispatcher as prop on Add Expense
 // This is the way to return dispatcher function, allowing to obstruct them away from the component itself
 const mapDispatchToProps = dispatch => ({
   addExpense: expense => dispatch(addExpense(expense)),

@@ -9,7 +9,7 @@ describe('Add Expense Page', () => {
   let wrapper;
 
   beforeEach(() => {
-    // create Spies to access AddExpense props
+    // Spies means creating fake function to make assertions on it
     addExpense = jest.fn(); // 1st spy
     history = { push: jest.fn() }; // 2nd spy
     wrapper = shallow(<AddExpensePage addExpense={addExpense} history={history} />);
