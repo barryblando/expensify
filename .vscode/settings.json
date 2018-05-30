@@ -8,7 +8,9 @@
     "editor.formatOnSave": false
   },
   "files.associations": {
-    "*.js": "javascript"
+    "*.js": "javascript",
+    "*.jsx": "javascriptreact",
+    ".stylelintrc": "json"
   },
   "prettier.disableLanguages": ["js"],
   "editor.formatOnSave": true,
