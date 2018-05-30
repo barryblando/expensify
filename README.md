@@ -12,10 +12,14 @@
 
 * Test Suite
 
-## Ebooks for Reference
+## React References
 
 * [Pure React](https://daveceddia.com/pure-react/)
 * [Full-Stack React - The Complete Guide to ReactJS and Friends](https://www.fullstackreact.com/)
+* [Alligator.io - React](https://alligator.io/react/)
+* [Testing React-Redux App using Jest and Enzyme](https://medium.com/netscape/testing-a-react-redux-app-using-jest-and-enzyme-b349324803a9)
+* [React Composition Patterns](https://hackernoon.com/react-composition-patterns-from-the-ground-up-8401aaad93d7)
+* [React, Inline Functions, and Performance](https://cdb.reacttraining.com/react-inline-functions-and-performance-bdff784f5578)
 
 ## Redux 101
 
@@ -25,7 +29,7 @@
 ## Test Suite
 
 * [Jest](https://facebook.github.io/jest/)
-* [Enzyme for rendering React Components](https://github.com/airbnb/enzyme)
+* [Enzyme for rendering/asserting React Components](https://github.com/airbnb/enzyme)
 
 ```json
   "snapshotSerializers": ["enzyme-to-json/serializer"] // fix enzyme snapshot overloaded with infos
