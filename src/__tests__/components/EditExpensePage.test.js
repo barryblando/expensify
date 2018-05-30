@@ -11,7 +11,7 @@ describe('Edit Expense Page', () => {
 
   // Runs a function before each of the tests in this file runs.
   beforeEach(() => {
-    // create Spies to access AddExpense props
+    // Spies means creating fake function to make assertions on it
     editExpense = jest.fn(); // 1st spy
     removeExpense = jest.fn(); // 2nd spy
     history = { push: jest.fn() }; // 3rd spy
