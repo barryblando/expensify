@@ -10,8 +10,10 @@ import autoprefixer from 'autoprefixer';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import WebpackMd5Hash from 'webpack-md5-hash';
 
-const sourcePath = path.join(__dirname, 'src');
-const buildPath = path.join(__dirname, 'dist');
+const sourcePath = path.join(__dirname, '..', 'src');
+const buildPath = path.join(__dirname, '..', 'dist');
+
+console.log(path.resolve(sourcePath, 'app.js'));
 
 module.exports = {
   mode: 'production',
@@ -19,7 +21,7 @@ module.exports = {
     app: path.resolve(sourcePath, 'app.js'),
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: buildPath,
     publicPath: '/',
     filename: '[name].[hash].js',
   },
@@ -34,16 +36,23 @@ module.exports = {
         },
       },
       {
-        test: /\.(css|scss)$/,
+        test: /\.s?css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
             {
               loader: 'css-loader',
-              options: { minimize: true },
+              options: {
+                sourceMap: true,
+              },
             },
             'postcss-loader',
-            'sass-loader',
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true,
+              },
+            },
           ],
           publicPath: buildPath,
         }),
@@ -59,11 +68,11 @@ module.exports = {
     new WebpackMd5Hash(),
     new webpack.HashedModuleIdsPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new UglifyJsPlugin({
-      sourceMap: true,
-    }),
+    // new UglifyJsPlugin({
+    //   sourceMap: true,
+    // }),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'public/index.html'),
+      template: path.join(__dirname, '../public/index.html'),
       path: buildPath,
       filename: 'index.html',
       minify: {

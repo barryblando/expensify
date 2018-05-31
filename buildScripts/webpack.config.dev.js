@@ -8,18 +8,13 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: [
-    './src/app.js',
-    // './src/playground/hoc.js',
-    // './src/playground/redux-101.js',
-    // './src/playground/redux-expensify.js',
-  ],
+  entry: ['./src/app.js'],
   output: {
-    path: path.join(__dirname, 'public'),
+    path: path.join(__dirname, '../public'),
     publicPath: '/',
     filename: 'bundle.js',
   },
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
@@ -29,7 +24,7 @@ module.exports = {
       },
       {
         test: /\.(css|scss)$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: ['style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap'],
       },
     ],
   },

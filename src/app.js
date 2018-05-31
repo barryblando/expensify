@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM, { render } from 'react-dom';
+import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import 'react-dates/initialize'; // fixed ThemedStyleSheet undefined
 
@@ -15,22 +15,22 @@ import './styles/style.scss';
 // State Management (Redux), actions
 import configureStore from './store/configureStore';
 
-const store = configureStore(); // now can use dispatch, getState, & subscribe
+// const store = configureStore(); // now can use dispatch, getState, & subscribe
 
 // To access redux store we gonna use Provider
 const app = (
-  <Provider store={store}>
+  <Provider store={configureStore}>
     <AppRouter />
   </Provider>
 );
 
 render(app, document.getElementById('app'));
 
-// export default hot(module)(<AppRouter />); // for React hot loader
+export default hot(module)(<AppRouter />); // for React hot loader
 
-if (module.hot) {
-  module.hot.accept(<AppRouter />, () => {
-    const nextApp = <AppRouter />; // eslint-disable-line
-    render(nextApp);
-  });
-}
+// if (module.hot) {
+//   module.hot.accept(<AppRouter />, () => {
+//     const nextApp = <AppRouter />; // eslint-disable-line
+//     render(nextApp);
+//   });
+// }

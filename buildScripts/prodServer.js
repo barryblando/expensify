@@ -11,11 +11,11 @@ import chalk from 'chalk';
 
 /* eslint-disable no-console */
 
-const port = 5000;
+const port = process.env.PORT || 5000;
 const app = express();
 
 // Reserved fn
-const checkForHTML = req => {
+const checkForHTML = req => { // eslint-disable-line
   const url = req.url.split('.');
   const extension = url[url.length - 1];
 
@@ -39,13 +39,13 @@ app.use(
   })
 );
 
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, '..', 'dist')));
 
 app.get('*.js', encodeResToGzip('text/javascript'));
 app.get('*.css', encodeResToGzip('text/css'));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
+  res.sendFile(path.join(__dirname, '..', 'dist/index.html'));
 });
 
-app.listen(port, err => (err ? console.log(chalk.red(err)) : open(`http://localhost:${port}`)));
+app.listen(port, err => (err ? console.log(chalk.red(err)) : open(`http://localhost:${port}`, 'chrome')));

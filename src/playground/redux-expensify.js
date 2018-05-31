@@ -1,6 +1,5 @@
 import { createStore, combineReducers } from 'redux';
 import uuid from 'uuid';
-import EditExpensePage from '../components/EditExpensePage';
 
 // ------------------------------------------
 // ACTIONS FOR EXPENSE ARRAY REDUCER
