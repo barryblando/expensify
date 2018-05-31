@@ -5,7 +5,6 @@
  */
 import express from 'express';
 import path from 'path';
-import open from 'open';
 import compress from 'compression';
 import chalk from 'chalk';
 
@@ -48,4 +47,4 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'dist/index.html'));
 });
 
-app.listen(port, err => (err ? console.log(chalk.red(err)) : open(`http://localhost:${port}`, 'chrome')));
+app.listen(port, err => (err ? console.log(chalk.red(err)) : console.log(chalk.green('Server is Up!'))));
