@@ -43,4 +43,7 @@ const mapDispatchToProps = (dispatch, props) => ({
 });
 
 // React Router render HOC then passes the props through and allows to add new ones
-export default connect(mapStateToProps, mapDispatchToProps)(EditExpensePage);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(EditExpensePage);

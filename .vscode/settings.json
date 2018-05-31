@@ -1,6 +1,20 @@
 {
   "nodeTdd.activateOnStartup": false,
-  "cSpell.words": ["add", "dev", "entrypoints", "expensify", "flowtype", "prettier", "scss", "server", "stylelint"],
+  "cSpell.words": [
+    "add",
+    "datepicker",
+    "dev",
+    "devtools",
+    "entrypoints",
+    "expensify",
+    "extension",
+    "flowtype",
+    "prettier",
+    "redux",
+    "scss",
+    "server",
+    "stylelint"
+  ],
   "[javascript]": {
     "editor.formatOnSave": false
   },

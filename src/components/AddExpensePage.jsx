@@ -29,4 +29,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 // set mapStateToProps to undefined 'cause we're not using it
-export default connect(undefined, mapDispatchToProps)(AddExpensePage);
+export default connect(
+  undefined,
+  mapDispatchToProps
+)(AddExpensePage);

@@ -4,7 +4,7 @@
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 import path from 'path';
-import config from './webpack.config.dev';
+import webpackConfig from './webpack.config.dev';
 
 const { Signale } = require('signale');
 
@@ -37,8 +37,8 @@ const optionSignale = {
 
 const signal = new Signale(optionSignale);
 
-WebpackDevServer.addDevServerEntrypoints(config, options);
-const compiler = webpack(config);
+WebpackDevServer.addDevServerEntrypoints(webpackConfig, options);
+const compiler = webpack(webpackConfig);
 const server = new WebpackDevServer(compiler, options);
 
 const port = 5000;

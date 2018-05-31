@@ -66,6 +66,13 @@
 * [Stylelint SASS Guidelines](https://github.com/bjankord/stylelint-config-sass-guidelines)
 * [Stylelint Config rules](https://stylelint.io/user-guide/example-config/)
 
-## Misc
+## Misc & Solutions
 
 * [react/prefer-stateless-function](https://stackoverflow.com/questions/43378911/eslint-component-should-be-written-as-a-pure-function-react-prefer-stateless)
+
+```json
+  /* Add this to jest config to avoid some issues in testing environment */
+  "setupFiles": [
+    "raf/polyfill",
+  ],
+```

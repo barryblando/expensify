@@ -27,13 +27,9 @@
     "import/no-extraneous-dependencies": ["error", {
       "devDependencies": [
         "src/**/*.js",
-        "spec/**",
-        "test/**",
-        "tests/**",
+        "buildScripts/**/*.js",
         "src/__tests__/**",
         "**/__tests__/**",
-        "webpack.config.js",
-        "webpack.config.*.js",
         "*.js"
       ],
       "optionalDependencies": false,
