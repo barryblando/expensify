@@ -1,12 +1,15 @@
 class IndecisionApp extends React.Component {
   constructor(props) {
+    // <reference https://stackoverflow.com/questions/40433463/what-does-calling-super-in-a-react-constructor-do
+    // super() will call the constructor of its parent class. This is required when you need to access some variables from the parent class.
+    // In React, when you call super with props. React will make props available across the component through 'this.props'
     super(props);
     // Manually bind the 'this' to the current instance for event handlers
     // Event handlers have problem maintaining 'this' binding
-    this.handleDeleteOptions = this.handleDeleteOptions.bind(this); // bind to the current instance
-    this.handlePick = this.handlePick.bind(this); // bind to the current instance
-    this.handleAddOption = this.handleAddOption.bind(this); // bind to the current instance
-    this.handleDeleteOption = this.handleDeleteOption.bind(this); // bind to the current instance
+    this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
+    this.handlePick = this.handlePick.bind(this);
+    this.handleAddOption = this.handleAddOption.bind(this);
+    this.handleDeleteOption = this.handleDeleteOption.bind(this);
     this.state = {
       options: [],
     };
