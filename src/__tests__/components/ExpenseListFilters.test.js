@@ -76,6 +76,7 @@ describe('Expense List Filters', () => {
     const startDate = moment(0).add(4, 'years');
     const endDate = moment(0).add(8, 'years');
     console.log({ startDate, endDate });
+    // find DateRangePicker and its prop onDatesChange then pass startDate, endDte on it then assert
     wrapper.find(DateRangePicker).prop('onDatesChange')({ startDate, endDate });
     expect(setStartDate).toHaveBeenLastCalledWith(startDate);
     expect(setEndDate).toHaveBeenLastCalledWith(endDate);
