@@ -51,6 +51,7 @@
     "moment": "^2.22.1",
     "node-sass": "^4.9.0",
     "normalize.css": "^8.0.0",
+    "numeral": "^2.0.6",
     "postcss-loader": "^2.1.5",
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
