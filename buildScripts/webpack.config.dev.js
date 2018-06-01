@@ -10,7 +10,7 @@ module.exports = {
   mode: 'development',
   entry: ['./src/app.js'],
   output: {
-    path: path.join(__dirname, '../public'),
+    path: path.join(__dirname, '..', 'app'),
     publicPath: '/',
     filename: 'bundle.js',
   },
@@ -36,7 +36,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(), // Enable HMR for dev config only
     new HtmlWebpackPlugin({
       inject: true,
-      template: 'public/index.html',
+      template: 'app/index.html',
     }),
   ],
 };

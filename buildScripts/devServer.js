@@ -9,7 +9,7 @@ import webpackConfig from './webpack.config.dev';
 const { Signale } = require('signale');
 
 const options = {
-  contentBase: path.resolve(__dirname, 'public'),
+  contentBase: path.resolve(__dirname, 'app'),
   historyApiFallback: true, // Fallback HTML if there's 404 for client side routing (will update)
   hot: true,
   host: 'localhost',

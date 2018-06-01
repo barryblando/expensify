@@ -11,7 +11,7 @@ import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import WebpackMd5Hash from 'webpack-md5-hash';
 
 const sourcePath = path.join(__dirname, '..', 'src');
-const buildPath = path.join(__dirname, '..', 'dist');
+const publicPath = path.join(__dirname, '..', 'public');
 
 console.log(path.resolve(sourcePath, 'app.js'));
 
@@ -21,9 +21,9 @@ module.exports = {
     app: path.resolve(sourcePath, 'app.js'),
   },
   output: {
-    path: buildPath,
-    publicPath: '/',
-    filename: '[name].[hash].js',
+    path: publicPath,
+    publicPath: '',
+    filename: 'js/[name].[hash].js',
   },
   devtool: 'source-map',
   module: {
@@ -54,7 +54,7 @@ module.exports = {
               },
             },
           ],
-          publicPath: buildPath,
+          publicPath,
         }),
       },
     ],
@@ -72,9 +72,10 @@ module.exports = {
     //   sourceMap: true,
     // }),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, '../public/index.html'),
-      path: buildPath,
+      template: path.join(__dirname, '..', 'app/index.html'),
+      path: publicPath,
       filename: 'index.html',
+      inject: true,
       minify: {
         collapseWhitespace: true,
         collapseInlineTagWhitespace: true,
@@ -90,7 +91,7 @@ module.exports = {
       },
     }),
     new ExtractTextPlugin({
-      filename: '[name].[hash].css',
+      filename: 'css/[name].[hash].css',
       allChunks: true,
     }),
     new webpack.LoaderOptionsPlugin({

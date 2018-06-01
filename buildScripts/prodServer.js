@@ -38,13 +38,13 @@ app.use(
   })
 );
 
-app.use(express.static(path.join(__dirname, '..', 'dist')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.get('*.js', encodeResToGzip('text/javascript'));
 app.get('*.css', encodeResToGzip('text/css'));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'dist/index.html'));
+  res.sendFile(path.join(__dirname, '..', 'public/index.html'));
 });
 
 app.listen(port, err => (err ? console.log(chalk.red(err)) : console.log(chalk.green('Server is Up!'))));
