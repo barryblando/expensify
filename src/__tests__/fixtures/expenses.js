@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-export default [
+export const expenses = [
   {
     id: '1',
     description: 'Gum',

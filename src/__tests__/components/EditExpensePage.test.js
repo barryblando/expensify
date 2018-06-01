@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { EditExpensePage } from '../../components/EditExpensePage';
-import expenses from '../fixtures/expenses';
+import { expenses } from '../fixtures/expenses';
 
 describe('Edit Expense Page', () => {
   let editExpense;
