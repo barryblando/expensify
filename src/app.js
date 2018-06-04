@@ -1,7 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import 'react-dates/initialize'; // fixed ThemedStyleSheet undefined
+import { Provider as ReduxProvider } from 'react-redux';
+
+// fixed ThemedStyleSheet undefined
+import 'react-dates/initialize';
 
 // Hot Module Replacement
 import { hot } from 'react-hot-loader';
@@ -19,9 +21,9 @@ import configureStore from './store/configureStore';
 
 // To access redux store we gonna use Provider
 const app = (
-  <Provider store={configureStore}>
+  <ReduxProvider store={configureStore}>
     <AppRouter />
-  </Provider>
+  </ReduxProvider>
 );
 
 render(app, document.getElementById('app'));
