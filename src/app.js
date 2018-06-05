@@ -14,10 +14,11 @@ import 'react-dates/lib/css/_datepicker.css'; // import default style for date p
 import AppRouter from './routers/AppRouter';
 import './styles/style.scss';
 
-// State Management (Redux), actions
-import configureStore from './store/configureStore';
+// Firebase
+import './firebase/firebase';
 
-// const store = configureStore(); // now can use dispatch, getState, & subscribe
+// State Management (Redux), actions, now can use dispatch, getState, & subscribe
+import configureStore from './store/configureStore';
 
 // To access redux store we gonna use Provider
 const app = (
