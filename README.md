@@ -23,10 +23,14 @@
 - [React Router DOM v4 Tutorial](https://www.techiediaries.com/react-router-dom-v4/)
 - [Stateful vs Stateless Functional Components in React](https://code.tutsplus.com/tutorials/stateful-vs-stateless-functional-components-in-react--cms-29541)
 
-## Redux 101
+## Redux References
 
 - [What Does Redux Do? (and when should you use it?)](https://daveceddia.com/what-does-redux-do/)
 - [How Redux Works: A Counter-Example](https://daveceddia.com/how-does-redux-work/)
+- [Async Operations in React Redux Applications](https://www.sitepoint.com/async-operations-react-redux-applications/)
+- [Understanding compose functions in redux](https://stackoverflow.com/questions/41357897/understanding-compose-functions-in-redux)
+- [Understanding how redux-thunk works](https://medium.com/@gethylgeorge/understanding-how-redux-thunk-works-72de3bdebc50)
+- [Building CRUD App with React + Redux](http://www.thegreatcodeadventure.com/building-a-simple-crud-app-with-react-redux-part-1/#table-of-contents)
 
 ## Test Suite
 
