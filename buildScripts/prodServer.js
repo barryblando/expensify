@@ -10,7 +10,7 @@ import chalk from 'chalk';
 
 /* eslint-disable no-console */
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5000; // for heroku
 const app = express();
 
 // Reserved fn

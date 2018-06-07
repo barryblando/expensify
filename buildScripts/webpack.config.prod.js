@@ -7,13 +7,13 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 import autoprefixer from 'autoprefixer';
-import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import WebpackMd5Hash from 'webpack-md5-hash';
 
 const sourcePath = path.join(__dirname, '..', 'src');
 const publicPath = path.join(__dirname, '..', 'public');
 
 console.log(path.resolve(sourcePath, 'app.js'));
+console.log('WEBPACK ENV:', process.env.NODE_ENV);
 
 module.exports = {
   mode: 'production',
@@ -68,9 +68,6 @@ module.exports = {
     new WebpackMd5Hash(),
     new webpack.HashedModuleIdsPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin(),
-    // new UglifyJsPlugin({
-    //   sourceMap: true,
-    // }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '..', 'app/index.html'),
       path: publicPath,
