@@ -5,7 +5,7 @@ import { expenses } from '../fixtures/expenses';
 
 describe('Edit Expense Page', () => {
   let editExpense;
-  let removeExpense;
+  let startRemoveExpense;
   let history;
   let wrapper;
 
@@ -13,12 +13,12 @@ describe('Edit Expense Page', () => {
   beforeEach(() => {
     // Spies means creating fake function to make assertions on it
     editExpense = jest.fn(); // 1st spy
-    removeExpense = jest.fn(); // 2nd spy
+    startRemoveExpense = jest.fn(); // 2nd spy
     history = { push: jest.fn() }; // 3rd spy
     wrapper = shallow(
       <EditExpensePage
         editExpense={editExpense}
-        removeExpense={removeExpense}
+        startRemoveExpense={startRemoveExpense}
         history={history}
         expense={expenses[2]}
       />
@@ -38,6 +38,6 @@ describe('Edit Expense Page', () => {
   test('should handle removeExpense', () => {
     wrapper.find('button').simulate('click');
     expect(history.push).toHaveBeenLastCalledWith('/'); // expect history to have been last called with '/' route
-    expect(removeExpense).toHaveBeenLastCalledWith({ id: expenses[2].id }); // expect to be {"id":"3"}
+    expect(startRemoveExpense).toHaveBeenLastCalledWith({ id: expenses[2].id }); // expect to be {"id":"3"}
   });
 });
