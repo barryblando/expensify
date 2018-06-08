@@ -57,3 +57,13 @@ console.log(`You are in ${cty} city, ${state}`);
 const add = ({ a, b }, c) => a + b + c;
 
 console.log(add({ a: 1, b: 12 }, 100));
+
+function removeExpense(data) {
+  console.log(data);
+  function expense({ id } = {}) {
+    console.log(id);
+  }
+  expense(data);
+}
+
+removeExpense({ id: '12323' });

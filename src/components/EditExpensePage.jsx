@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
-import { editExpense, removeExpense } from '../actions/expenses';
+import { editExpense, startRemoveExpense } from '../actions/expenses';
 
 export class EditExpensePage extends Component {
   // React Router pass props object to components
@@ -15,7 +15,7 @@ export class EditExpensePage extends Component {
   };
 
   onRemove = () => {
-    this.props.removeExpense({ id: this.props.expense.id }); // data
+    this.props.startRemoveExpense({ id: this.props.expense.id }); // data
     this.props.history.push('/');
   };
 
@@ -39,7 +39,7 @@ const mapStateToProps = (state, props) => ({
 // Pass dispatchers as props
 const mapDispatchToProps = (dispatch, props) => ({
   editExpense: (id, expense) => dispatch(editExpense(id, expense)),
-  removeExpense: data => dispatch(removeExpense(data)),
+  startRemoveExpense: data => dispatch(startRemoveExpense(data)),
 });
 
 // React Router render HOC then passes the props through and allows to add new ones

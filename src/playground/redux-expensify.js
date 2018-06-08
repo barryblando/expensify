@@ -1,6 +1,18 @@
 import { createStore, combineReducers } from 'redux';
 import uuid from 'uuid';
 
+// ---- Redux without Firebase ----
+// Component calls action generator
+// action generator returns object
+// component dispatches object
+// redux store changes
+
+// ---- Redux with Firebase ----
+// Component calls action generator
+// action generator returns function
+// component dispatches function (?) P.S gonna use redux-thunk middleware so redux can support dispatching function
+// functions runs (has the ability to dispatch other actions and do whatever it wants)
+
 // ------------------------------------------
 // ACTIONS FOR EXPENSE ARRAY REDUCER
 // ------------------------------------------
