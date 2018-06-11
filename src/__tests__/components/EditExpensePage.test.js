@@ -4,7 +4,7 @@ import { EditExpensePage } from '../../components/EditExpensePage';
 import { expenses } from '../fixtures/expenses';
 
 describe('Edit Expense Page', () => {
-  let editExpense;
+  let startEditExpense;
   let startRemoveExpense;
   let history;
   let wrapper;
@@ -12,12 +12,12 @@ describe('Edit Expense Page', () => {
   // Runs a function before each of the tests in this file runs.
   beforeEach(() => {
     // Spies means creating fake function to make assertions on it
-    editExpense = jest.fn(); // 1st spy
+    startEditExpense = jest.fn(); // 1st spy
     startRemoveExpense = jest.fn(); // 2nd spy
     history = { push: jest.fn() }; // 3rd spy
     wrapper = shallow(
       <EditExpensePage
-        editExpense={editExpense}
+        startEditExpense={startEditExpense}
         startRemoveExpense={startRemoveExpense}
         history={history}
         expense={expenses[2]}
@@ -32,7 +32,7 @@ describe('Edit Expense Page', () => {
   test('should handle editExpense', () => {
     wrapper.find('ExpenseForm').prop('onSubmit')(expenses[2]);
     expect(history.push).toHaveBeenLastCalledWith('/'); // expect history to have been last called with '/' route
-    expect(editExpense).toHaveBeenLastCalledWith(expenses[2].id, expenses[2]);
+    expect(startEditExpense).toHaveBeenLastCalledWith(expenses[2].id, expenses[2]);
   });
 
   test('should handle removeExpense', () => {
