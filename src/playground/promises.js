@@ -1,3 +1,5 @@
+// </reference https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
+
 const posts = [
   { title: 'I love Javascript', author: 'Wes Bos', id: 1 },
   { title: 'CSS!', author: 'Barry Blando', id: 2 },
