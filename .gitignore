@@ -61,3 +61,4 @@ typings/
 /public
 /.env.development
 /.env.test
+/.env.production

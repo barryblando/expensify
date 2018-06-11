@@ -22,15 +22,19 @@
 - [React, Inline Functions, and Performance](https://cdb.reacttraining.com/react-inline-functions-and-performance-bdff784f5578)
 - [React Router DOM v4 Tutorial](https://www.techiediaries.com/react-router-dom-v4/)
 - [Stateful vs Stateless Functional Components in React](https://code.tutsplus.com/tutorials/stateful-vs-stateless-functional-components-in-react--cms-29541)
+- [React + Redux Architecture](https://github.com/hirviid/react-redux-architecture)
 
 ## Redux References
 
 - [What Does Redux Do? (and when should you use it?)](https://daveceddia.com/what-does-redux-do/)
 - [How Redux Works: A Counter-Example](https://daveceddia.com/how-does-redux-work/)
+- [My take on Redux Architecture](http://krasimirtsonev.com/blog/article/my-take-on-redux-architecture)
 - [Async Operations in React Redux Applications](https://www.sitepoint.com/async-operations-react-redux-applications/)
 - [Understanding compose functions in redux](https://stackoverflow.com/questions/41357897/understanding-compose-functions-in-redux)
 - [Understanding how redux-thunk works](https://medium.com/@gethylgeorge/understanding-how-redux-thunk-works-72de3bdebc50)
 - [Building CRUD App with React + Redux](http://www.thegreatcodeadventure.com/building-a-simple-crud-app-with-react-redux-part-1/#table-of-contents)
+- [React + Redux Architecture : Separation of Concerns](https://medium.com/prod-io/react-redux-architecture-part-1-separation-of-concerns-812da3b08b46)
+- [10 Tips for Better Redux Architecture](https://medium.com/javascript-scene/10-tips-for-better-redux-architecture-69250425af44)
 
 ## Test Suite
 
@@ -82,3 +86,5 @@
 ## Misc & Solutions
 
 - [react/prefer-stateless-function](https://stackoverflow.com/questions/43378911/eslint-component-should-be-written-as-a-pure-function-react-prefer-stateless)
+- [6 ways to declare Javascript functions](https://dmitripavlutin.com/6-ways-to-declare-javascript-functions/) - For Clean Code
+- [Pros-Cons of Using Redux-Saga with ES6 Generators vs Redux-Thunk with ES2017 Async/Await](https://stackoverflow.com/questions/34930735/pros-cons-of-using-redux-saga-with-es6-generators-vs-redux-thunk-with-es2017-asy/34933395#34933395)

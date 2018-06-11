@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
-import { editExpense, startRemoveExpense } from '../actions/expenses';
+import { startEditExpense, startRemoveExpense } from '../actions/expenses';
 
 export class EditExpensePage extends Component {
   // React Router pass props object to components
   // so that it can be manipulate dynamically
   onSubmit = expense => {
     // Dispatch the action to edit the expense
-    this.props.editExpense(this.props.expense.id, expense);
+    this.props.startEditExpense(this.props.expense.id, expense);
     console.log('updated:', expense);
     // Redirect to the dashboard
     this.props.history.push('/');
@@ -33,12 +33,12 @@ export class EditExpensePage extends Component {
 
 // Find the expense that needs to update, access props that are passed in by HOC
 const mapStateToProps = (state, props) => ({
-  expense: state.expenses.find(expense => expense.id === props.match.params.id), // if found put it to expense
+  expense: state.expenses.find(expense => expense.id === props.match.params.id), // if found put object to expense
 });
 
 // Pass dispatchers as props
 const mapDispatchToProps = (dispatch, props) => ({
-  editExpense: (id, expense) => dispatch(editExpense(id, expense)),
+  startEditExpense: (id, expense) => dispatch(startEditExpense(id, expense)),
   startRemoveExpense: data => dispatch(startRemoveExpense(data)),
 });
 
