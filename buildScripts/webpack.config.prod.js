@@ -8,6 +8,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import WebpackMd5Hash from 'webpack-md5-hash';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 const sourcePath = path.join(__dirname, '..', 'src');
 const publicPath = path.join(__dirname, '..', 'public');
@@ -73,6 +74,7 @@ module.exports = {
       'process.env.FIREBASE_STORAGE_BUCKET': JSON.stringify(process.env.FIREBASE_STORAGE_BUCKET),
       'process.env.FIREBASE_MESSAGING_SENDER_ID': JSON.stringify(process.env.FIREBASE_MESSAGING_SENDER_ID),
     }),
+    new CopyWebpackPlugin([{ from: './app/images', to: 'images' }]),
     new WebpackMd5Hash(),
     new webpack.HashedModuleIdsPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin(),
