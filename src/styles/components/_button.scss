@@ -1,0 +1,65 @@
+.button {
+  font-weight: 300;
+  color: $color-white;
+  border: 0;
+  padding: $s-size;
+  display: inline-block; // in order for margin and padding to work
+  text-decoration: none;
+  line-height: 1;
+
+  &--login {
+    background: linear-gradient(45deg,
+                                      $color-primary 0%,
+                                      $color-primary 50%,
+                                      $color-secondary);
+    background-size: 240%;
+    font-size: 1.8rem;
+    font-weight: 400;
+    border-radius: 3px;
+    padding: $m-size;
+    margin-top: $m-size;
+    transition: all .4s;
+
+    @include respond(atSmallest) {
+      font-size: 2rem;
+    }
+
+    @include respond(atSmaller) {
+      font-size: 2.2rem;
+    }
+  }
+
+  &--login:hover {
+    background-position: 70%;
+    transform: translateY(-3px); // when hover move up
+    box-shadow: -.7rem .7rem 1.5rem rgba(#000000, .2);
+  }
+
+  &--login:active,
+  &--login:focus {
+    outline: none;
+    transform: translateY(-1px); // when active / focus move down a bit
+    box-shadow: 0 .5rem 1rem rgba(#000000, .2);
+  }
+
+  &--add-expense {
+    font-size: 2.2rem;
+    background: $color-tertiary;
+  }
+
+  &--remove-expense {
+    @extend .button--add-expense;
+    background: #888;
+  }
+
+  &--logout {
+    font-size: 2.2rem;
+    font-weight: 300;
+    background: $color-tertiary;
+  }
+
+  &--logout:active,
+  &--logout:focus {
+    outline: none;
+  }
+}

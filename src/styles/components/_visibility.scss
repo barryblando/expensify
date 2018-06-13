@@ -1,0 +1,11 @@
+.show-for-mobile {
+  @include respond(atSmall) {
+    display: none;
+  }
+}
+
+.show-for-desktop {
+  @include respond(atSmall-max) {
+    display: none;
+  }
+}
