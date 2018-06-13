@@ -8,13 +8,17 @@ import 'react-dates/initialize';
 // Hot Module Replacement
 import { hot } from 'react-hot-loader';
 
+// Connected Router
 import { push } from 'connected-react-router';
 
-// App, Style, Reset
+// Style, Reset
 import 'normalize.css/normalize.css';
 import 'react-dates/lib/css/_datepicker.css'; // import default style for date picker
-import AppRouter, { history } from './routers/AppRouter';
 import './styles/style.scss';
+
+// App & Loading Page
+import AppRouter, { history } from './routers/AppRouter';
+import LoadingPage from './components/LoadingPage';
 
 // Firebase
 import { firebase } from './firebase/firebase';
@@ -44,7 +48,7 @@ const renderApp = () => {
 
 console.log(store.getState().auth.uid);
 
-render(<p>Loading...</p>, document.getElementById('app'));
+render(<LoadingPage />, document.getElementById('app'));
 
 // this allows to run this function every single time the auth state change including the first load of the app
 firebase.auth().onAuthStateChanged(user => {

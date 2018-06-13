@@ -8,14 +8,22 @@ import selectExpenses from '../selectors/expenses';
 // </reference https://redux.js.org/faq/react-redux#why-is-my-component-re-rendering-too-often
 // export this unconnected Component for snapshot test case
 export const ExpenseList = props => (
-  <div>
-    <h1>ExpenseList</h1>
+  <div className="content-container">
+    <div className="list-header">
+      <div className="show-for-mobile">Expenses</div>
+      <div className="show-for-desktop">Expense</div>
+      <div className="show-for-desktop">Amount</div>
+    </div>
     {/* To pass state expense. spread it out through the props in ExpenseListItem so destruct is possible */}
-    {props.expenses.length === 0 ? (
-      <p>No Expenses</p>
-    ) : (
-      props.expenses.map(expense => <ExpenseListItem {...expense} key={expense.id} />)
-    )}
+    <div className="list-body">
+      {props.expenses.length === 0 ? (
+        <div className="list-item list-item--message">
+          <span>No Expenses</span>
+        </div>
+      ) : (
+        props.expenses.map(expense => <ExpenseListItem {...expense} key={expense.id} />)
+      )}
+    </div>
   </div>
 );
 

@@ -1,0 +1,19 @@
+.input-group {
+  display: flex;
+  flex-direction: column; /* small screen*/
+  margin-bottom: $m-size;
+
+  @include respond(atSmall) {
+    flex-direction: row; /* small+ screen */
+    margin-bottom: $l-size;
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: $s-size;
+
+    @include respond(atSmall) {
+      margin-bottom: 0;
+      margin-right: $s-size;
+    }
+  }
+}

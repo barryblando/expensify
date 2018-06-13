@@ -1,6 +1,12 @@
 @mixin respond($breakpoint) {
-  @if $breakpoint == atSmall {
+  @if $breakpoint == atSmallest {
+    @media only screen and (min-width: 21.875em) { @content; }   // > 350px
+  }
+  @if $breakpoint == atSmaller {
     @media only screen and (min-width: 37.5em) { @content; }   // > 600px
+  }
+  @if $breakpoint == atSmall {
+    @media only screen and (min-width: 47.5em) { @content; }   // > 760px
   }
   @if $breakpoint == atMedium {
     @media only screen and (min-width: 56.25em) { @content; }  // > 900px
@@ -10,5 +16,8 @@
   }
   @if $breakpoint == big-desktop {
     @media only screen and (min-width: 112.5em) { @content; }  // 1800px >
+  }
+  @if $breakpoint == atSmall-max {
+    @media only screen and (max-width: 47.5em - 0.1em) { @content; }  // < 760px
   }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable */
 // Higher Order Component (HOC) - A Component (HOC) that renders another component
 // Reuse code
 // Render hijacking
@@ -14,12 +15,15 @@ const Info = props => (
   </div>
 );
 // ------------------------------------------=> Return the HOC
-const withAdminWarning = WrappedComponent => props => (
-  <div>
-    {props.isAdmin && <p>This is info. Please dont share! </p>}
-    <WrappedComponent {...props} />
-  </div>
-);
+const withAdminWarning = WrappedComponent => {
+  return props => (
+    <div>
+      {props.isAdmin && <p>This is info. Please dont share! </p>}
+      {/* <Info {...props} /> */}
+      <WrappedComponent {...props} />
+    </div>
+  );
+};
 
 const requireAuthentication = WrappedComponent => props => (
   <div>{props.isAuthenticated ? <WrappedComponent {...props} /> : <p>Please login to view the info</p>}</div>
@@ -28,5 +32,5 @@ const requireAuthentication = WrappedComponent => props => (
 const AuthInfo = requireAuthentication(Info);
 const AdminInfo = withAdminWarning(Info);
 
-// render(<AdminInfo isAdmin={false} info="There are the details" />, document.getElementById('app'));
-render(<AuthInfo isAuthenticated info="There are the details" />, document.getElementById('app'));
+render(<AdminInfo isAdmin={false} info="There are the details" />, document.getElementById('app'));
+// render(<AuthInfo isAuthenticated info="There are the details" />, document.getElementById('app'));

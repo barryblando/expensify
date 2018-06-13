@@ -22,7 +22,9 @@
 - [React, Inline Functions, and Performance](https://cdb.reacttraining.com/react-inline-functions-and-performance-bdff784f5578)
 - [React Router DOM v4 Tutorial](https://www.techiediaries.com/react-router-dom-v4/)
 - [Stateful vs Stateless Functional Components in React](https://code.tutsplus.com/tutorials/stateful-vs-stateless-functional-components-in-react--cms-29541)
+- [When to use Component or PureComponent](https://codeburst.io/when-to-use-component-or-purecomponent-a60cfad01a81)
 - [React + Redux Architecture](https://github.com/hirviid/react-redux-architecture)
+- [React Internals - How React Works (Used React 15, a bit outdated but good grasp is what you need)](http://www.mattgreer.org/articles/react-internals-part-one-basic-rendering/)
 
 ## Redux References
 
@@ -88,3 +90,5 @@
 - [react/prefer-stateless-function](https://stackoverflow.com/questions/43378911/eslint-component-should-be-written-as-a-pure-function-react-prefer-stateless)
 - [6 ways to declare Javascript functions](https://dmitripavlutin.com/6-ways-to-declare-javascript-functions/) - For Clean Code
 - [Pros-Cons of Using Redux-Saga with ES6 Generators vs Redux-Thunk with ES2017 Async/Await](https://stackoverflow.com/questions/34930735/pros-cons-of-using-redux-saga-with-es6-generators-vs-redux-thunk-with-es2017-asy/34933395#34933395)
+- [A quick explanation of Redux Observable.](https://dev.to/papaponmx/a-quick-explanation-to-redux-observable--16b5)
+- [Async actions in Redux with RxJS and Redux Observable](https://dev.to/andrejnaumovski/async-actions-in-redux-with-rxjs-and-redux-observable-efg)

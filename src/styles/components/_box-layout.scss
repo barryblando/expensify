@@ -1,0 +1,31 @@
+.box-layout {
+  background: linear-gradient(45deg, $color-primary, $color-secondary);
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  display: flex; // never forget to put this on a parent element
+  justify-content: center; // center in Main Axis left-right
+  align-items: center; // center items in Cross Axis top-bottom
+
+  &__box {
+    background: fade-out($color-white, .15);
+    border-radius: 3px;
+    text-align: center;
+    width: 25rem;
+    padding: $l-size $m-size;
+    box-shadow: -1rem 1.3rem 2rem rgba(#000000, .2);
+
+    @include respond(atSmallest) {
+      width: 30rem;
+    }
+
+    @include respond(atSmaller) {
+      width: 40rem;
+    }
+  }
+
+  &__title {
+    margin: 0 0 $m-size 0;
+    line-height: 1;
+  }
+}

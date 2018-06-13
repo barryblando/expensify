@@ -8,6 +8,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import WebpackMd5Hash from 'webpack-md5-hash';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 const sourcePath = path.join(__dirname, '..', 'src');
 const publicPath = path.join(__dirname, '..', 'public');
@@ -18,7 +19,7 @@ console.log('WEBPACK ENV:', process.env.NODE_ENV);
 module.exports = {
   mode: 'production',
   entry: {
-    app: path.resolve(sourcePath, 'app.js'),
+    app: ['babel-polyfill', path.resolve(sourcePath, 'app.js')],
   },
   output: {
     path: publicPath,
@@ -65,6 +66,15 @@ module.exports = {
   },
   plugins: [
     // PROD PLUGINS
+    new webpack.DefinePlugin({
+      'process.env.FIREBASE_API_KEY': JSON.stringify(process.env.FIREBASE_API_KEY),
+      'process.env.FIREBASE_AUTH_DOMAIN': JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN),
+      'process.env.FIREBASE_DATABASE_URL': JSON.stringify(process.env.FIREBASE_DATABASE_URL),
+      'process.env.FIREBASE_PROJECT_ID': JSON.stringify(process.env.FIREBASE_PROJECT_ID),
+      'process.env.FIREBASE_STORAGE_BUCKET': JSON.stringify(process.env.FIREBASE_STORAGE_BUCKET),
+      'process.env.FIREBASE_MESSAGING_SENDER_ID': JSON.stringify(process.env.FIREBASE_MESSAGING_SENDER_ID),
+    }),
+    new CopyWebpackPlugin([{ from: './app/images', to: 'images' }]),
     new WebpackMd5Hash(),
     new webpack.HashedModuleIdsPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin(),

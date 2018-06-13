@@ -14,9 +14,15 @@ export class AddExpensePage extends Component {
   render() {
     return (
       <div>
-        <h1>Add Expense</h1>
-        {/* Pass prop onSubmit to ExpenseForm */}
-        <ExpenseForm onSubmit={this.onSubmit} />
+        <div className="page-header">
+          <div className="content-container">
+            <h1 className="page-header__title">Add Expense</h1>
+          </div>
+        </div>
+        <div className="content-container">
+          {/* Pass prop onSubmit to ExpenseForm */}
+          <ExpenseForm onSubmit={this.onSubmit} />
+        </div>
       </div>
     );
   }
