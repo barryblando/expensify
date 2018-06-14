@@ -17,23 +17,23 @@
 
 .list-item {
   border: 1px solid darken($color-off-white, 7%);
-  border-top: none;
+  border-top: 0;
   color: $color-dark-grey;
   display: flex;
   flex-direction: column;
   padding: $s-size;
   text-decoration: none;
-  transition: background .2s ease;
+  transition: background 0.2s ease;
+
+  @include respond(atSmall) {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: $m-size;
+  }
 
   &:hover {
     background: $color-off-white;
-  }
-
-  @include respond(atSmall) {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: $m-size;
   }
 
   &__title {
@@ -57,12 +57,12 @@
 
   &--message {
     align-items: center;
-    justify-content: center;
     color: $color-grey;
+    justify-content: center;
     padding: $m-size;
+  }
 
-    &:hover {
-      background: none;
-    }
+  &--message:hover {
+    background: none;
   }
 }

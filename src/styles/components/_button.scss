@@ -1,24 +1,24 @@
 .button {
-  font-weight: 300;
-  color: $color-white;
   border: 0;
-  padding: $s-size;
+  color: $color-white;
   display: inline-block; // in order for margin and padding to work
-  text-decoration: none;
+  font-weight: 300;
   line-height: 1;
+  padding: $s-size;
+  text-decoration: none;
 
   &--login {
     background: linear-gradient(45deg,
-                                      $color-primary 0%,
-                                      $color-primary 50%,
-                                      $color-secondary);
+    $color-primary 0%,
+    $color-primary 50%,
+    $color-secondary);
     background-size: 240%;
+    border-radius: 3px;
     font-size: 1.8rem;
     font-weight: 400;
-    border-radius: 3px;
-    padding: $m-size;
     margin-top: $m-size;
-    transition: all .4s;
+    padding: $m-size;
+    transition: all 0.4s;
 
     @include respond(atSmallest) {
       font-size: 2rem;
@@ -31,31 +31,31 @@
 
   &--login:hover {
     background-position: 70%;
+    box-shadow: -0.7rem 0.7rem 1.5rem rgba(#000, 0.2);
     transform: translateY(-3px); // when hover move up
-    box-shadow: -.7rem .7rem 1.5rem rgba(#000000, .2);
   }
 
   &--login:active,
   &--login:focus {
+    box-shadow: 0 0.5rem 1rem rgba(#000, 0.2);
     outline: none;
     transform: translateY(-1px); // when active / focus move down a bit
-    box-shadow: 0 .5rem 1rem rgba(#000000, .2);
   }
 
   &--add-expense {
-    font-size: 2.2rem;
     background: $color-tertiary;
+    font-size: 2.2rem;
   }
 
   &--remove-expense {
-    @extend .button--add-expense;
     background: #888;
+    font-size: 2.2rem;
   }
 
   &--logout {
+    background: $color-tertiary;
     font-size: 2.2rem;
     font-weight: 300;
-    background: $color-tertiary;
   }
 
   &--logout:active,

@@ -1,19 +1,19 @@
 .box-layout {
+  align-items: center; // center items in Cross Axis top-bottom
   background: linear-gradient(45deg, $color-primary, $color-secondary);
   background-size: cover;
-  height: 100vh;
-  width: 100vw;
   display: flex; // never forget to put this on a parent element
+  height: 100vh;
   justify-content: center; // center in Main Axis left-right
-  align-items: center; // center items in Cross Axis top-bottom
+  width: 100vw;
 
   &__box {
-    background: fade-out($color-white, .15);
+    background: fade-out($color-white, 0.15);
     border-radius: 3px;
+    box-shadow: -1rem 1.3rem 2rem rgba(#000, 0.2);
+    padding: $l-size $m-size;
     text-align: center;
     width: 25rem;
-    padding: $l-size $m-size;
-    box-shadow: -1rem 1.3rem 2rem rgba(#000000, .2);
 
     @include respond(atSmallest) {
       width: 30rem;
@@ -25,7 +25,7 @@
   }
 
   &__title {
-    margin: 0 0 $m-size 0;
     line-height: 1;
+    margin: 0 0 $m-size 0;
   }
 }

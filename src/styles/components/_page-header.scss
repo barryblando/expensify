@@ -1,15 +1,15 @@
 .page-header {
   background: $color-off-white;
-  padding: $l-size 0;
   margin-bottom: $l-size;
+  padding: $l-size 0;
 
   &__title {
     font-weight: 300;
     margin: 0;
+  }
 
-    span {
-      font-weight: 700;
-    }
+  &__title span {
+    font-weight: 700;
   }
 
   &__actions {

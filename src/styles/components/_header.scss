@@ -8,14 +8,14 @@
   }
 
   &__title h1 {
-    margin: 0;
     font-weight: 700;
+    margin: 0;
   }
 
   &__content {
+    align-items: center;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: $s-size 0;
   }
 }

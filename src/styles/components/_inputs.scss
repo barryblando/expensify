@@ -1,16 +1,12 @@
 .text-input {
-  border: 1px solid $color-light-grey;
-  height: 48px; // same height as datepicker
-  font-size: 1.8rem;
-  font-weight: 300;
-  padding: $s-size;
+  @extend %input;
 }
 
 .select {
-  @extend .text-input;
+  @extend %input;
 }
 
 .textarea {
-  @extend .text-input;
+  @extend %input;
   height: 10rem;
 }
