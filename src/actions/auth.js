@@ -1,5 +1,6 @@
 import { firebase, googleAuthProvider } from '../firebase/firebase';
 
+// will set uid if startLogin has been dispatch
 export const login = uid => ({
   type: 'LOGIN',
   uid,
@@ -10,8 +11,10 @@ export const startLogin = () => () =>
   // start the auth process & Pick login
   firebase.auth().signInWithPopup(googleAuthProvider);
 
+// will unset uid if startLogout has been dispatch
 export const logout = () => ({
   type: 'LOGOUT',
 });
 
+// return firebase authentications for promise chaining
 export const startLogout = () => () => firebase.auth().signOut();
