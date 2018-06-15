@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import ExpenseForm from './ExpenseForm';
 import { startEditExpense, startRemoveExpense } from '../actions/expenses';
 
@@ -23,14 +24,17 @@ export class EditExpensePage extends Component {
     return (
       <div>
         <div className="page-header">
-          <div className="content-container">
+          <div className="content-container u-justify-content">
             <h1 className="page-header__title">Edit Expense</h1>
+            <Link className="button button--back" to="/dashboard">
+              Back
+            </Link>
           </div>
         </div>
         <div className="content-container">
           {/* Pass prop expense & onSubmit to ExpenseForm */}
           <ExpenseForm expense={this.props.expense} onSubmit={this.onSubmit} />
-          <button className="button button--remove-expense" onClick={this.onRemove}>
+          <button className="button button--remove" onClick={this.onRemove}>
             Remove Expense
           </button>
         </div>
