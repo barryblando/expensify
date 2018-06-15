@@ -5,3 +5,8 @@
   height: 48px; // same height as datepicker
   padding: $s-size;
 }
+
+%button {
+  background: $color-tertiary;
+  font-size: 2.2rem
+}
