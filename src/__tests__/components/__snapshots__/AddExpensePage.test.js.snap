@@ -6,13 +6,20 @@ exports[`Add Expense Page should render AddExpensePage correctly 1`] = `
     className="page-header"
   >
     <div
-      className="content-container"
+      className="content-container u-justify-content"
     >
       <h1
         className="page-header__title"
       >
         Add Expense
       </h1>
+      <Link
+        className="button button--back"
+        replace={false}
+        to="/dashboard"
+      >
+        Back
+      </Link>
     </div>
   </div>
   <div

@@ -115,7 +115,7 @@ exports[`Expense Form should render ExpenseForm correctly 1`] = `
   />
   <div>
     <button
-      className="button button--add-expense"
+      className="button button--add"
     >
       Add Expense
     </button>
@@ -238,7 +238,7 @@ exports[`Expense Form should render ExpenseForm with expense data 1`] = `
   />
   <div>
     <button
-      className="button button--add-expense"
+      className="button button--add"
     >
       Save Expense
     </button>
@@ -361,7 +361,7 @@ exports[`Expense Form should render error for invalid form submission 1`] = `
   />
   <div>
     <button
-      className="button button--add-expense"
+      className="button button--add"
     >
       Add Expense
     </button>
@@ -489,7 +489,7 @@ exports[`Expense Form should render error for invalid form submission 2`] = `
   />
   <div>
     <button
-      className="button button--add-expense"
+      className="button button--add"
     >
       Add Expense
     </button>

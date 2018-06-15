@@ -25,7 +25,7 @@ exports[`should correctly render ExpensesSummary with 1 expense 1`] = `
       className="page-header__actions"
     >
       <Link
-        className="button button--add-expense"
+        className="button button--add"
         replace={false}
         to="/create"
       >
@@ -61,7 +61,7 @@ exports[`should correctly render ExpensesSummary with multiple expense 1`] = `
       className="page-header__actions"
     >
       <Link
-        className="button button--add-expense"
+        className="button button--add"
         replace={false}
         to="/create"
       >

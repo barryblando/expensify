@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import ExpenseForm from './ExpenseForm';
 import { startAddExpense } from '../actions/expenses';
 
@@ -15,8 +16,11 @@ export class AddExpensePage extends Component {
     return (
       <div>
         <div className="page-header">
-          <div className="content-container">
+          <div className="content-container u-justify-content">
             <h1 className="page-header__title">Add Expense</h1>
+            <Link className="button button--back" to="/dashboard">
+              Back
+            </Link>
           </div>
         </div>
         <div className="content-container">
