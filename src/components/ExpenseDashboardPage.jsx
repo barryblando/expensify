@@ -1,12 +1,12 @@
 import React from 'react';
 import ExpenseList from './ExpenseList'; /* eslint-disable-line */
-import ExpenseListFilters from './ExpenseListFilters'; /* eslint-disable-line */
+import ListFilters from './ListFilters'; /* eslint-disable-line */
 import ExpensesSummary from './ExpensesSummary'; /* eslint-disable-line */
 
 const ExpenseDashboardPage = () => (
   <div>
     <ExpensesSummary />
-    <ExpenseListFilters />
+    <ListFilters />
     <ExpenseList />
   </div>
 );
