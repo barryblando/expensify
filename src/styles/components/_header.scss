@@ -5,6 +5,10 @@
   &__title {
     color: $color-white;
     text-decoration: none;
+
+    @include respond(atSmall) {
+      margin-right: auto;
+    }
   }
 
   &__title h1 {
@@ -13,9 +17,26 @@
   }
 
   &__content {
-    align-items: center;
     display: flex;
-    justify-content: space-between;
-    padding: $s-size 0;
+    align-items: center;
+    flex-direction: column;
+
+    @include respond(atSmall) {
+      flex-direction: row;
+      padding: $s-size 0;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    margin-bottom: $m-size;
+
+    @include respond(atSmall) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__navigation a {
+    margin-right: $s-size;
   }
 }
