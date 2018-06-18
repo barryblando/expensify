@@ -11,9 +11,17 @@ export const Header = props => (
         <Link className="header__title" to="/dashboard">
           <h1>Expensify</h1>
         </Link>
-        <button className="button button--logout" onClick={props.startLogout}>
-          Logout
-        </button>
+        <div className="header__navigation">
+          <Link className="button button--expense" to="/expense-dashboard">
+            Expense
+          </Link>
+          <Link className="button button--income" to="/income-dashboard">
+            Income
+          </Link>
+          <button className="button button--logout" onClick={props.startLogout}>
+            Logout
+          </button>
+        </div>
       </div>
     </div>
   </header>
