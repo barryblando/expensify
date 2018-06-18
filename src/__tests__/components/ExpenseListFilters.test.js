@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { shallow } from 'enzyme';
 import { DateRangePicker } from 'react-dates';
-import { ExpenseListFilters } from '../../components/ExpenseListFilters';
+import { ListFilters } from '../../components/ListFilters';
 import { filters, altFilters } from '../fixtures/filters';
 
 describe('Expense List Filters', () => {
@@ -21,7 +21,7 @@ describe('Expense List Filters', () => {
     setStartDate = jest.fn();
     setEndDate = jest.fn();
     wrapper = shallow(
-      <ExpenseListFilters
+      <ListFilters
         filters={filters}
         setTextFilter={setTextFilter}
         sortByDate={sortByDate}

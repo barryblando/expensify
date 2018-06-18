@@ -19,12 +19,30 @@ exports[`should render Header correctly 1`] = `
           Expensify
         </h1>
       </Link>
-      <button
-        className="button button--logout"
-        onClick={[Function]}
+      <div
+        className="header__navigation"
       >
-        Logout
-      </button>
+        <Link
+          className="button button--expense"
+          replace={false}
+          to="/expense-dashboard"
+        >
+          Expense
+        </Link>
+        <Link
+          className="button button--income"
+          replace={false}
+          to="/income-dashboard"
+        >
+          Income
+        </Link>
+        <button
+          className="button button--logout"
+          onClick={[Function]}
+        >
+          Logout
+        </button>
+      </div>
     </div>
   </div>
 </header>

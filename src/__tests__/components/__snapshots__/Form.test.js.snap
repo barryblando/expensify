@@ -110,14 +110,14 @@ exports[`Expense Form should render ExpenseForm correctly 1`] = `
   <textarea
     className="textarea"
     onChange={[Function]}
-    placeholder="Add a note for your expense (optional)"
+    placeholder="Add a note (optional)"
     value=""
   />
   <div>
     <button
       className="button button--add"
     >
-      Add Expense
+      Add
     </button>
   </div>
 </form>
@@ -233,14 +233,14 @@ exports[`Expense Form should render ExpenseForm with expense data 1`] = `
   <textarea
     className="textarea"
     onChange={[Function]}
-    placeholder="Add a note for your expense (optional)"
+    placeholder="Add a note (optional)"
     value=""
   />
   <div>
     <button
       className="button button--add"
     >
-      Save Expense
+      Save
     </button>
   </div>
 </form>
@@ -356,14 +356,14 @@ exports[`Expense Form should render error for invalid form submission 1`] = `
   <textarea
     className="textarea"
     onChange={[Function]}
-    placeholder="Add a note for your expense (optional)"
+    placeholder="Add a note (optional)"
     value=""
   />
   <div>
     <button
       className="button button--add"
     >
-      Add Expense
+      Add
     </button>
   </div>
 </form>
@@ -484,14 +484,14 @@ exports[`Expense Form should render error for invalid form submission 2`] = `
   <textarea
     className="textarea"
     onChange={[Function]}
-    placeholder="Add a note for your expense (optional)"
+    placeholder="Add a note (optional)"
     value=""
   />
   <div>
     <button
       className="button button--add"
     >
-      Add Expense
+      Add
     </button>
   </div>
 </form>
