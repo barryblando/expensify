@@ -5,7 +5,7 @@ import numeral from 'numeral';
 import { ISO_DATE_FORMAT, CURRENCY_FORMAT } from '../constants';
 
 const ExpenseListItem = ({ id, description, amount, createdAt }) => (
-  <Link className="list-item" to={`/edit/${id}`}>
+  <Link className="list-item" to={`/edit-expense/${id}`}>
     <div>
       <h3 className="list-item__title">{description}</h3>
       <span className="list-item__sub-title">{moment(createdAt).format(ISO_DATE_FORMAT)}</span>
