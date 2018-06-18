@@ -5,7 +5,7 @@ import { setTextFilter, sortByAmount, sortByDate, setStartDate, setEndDate } fro
 import { START_DATE, END_DATE } from '../constants';
 
 // eslint-disable-next-line
-export class ExpenseListFilters extends Component {
+export class ListFilters extends Component {
   state = {
     calendarFocused: null,
   };
@@ -55,7 +55,7 @@ export class ExpenseListFilters extends Component {
             <input
               type="text"
               className="text-input"
-              placeholder="Search Expenses"
+              placeholder="Search"
               value={this.props.filters.text}
               onChange={this.onTextChange}
             />
@@ -91,7 +91,7 @@ const defaultProps = {
   endDateId: END_DATE,
 };
 
-ExpenseListFilters.defaultProps = defaultProps;
+ListFilters.defaultProps = defaultProps;
 
 // Access state filters
 const mapStateToProps = state => ({
@@ -110,4 +110,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ExpenseListFilters);
+)(ListFilters);
