@@ -30,14 +30,14 @@ describe('Edit Expense Page', () => {
   });
 
   test('should handle editExpense', () => {
-    wrapper.find('ExpenseForm').prop('onSubmit')(expenses[2]);
-    expect(history.push).toHaveBeenLastCalledWith('/'); // expect history to have been last called with '/' route
+    wrapper.find('Form').prop('onSubmit')(expenses[2]);
+    expect(history.push).toHaveBeenLastCalledWith('/expense-dashboard'); // expect history to have been last called with '/' route
     expect(startEditExpense).toHaveBeenLastCalledWith(expenses[2].id, expenses[2]);
   });
 
   test('should handle removeExpense', () => {
     wrapper.find('button').simulate('click');
-    expect(history.push).toHaveBeenLastCalledWith('/'); // expect history to have been last called with '/' route
+    expect(history.push).toHaveBeenLastCalledWith('/expense-dashboard'); // expect history to have been last called with '/' route
     expect(startRemoveExpense).toHaveBeenLastCalledWith({ id: expenses[2].id }); // expect to be {"id":"3"}
   });
 });

@@ -2,7 +2,7 @@
 import database from '../firebase/firebase';
 
 // ------------------------------------------
-// ACTIONS FOR EXPENSE ARRAY REDUCER
+// ASYNC ACTIONS FOR EXPENSE ARRAY REDUCER
 // ------------------------------------------
 
 // -- ADD_EXPENSE --

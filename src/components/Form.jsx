@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
 
-export default class ExpenseForm extends React.Component {
+export default class Form extends Component {
   // --------------------------------------------------
-  // OWN STATE FOR ExpenseForm (Initial Values)
+  // OWN STATE FOR Exp & Inc Form (Initial Values)
   // Gonna use constructor to access props for state
   // --------------------------------------------------
   constructor(props) {
     super(props);
+    const isProp = props.expense ? 'expense' : 'income';
     this.state = {
-      // if props expense exist then use the current data that passed down otherwise use default
-      description: props.expense ? props.expense.description : '',
-      note: props.expense ? props.expense.note : '',
-      amount: props.expense ? (props.expense.amount / 100).toString() : '',
-      createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
+      // if props expense/income exist then use the current data that passed down otherwise use default
+      description: props[isProp] ? props[isProp].description : '',
+      note: props[isProp] ? props[isProp].note : '',
+      amount: props[isProp] ? (props[isProp].amount / 100).toString() : '',
+      createdAt: props[isProp] ? moment(props[isProp].createdAt) : moment(),
       calendarFocused: false,
       error: '',
     };
@@ -72,7 +73,7 @@ export default class ExpenseForm extends React.Component {
       this.setState(() => ({ error: 'Please provide description and amount' }));
     } else {
       this.setState(() => ({ error: '' }));
-      // Pass data back to Component that uses ExpenseForm (AddExpense or EditExpense) in order to dispatch
+      // Pass data back to Component that uses Form (Add & Edit Income or Add & Edit Expense) in order to dispatch
       this.props.onSubmit({
         description: this.state.description,
         amount: parseFloat(this.state.amount, 10) * 100,
@@ -113,13 +114,13 @@ export default class ExpenseForm extends React.Component {
           isOutsideRange={() => false}
         />
         <textarea
-          placeholder="Add a note for your expense (optional)"
+          placeholder="Add a note (optional)"
           className="textarea"
           value={this.state.note}
           onChange={this.onNoteChange}
         />
         <div>
-          <button className="button button--add">{this.props.expense ? 'Save Expense' : 'Add Expense'}</button>
+          <button className="button button--add">{this.props.expense ? 'Save' : 'Add'}</button>
         </div>
       </form>
     );

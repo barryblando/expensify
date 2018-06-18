@@ -17,7 +17,7 @@ import 'react-dates/lib/css/_datepicker.css'; // import default style for date p
 import './styles/style.scss';
 
 // App & Loading Page
-import AppRouter, { history } from './routers/AppRouter';
+import AppRouter, { history, basename } from './routers/AppRouter';
 import LoadingPage from './components/LoadingPage';
 
 // Firebase
@@ -26,6 +26,7 @@ import { firebase } from './firebase/firebase';
 // State Management (Redux), actions, now can use dispatch, getState, & subscribe
 import configureStore from './store/configureStore';
 import { startSetExpenses } from './actions/expenses';
+import { startSetIncomes } from './actions/incomes';
 import { login, logout } from './actions/auth';
 
 const store = configureStore;
@@ -46,6 +47,15 @@ const renderApp = () => {
   }
 };
 
+function setExpensesIncomes() {
+  return async dispatch => {
+    const dispatchExpenses = dispatch(startSetExpenses());
+    const dispatchIncomes = dispatch(startSetIncomes());
+    const result = await Promise.all([dispatchExpenses, dispatchIncomes]);
+    return result;
+  };
+}
+
 console.log(store.getState().auth.uid);
 
 render(<LoadingPage />, document.getElementById('app'));
@@ -58,9 +68,9 @@ firebase.auth().onAuthStateChanged(user => {
     // dispatch action login to store uid
     store.dispatch(login(user.uid));
     // dispatch action setExpenses & get the authenticated uid from the state
-    store.dispatch(startSetExpenses()).then(() => {
+    store.dispatch(setExpensesIncomes()).then(() => {
       renderApp();
-      if (history.location.pathname === '/') {
+      if (history.location.pathname === basename) {
         push('/dashboard');
       }
       console.log('logged in', user.uid);

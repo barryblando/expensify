@@ -16,7 +16,7 @@ exports[`Edit Expense Page should render EditExpensePage correctly 1`] = `
       <Link
         className="button button--back"
         replace={false}
-        to="/dashboard"
+        to="/expense-dashboard"
       >
         Back
       </Link>
@@ -25,7 +25,7 @@ exports[`Edit Expense Page should render EditExpensePage correctly 1`] = `
   <div
     className="content-container"
   >
-    <ExpenseForm
+    <Form
       expense={
         Object {
           "amount": 4500,

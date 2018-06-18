@@ -20,8 +20,8 @@ describe('Add Expense Page', () => {
   });
 
   test('should handle editExpense', () => {
-    wrapper.find('ExpenseForm').prop('onSubmit')(expenses[1]);
-    expect(history.push).toHaveBeenLastCalledWith('/'); // expect history to have been last called with '/' route
+    wrapper.find('Form').prop('onSubmit')(expenses[1]);
+    expect(history.push).toHaveBeenLastCalledWith('/expense-dashboard'); // expect history to have been last called with '/' route
     expect(startAddExpense).toHaveBeenLastCalledWith(expenses[1]);
   });
 });

@@ -14,6 +14,7 @@ import rootReducer from '../reducers/index';
 // Create an object for the default data
 const defaultState = {
   expenses: [],
+  incomes: [],
   filters: {
     text: '',
     sortBy: 'date',
@@ -28,11 +29,8 @@ const history = createHistory();
 
 const configureStore = createStore(
   connectRouter(history)(rootReducer), // new root reducer with router state
-  // rootReducer,
   defaultState,
-  // composeEnhancers(applyMiddleware(thunk))
   composeEnhancers(applyMiddleware(routerMiddleware(history), thunk))
-  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() // for redux dev tool
 );
 
 // </reference https://stackoverflow.com/questions/47343572/react-hot-reload-with-redux

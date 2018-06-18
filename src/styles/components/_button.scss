@@ -64,4 +64,9 @@
   &--back {
     @extend %button;
   }
+
+  &--expense, &--income {
+    @extend %button;
+    // text-align: center;
+  }
 }
