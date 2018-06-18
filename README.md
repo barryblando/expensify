@@ -25,6 +25,9 @@
 - [When to use Component or PureComponent](https://codeburst.io/when-to-use-component-or-purecomponent-a60cfad01a81)
 - [React + Redux Architecture](https://github.com/hirviid/react-redux-architecture)
 - [React Internals - How React Works (Used React 15, a bit outdated but good grasp is what you need)](http://www.mattgreer.org/articles/react-internals-part-one-basic-rendering/)
+- [Structuring projects and naming components in React](https://hackernoon.com/structuring-projects-and-naming-components-in-react-1261b6e18d76)
+- [Using Destructure and Spread in React Components](https://www.carlrippon.com/writing-concise-react-components-with-destructure-assignment-and-spread/)
+- [Tips on Creating Reusable Components](https://dev.to/ganderzz/tips-on-creating-reusable-components-376j)
 
 ## Redux References
 
@@ -37,6 +40,7 @@
 - [Building CRUD App with React + Redux](http://www.thegreatcodeadventure.com/building-a-simple-crud-app-with-react-redux-part-1/#table-of-contents)
 - [React + Redux Architecture : Separation of Concerns](https://medium.com/prod-io/react-redux-architecture-part-1-separation-of-concerns-812da3b08b46)
 - [10 Tips for Better Redux Architecture](https://medium.com/javascript-scene/10-tips-for-better-redux-architecture-69250425af44)
+- [Using Redux DevTools in Production](https://medium.com/@zalmoxis/using-redux-devtools-in-production-4c5b56c5600f)
 
 ## Test Suite
 
@@ -92,3 +96,4 @@
 - [Pros-Cons of Using Redux-Saga with ES6 Generators vs Redux-Thunk with ES2017 Async/Await](https://stackoverflow.com/questions/34930735/pros-cons-of-using-redux-saga-with-es6-generators-vs-redux-thunk-with-es2017-asy/34933395#34933395)
 - [A quick explanation of Redux Observable.](https://dev.to/papaponmx/a-quick-explanation-to-redux-observable--16b5)
 - [Async actions in Redux with RxJS and Redux Observable](https://dev.to/andrejnaumovski/async-actions-in-redux-with-rxjs-and-redux-observable-efg)
+- [State appears as empty object in "react" dev tools](https://stackoverflow.com/questions/43948798/state-appears-as-empty-object-in-redux-dev-tools)
