@@ -15,7 +15,7 @@ console.log(`Using file '.env.${process.env.NODE_ENV}' for env variable`);
 
 module.exports = {
   mode: 'development',
-  entry: ['./src/app.js'],
+  entry: ['babel-polyfill', './src/app.js'],
   output: {
     path: path.join(__dirname, '..', 'app'),
     publicPath: '/',
