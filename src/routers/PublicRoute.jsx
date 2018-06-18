@@ -5,8 +5,12 @@ import Header from '../components/Header'; // eslint-disable-line
 
 // PublicRoute wrapper around Route Components, in order to add some conditional logic
 // To determined if users are authenticated or not, redirecting or rendering public component i.e LoginPage
-export const PublicRoute = ({ isAuthenticated, component: Component, ...rest }) => (
-  <Route {...rest} component={props => (isAuthenticated ? <Redirect to="/dashboard" /> : <Component {...props} />)} />
+// destructure props is isAuthenticated, component, and the rest (i.e path, exact)
+export const PublicRoute = ({ isAuthenticated, component: ComponentPage, ...rest }) => (
+  <Route
+    {...rest}
+    component={props => (isAuthenticated ? <Redirect to="/dashboard" /> : <ComponentPage {...props} />)}
+  />
 );
 
 const mapStateToProps = state => ({
