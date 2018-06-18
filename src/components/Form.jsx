@@ -120,7 +120,7 @@ export default class Form extends Component {
           onChange={this.onNoteChange}
         />
         <div>
-          <button className="button button--add">{this.props.expense ? 'Save' : 'Add'}</button>
+          <button className="button button--add">Save</button>
         </div>
       </form>
     );
