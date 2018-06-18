@@ -22,14 +22,14 @@ export class EditIncomePage extends Component {
         <div className="page-header">
           <div className="content-container u-justify-content">
             <h1 className="page-header__title">Edit Income</h1>
-            <Link className="button button--back" to="/expense-dashboard">
+            <Link className="button button--back" to="/income-dashboard">
               Back
             </Link>
           </div>
         </div>
         <div className="content-container">
-          {/* Pass prop expense & onSubmit to Form */}
-          <Form expense={this.props.income} onSubmit={this.onSubmit} />
+          {/* Pass prop income & onSubmit to Form */}
+          <Form income={this.props.income} onSubmit={this.onSubmit} />
           <button className="button button--remove" onClick={this.onRemove}>
             Remove Income
           </button>
