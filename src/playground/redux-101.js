@@ -25,8 +25,8 @@ const resetCount = () => ({
 });
 
 // Reducers
-// 1. Reducers are pure functions
-// 2. Never change state or action, just reading off of two arguments/parameters
+// 1. Never change state or action, just reading off of two arguments/parameters
+// 2. Reducers are pure functions
 const countReducer = (state = { count: 0 }, action) => {
   switch (action.type) {
     case 'INCREMENT':
@@ -44,7 +44,9 @@ const countReducer = (state = { count: 0 }, action) => {
   }
 };
 
-// createStore is where you create your state container, params can't be empty </reference https://redux.js.org/basics/store
+// Store
+// - Single source of truth (single big object of state)
+// is where you create your state container, params can't be empty </reference https://redux.js.org/basics/store
 // when setting parameters this is same as this.setState((prevState) => { return prevState });
 // but use reducers as parameter
 const store = createStore(countReducer);
