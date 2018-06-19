@@ -4,6 +4,7 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import DotEnv from 'dotenv';
+import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
 
 const path = require('path');
 
@@ -15,7 +16,7 @@ console.log(`Using file '.env.${process.env.NODE_ENV}' for env variable`);
 
 module.exports = {
   mode: 'development',
-  entry: ['babel-polyfill', './src/app.js'],
+  entry: ['babel-polyfill', './src/index.js'],
   output: {
     path: path.join(__dirname, '..', 'app'),
     publicPath: '/',
@@ -53,5 +54,15 @@ module.exports = {
       inject: true,
       template: 'app/index.html',
     }),
+    new BrowserSyncPlugin(
+      {
+        host: 'localhost',
+        port: 5000,
+        proxy: 'http://localhost:5000',
+      },
+      {
+        reload: false,
+      }
+    ),
   ],
 };
