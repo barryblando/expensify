@@ -13,13 +13,13 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 const sourcePath = path.join(__dirname, '..', 'src');
 const publicPath = path.join(__dirname, '..', 'public');
 
-console.log(path.resolve(sourcePath, 'app.js'));
+console.log(path.resolve(sourcePath, 'index.js'));
 console.log('WEBPACK ENV:', process.env.NODE_ENV);
 
 module.exports = {
   mode: 'production',
   entry: {
-    app: ['babel-polyfill', path.resolve(sourcePath, 'app.js')],
+    index: ['babel-polyfill', path.resolve(sourcePath, 'index.js')],
   },
   output: {
     path: publicPath,
