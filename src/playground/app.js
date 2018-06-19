@@ -2,7 +2,7 @@ class IndecisionApp extends React.Component {
   constructor(props) {
     // <reference https://stackoverflow.com/questions/40433463/what-does-calling-super-in-a-react-constructor-do
     // super() will call the constructor of its parent class. This is required when you need to access some variables from the parent class.
-    // In React, when you call super with props. React will make props available across the component through 'this.props'
+    // In React, super allows you to access the constructor method of the parent class. The only reason to include props is to access this.props inside of your constructor.
     super(props);
     // Manually bind the 'this' to the current instance for event handlers
     // Event handlers have problem maintaining 'this' binding

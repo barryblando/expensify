@@ -89,7 +89,7 @@
 - [Stylelint SASS Guidelines](https://github.com/bjankord/stylelint-config-sass-guidelines)
 - [Stylelint Config rules](https://stylelint.io/user-guide/example-config/)
 
-## Misc & Solutions
+## Misc, Question & Solutions
 
 - [react/prefer-stateless-function](https://stackoverflow.com/questions/43378911/eslint-component-should-be-written-as-a-pure-function-react-prefer-stateless)
 - [6 ways to declare Javascript functions](https://dmitripavlutin.com/6-ways-to-declare-javascript-functions/) - For Clean Code
@@ -97,3 +97,4 @@
 - [A quick explanation of Redux Observable.](https://dev.to/papaponmx/a-quick-explanation-to-redux-observable--16b5)
 - [Async actions in Redux with RxJS and Redux Observable](https://dev.to/andrejnaumovski/async-actions-in-redux-with-rxjs-and-redux-observable-efg)
 - [State appears as empty object in "react" dev tools](https://stackoverflow.com/questions/43948798/state-appears-as-empty-object-in-redux-dev-tools)
+- [What's the difference between “super()” and “super(props)” in React when using es6 classes?](https://stackoverflow.com/questions/30571875/whats-the-difference-between-super-and-superprops-in-react-when-using-e?rq=1)
