@@ -3,6 +3,9 @@ import { Route, Switch } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 import { ConnectedRouter } from 'connected-react-router';
 
+// Hot Module Replacement
+import { hot } from 'react-hot-loader'; // eslint-disable-line
+
 // Components
 import DashboardPage from '../components/DashboardPage';
 import ExpenseDashboardPage from '../components/ExpenseDashboardPage';
@@ -44,4 +47,4 @@ const AppRouter = () => (
   </ConnectedRouter>
 );
 
-export default AppRouter;
+export default hot(module)(AppRouter);

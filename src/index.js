@@ -5,9 +5,6 @@ import { Provider as ReduxProvider } from 'react-redux';
 // fixed ThemedStyleSheet undefined
 import 'react-dates/initialize';
 
-// Hot Module Replacement
-import { hot } from 'react-hot-loader';
-
 // Connected Router
 import { push } from 'connected-react-router';
 
@@ -82,5 +79,3 @@ firebase.auth().onAuthStateChanged(user => {
     console.log('logged out');
   }
 });
-
-export default hot(module)(app); // for React hot loader
