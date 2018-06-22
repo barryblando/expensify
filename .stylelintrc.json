@@ -1,7 +1,12 @@
 {
-  "plugins": ["stylelint-order", "stylelint-scss"],
+  "plugins": [
+    "stylelint-order",
+    "stylelint-scss"
+  ],
   "rules": {
-    "at-rule-blacklist": ["debug"],
+    "at-rule-blacklist": [
+      "debug"
+    ],
     "at-rule-no-unknown": null,
     "at-rule-no-vendor-prefix": true,
     "block-no-empty": true,
@@ -19,11 +24,21 @@
     "declaration-colon-space-after": "always-single-line",
     "declaration-colon-space-before": "never",
     "declaration-property-value-blacklist": {
-      "border": ["none"],
-      "border-top": ["none"],
-      "border-right": ["none"],
-      "border-bottom": ["none"],
-      "border-left": ["none"]
+      "border": [
+        "none"
+      ],
+      "border-top": [
+        "none"
+      ],
+      "border-right": [
+        "none"
+      ],
+      "border-bottom": [
+        "none"
+      ],
+      "border-left": [
+        "none"
+      ]
     },
     "function-comma-space-after": "always-single-line",
     "function-parentheses-space-inside": "never",
@@ -73,14 +88,20 @@
     "rule-empty-line-before": [
       "always-multi-line",
       {
-        "except": ["first-nested"],
-        "ignore": ["after-comment"]
+        "except": [
+          "first-nested"
+        ],
+        "ignore": [
+          "after-comment"
+        ]
       }
     ],
     "scss/at-extend-no-missing-placeholder": true,
     "scss/at-function-pattern": "^[a-z]+([a-z0-9-]+[a-z0-9]+)?$",
     "scss/at-import-no-partial-leading-underscore": true,
-    "scss/at-import-partial-extension-blacklist": ["scss"],
+    "scss/at-import-partial-extension-blacklist": [
+      "scss"
+    ],
     "scss/at-mixin-pattern": "^[a-z]+([a-z0-9-]+[a-z0-9]+)?$",
     "scss/at-rule-no-unknown": true,
     "scss/dollar-variable-colon-space-after": "always",
