@@ -30,7 +30,7 @@
     "playground:watch": "babel src/playground/counter-example-state.js --out-file=public/scripts/app.js --presets=env,react -w",
     "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
     "stylelint": "stylelint \"src/styles/**/*.scss\" --config .stylelintrc.json",
-    "clean:package": "rm -rf node_modules && yarn cache clean --force && yarn install"
+    "clean:package": "rm -rf node_modules && yarn --force cache clean && yarn --force install"
   },
   "dependencies": {
     "autoprefixer": "^8.6.2",
@@ -83,7 +83,6 @@
     "@types/react-router-dom": "^4.2.7",
     "browser-sync": "^2.24.4",
     "browser-sync-webpack-plugin": "^2.2.2",
-    "chalk": "^2.4.1",
     "cross-env": "^5.2.0",
     "dotenv": "^6.0.0",
     "enzyme": "^3.3.0",
@@ -106,6 +105,7 @@
     "raf": "^3.4.0",
     "react-hot-loader": "^4.3.3",
     "react-test-renderer": "^16.4.1",
+    "redux-logger": "^3.0.6",
     "redux-mock-store": "^1.5.3",
     "signale": "^1.2.1",
     "stylelint": "^9.3.0",
