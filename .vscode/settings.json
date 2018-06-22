@@ -1,40 +1,39 @@
 {
-  "nodeTdd.activateOnStartup": false,
-  "cSpell.words": [
-    "add",
-    "datepicker",
-    "dev",
-    "devtools",
-    "entrypoints",
-    "expensify",
-    "extension",
-    "flowtype",
-    "prettier",
-    "redux",
-    "scss",
-    "server",
-    "stylelint"
-  ],
-  "[javascript]": {
-    "editor.formatOnSave": false
-  },
-  "[scss]": {
-    "editor.formatOnSave": false
-  },
-  "files.associations": {
-    "*.js": "javascript",
-    "*.jsx": "javascriptreact",
-    ".stylelintrc": "json"
-  },
-  "prettier.disableLanguages": ["js"],
-  "editor.formatOnSave": true,
-  "files.autoSave": "onFocusChange",
-  "eslint.autoFixOnSave": true,
-  "eslint.alwaysShowStatus": true,
-  "emmet.includeLanguages": {
-    "javascript": "javascriptreact"
-  },
-  "emmet.syntaxProfiles": {
-    "javascript": "{jsx|js}"
-  },
+	"cSpell.words": [
+		"add",
+		"datepicker",
+		"dev",
+		"devtools",
+		"entrypoints",
+		"expensify",
+		"extension",
+		"flowtype",
+		"prettier",
+		"redux",
+		"scss",
+		"server",
+		"stylelint"
+	],
+	"[javascript]": {
+		"editor.formatOnSave": false
+	},
+	"[scss]": {
+		"editor.formatOnSave": false
+	},
+	"files.associations": {
+		"*.js": "javascript",
+		"*.jsx": "javascriptreact",
+		".stylelintrc": "json"
+	},
+	"prettier.disableLanguages": ["js", "json"],
+	"editor.formatOnSave": true,
+	"files.autoSave": "onFocusChange",
+	"eslint.autoFixOnSave": true,
+	"eslint.alwaysShowStatus": true,
+	"emmet.includeLanguages": {
+		"javascript": "javascriptreact"
+	},
+	"emmet.syntaxProfiles": {
+		"javascript": "{jsx|js}"
+	}
 }

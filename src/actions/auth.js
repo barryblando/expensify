@@ -1,8 +1,9 @@
 import { firebase, googleAuthProvider } from '../firebase/firebase';
+import { LOGIN, LOGOUT } from '../constants';
 
 // will set uid if startLogin has been dispatch
 export const login = uid => ({
-  type: 'LOGIN',
+  type: LOGIN,
   uid,
 });
 
@@ -13,7 +14,7 @@ export const startLogin = () => () =>
 
 // will unset uid if startLogout has been dispatch
 export const logout = () => ({
-  type: 'LOGOUT',
+  type: LOGOUT,
 });
 
 // return firebase authentications for promise chaining

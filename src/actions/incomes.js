@@ -1,5 +1,5 @@
-// import uuid from 'uuid';
 import database from '../firebase/firebase';
+import { ADD_INCOME, EDIT_INCOME, REMOVE_INCOME, SET_INCOMES } from '../constants';
 
 // ------------------------------------------
 // ASYNC ACTIONS FOR INCOME ARRAY REDUCER
@@ -7,7 +7,7 @@ import database from '../firebase/firebase';
 
 // -- ADD_INCOME --
 export const addIncome = income => ({
-  type: 'ADD_INCOME',
+  type: ADD_INCOME,
   income,
 });
 
@@ -32,7 +32,7 @@ export const startAddIncome = (incomeData = {}) => (dispatch, getState) => {
 
 // -- REMOVE_EXPENSE 'no default id required' --
 export const removeIncome = ({ id } = {}) => ({
-  type: 'REMOVE_INCOME',
+  type: REMOVE_INCOME,
   id,
 });
 
@@ -47,7 +47,7 @@ export const startRemoveIncome = ({ id } = {}) => (dispatch, getState) => {
 
 // -- EDIT_EXPENSE --
 export const editIncome = (id, updates) => ({
-  type: 'EDIT_INCOME',
+  type: EDIT_INCOME,
   id,
   updates,
 });
@@ -63,7 +63,7 @@ export const startEditIncome = (id, updates) => (dispatch, getState) => {
 
 // -- SET_EXPENSES --
 export const setIncomes = incomes => ({
-  type: 'SET_INCOMES',
+  type: SET_INCOMES,
   incomes,
 });
 
