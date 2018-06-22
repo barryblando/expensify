@@ -3,10 +3,10 @@
  */
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
+import { Signale } from 'signale';
 import path from 'path';
 import webpackConfig from './webpack.config.dev';
-
-const { Signale } = require('signale');
+import { devSignale } from './optionSignale';
 
 const options = {
   contentBase: path.resolve(__dirname, '..', 'app'),
@@ -18,29 +18,12 @@ const options = {
   compress: true,
 };
 
-const optionSignale = {
-  stream: process.stdout,
-  scope: 'DevServer',
-  types: {
-    listening: {
-      badge: '🛠️',
-      color: 'blue',
-      label: 'Listening',
-    },
-    error: {
-      badge: '❌',
-      color: 'red',
-      label: 'Error',
-    },
-  },
-};
-
-const signal = new Signale(optionSignale);
+const signal = new Signale(devSignale);
 
 WebpackDevServer.addDevServerEntrypoints(webpackConfig, options);
 const compiler = webpack(webpackConfig);
 const server = new WebpackDevServer(compiler, options);
 
-const port = 5000;
+const PORT = 5000;
 
-server.listen(port, 'localhost', err => (err ? signal.error(err) : signal.listening(`Port: ${port}`)));
+server.listen(PORT, 'localhost', err => (err ? signal.error(err) : signal.listening(`Port: ${PORT}`)));

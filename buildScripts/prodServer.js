@@ -5,10 +5,13 @@
  */
 import express from 'express';
 import path from 'path';
+import { Signale } from 'signale';
 import compress from 'compression';
-import chalk from 'chalk';
+import { prodSignale } from './optionSignale';
 
 /* eslint-disable no-console */
+
+const signal = new Signale(prodSignale);
 
 const port = process.env.PORT || 5000; // for heroku
 const app = express();
@@ -47,4 +50,4 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public/index.html'));
 });
 
-app.listen(port, err => (err ? console.log(chalk.red(err)) : console.log(chalk.green('Server is Up!'))));
+app.listen(port, err => (err ? console.log(signal.error(err)) : console.log(signal.success('Server is Up!'))));
