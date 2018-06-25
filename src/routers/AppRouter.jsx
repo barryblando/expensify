@@ -1,10 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import createBrowserHistory from 'history/createBrowserHistory';
 import { ConnectedRouter } from 'connected-react-router';
 
 // Hot Module Replacement
 import { hot } from 'react-hot-loader'; // eslint-disable-line
+
+import history from '../routers/dev-history';
 
 // Components
 import DashboardPage from '../components/DashboardPage';
@@ -26,8 +27,6 @@ import PublicRoute from './PublicRoute'; // eslint-disable-line
  * otherwise it will find until the very last route which doesn't have a path, which is Not Found/404.
  * component prop is where path will be targeting at
 */
-
-export const history = createBrowserHistory();
 
 const AppRouter = () => (
   <ConnectedRouter history={history}>
