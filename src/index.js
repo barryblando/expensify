@@ -14,8 +14,9 @@ import 'react-dates/lib/css/_datepicker.css'; // import default style for date p
 import './styles/style.scss';
 
 // App & Loading Page
-import AppRouter, { history, basename } from './routers/AppRouter';
+import AppRouter from './routers/AppRouter';
 import LoadingPage from './components/LoadingPage';
+import history from './routers/dev-history';
 
 // Firebase
 import { firebase } from './firebase/firebase';
@@ -67,7 +68,7 @@ firebase.auth().onAuthStateChanged(user => {
     // dispatch action setExpenses & get the authenticated uid from the state
     store.dispatch(setExpensesIncomes()).then(() => {
       renderApp();
-      if (history.location.pathname === basename) {
+      if (history.location.pathname === '/') {
         push('/dashboard');
       }
       console.log('logged in:', user.uid);
