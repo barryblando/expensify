@@ -5,21 +5,29 @@
   ],
   "env": {
     "test": {
-      "presets": ["env", "react"],
+      "presets": [
+        "env",
+        "react"
+      ],
       "plugins": [
-        "transform-object-rest-spread", [
+        "transform-object-rest-spread",
+        [
           "transform-class-properties",
           {
             "spec": true
           }
         ],
-        "react-hot-loader/babel",
+        "react-hot-loader/babel"
       ]
     }
   },
   "plugins": [
-    "transform-object-rest-spread", ["transform-class-properties", {
-      "spec": true
-    }]
+    "transform-object-rest-spread",
+    [
+      "transform-class-properties",
+      {
+        "spec": true
+      }
+    ]
   ]
 }
