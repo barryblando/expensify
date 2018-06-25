@@ -43,7 +43,7 @@ const mapStateToProps = (state, props) => ({
   income: state.incomes.find(income => income.id === props.match.params.id),
 });
 
-const mapDispatchToProps = (dispatch, props) => ({
+const mapDispatchToProps = dispatch => ({
   startEditIncome: (id, income) => dispatch(startEditIncome(id, income)),
   startRemoveIncome: data => dispatch(startRemoveIncome(data)),
 });

@@ -25,10 +25,8 @@ export const IncomesSummary = ({ incomesTotal, incomeCount }) => {
   );
 };
 
-// Map the State
 const mapStateToProps = state => {
   const visibleIncomes = selectIncomes(state.incomes, state.filters);
-  // get the length & total of the visible expenses
   return {
     incomeCount: visibleIncomes.length,
     incomesTotal: selectIncomesTotal(visibleIncomes),
