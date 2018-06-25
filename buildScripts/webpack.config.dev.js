@@ -4,7 +4,6 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import DotEnv from 'dotenv';
-import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
 
 const path = require('path');
 
@@ -54,17 +53,5 @@ module.exports = {
       inject: true,
       template: 'app/index.html',
     }),
-    new BrowserSyncPlugin(
-      {
-        host: 'localhost',
-        port: 5001,
-        proxy: 'http://localhost:5000',
-        ws: true,
-        open: false,
-      },
-      {
-        reload: false,
-      }
-    ),
   ],
 };

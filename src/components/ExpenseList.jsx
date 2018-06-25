@@ -14,7 +14,7 @@ export const ExpenseList = props => (
       <div className="show-for-desktop">Expense</div>
       <div className="show-for-desktop">Amount</div>
     </div>
-    {/* To pass state expense. spread it out through the props in ExpenseListItem so destruct is possible */}
+    {/* To pass state expense. spread it out through the props in ExpenseListItem so it can be destruct */}
     <div className="list-body">
       {props.expenses.length === 0 ? (
         <div className="list-item list-item--message">
@@ -27,13 +27,20 @@ export const ExpenseList = props => (
   </div>
 );
 
-// when connected this maps the redux store to access and pass state to component as props
-// will use the selector expenses
+// when connected, this maps the redux store to access and pass state to component as props
+// list filtered expenses only
 const mapStateToProps = state => ({
   expenses: selectExpenses(state.expenses, state.filters),
 });
 
-// Connect component to redux store using Higher Order Component
-// function in connect determines what information from the store we want our ExpenseList to be able to access
+// Connect component to redux store using Higher Order Component (i.e connect)
+// mapStateToProps in connect determines what information/state from the store we want our ExpenseList to access
 // Implicitly Export default the Connected Component
 export default connect(mapStateToProps)(ExpenseList);
+
+// -- HOC ? let's say WrappedComponent(i.e ExpenseList) --
+// const connect = (injectedStateProp, injectedDispatchProp) => WrappedComponent => {
+//   props here are values injected by other Component (e.g Router that passes down match prop)
+//   const connect = props => <WrappedComponent {...injectedStateProp} {...injectedDispatchProp} {...props} />
+//   return connect;
+// }

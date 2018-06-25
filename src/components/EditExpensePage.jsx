@@ -49,7 +49,7 @@ const mapStateToProps = (state, props) => ({
 });
 
 // Pass dispatchers as props
-const mapDispatchToProps = (dispatch, props) => ({
+const mapDispatchToProps = dispatch => ({
   startEditExpense: (id, expense) => dispatch(startEditExpense(id, expense)),
   startRemoveExpense: data => dispatch(startRemoveExpense(data)),
 });

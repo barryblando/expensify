@@ -1,8 +1,10 @@
 import React from 'react';
-import ExpenseList from './ExpenseList'; /* eslint-disable-line */
-import ListFilters from './ListFilters'; /* eslint-disable-line */
-import ExpensesSummary from './ExpensesSummary'; /* eslint-disable-line */
+import Chart from './Chart';
 
-const DashboardPage = () => <div>Root</div>;
+const DashboardPage = () => (
+  <div>
+    <Chart />
+  </div>
+);
 
 export default DashboardPage;

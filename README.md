@@ -23,6 +23,7 @@
 - [React Router DOM v4 Tutorial](https://www.techiediaries.com/react-router-dom-v4/)
 - [Stateful vs Stateless Functional Components in React](https://code.tutsplus.com/tutorials/stateful-vs-stateless-functional-components-in-react--cms-29541)
 - [When to use Component or PureComponent](https://codeburst.io/when-to-use-component-or-purecomponent-a60cfad01a81)
+- [React — Composing Higher-Order Components (HOCs)](https://medium.com/dailyjs/react-composing-higher-order-components-hocs-3a5288e78f55)
 - [React + Redux Architecture](https://github.com/hirviid/react-redux-architecture)
 - [React Internals - How React Works (Used React 15, a bit outdated but good grasp is what you need)](http://www.mattgreer.org/articles/react-internals-part-one-basic-rendering/)
 - [Structuring projects and naming components in React](https://hackernoon.com/structuring-projects-and-naming-components-in-react-1261b6e18d76)
@@ -63,6 +64,7 @@
 - [React Hot Reloader Github](https://github.com/gaearon/react-hot-loader)
 - [React Hot Reloader Get Started](http://gaearon.github.io/react-hot-loader/getstarted/)
 - [Issues 2016 - RHL](https://github.com/gaearon/react-hot-loader/issues/243)
+- [Hooking up React](https://lawrencewhiteside.com/writing/article/webpack-beyond-the-basics/hooking-up-react/)
 
 ## Babel Stage 2 & 3 Plugin [will update after stage 4]
 
@@ -72,6 +74,9 @@
 ## Third Party Component Used
 
 - [MomentJS](http://momentjs.com/)
+- [NumeralJS](http://numeraljs.com/)
+- [ChartJS](http://www.chartjs.org)
+- [React ChartJS 2](https://github.com/jerairrest/react-chartjs-2)
 - [React-Dates](https://github.com/airbnb/react-dates)
 
 ## Production Build Guides & Using GZIP
