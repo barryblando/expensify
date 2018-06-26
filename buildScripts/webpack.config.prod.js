@@ -6,6 +6,7 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import WebpackMd5Hash from 'webpack-md5-hash';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
@@ -123,6 +124,16 @@ module.exports = {
   ],
   optimization: {
     minimize: true,
+    minimizer: [
+      new UglifyJsPlugin({
+        sourceMap: true,
+        uglifyOptions: {
+          compress: {
+            inline: false,
+          },
+        },
+      }),
+    ],
     runtimeChunk: true,
     splitChunks: {
       chunks: 'async',
