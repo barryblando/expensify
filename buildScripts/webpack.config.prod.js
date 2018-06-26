@@ -9,6 +9,7 @@ import CompressionPlugin from 'compression-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import WebpackMd5Hash from 'webpack-md5-hash';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import AsyncChunkNames from 'webpack-async-chunk-names-plugin';
 
 const sourcePath = path.join(__dirname, '..', 'src');
 const publicPath = path.join(__dirname, '..', 'public');
@@ -25,6 +26,7 @@ module.exports = {
     path: publicPath,
     publicPath: '',
     filename: 'js/[name].[hash].js',
+    chunkFilename: 'js/[name].[hash:6].js',
   },
   devtool: 'source-map',
   module: {
@@ -76,6 +78,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin([{ from: './src/images', to: 'images' }]),
     new WebpackMd5Hash(),
+    new AsyncChunkNames(),
     new webpack.HashedModuleIdsPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new HtmlWebpackPlugin({
@@ -137,6 +140,25 @@ module.exports = {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
           priority: -10,
+        },
+        vendor: {
+          // name of the chunk
+          name: 'vendor',
+          // sync + async chunks
+          chunks: 'all',
+          // import file path containing node_modules
+          test: /[\\/]node_modules[\\/]/,
+          // priority
+          priority: 20,
+        },
+        // common chunk
+        common: {
+          name: 'common',
+          minChunks: 2,
+          chunks: 'async',
+          priority: 10,
+          reuseExistingChunk: true,
+          enforce: true,
         },
       },
     },
