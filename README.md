@@ -87,6 +87,8 @@
 - [Two Quick Ways to reduce react app size in Production](https://medium.com/@rajaraodv/two-quick-ways-to-reduce-react-apps-size-in-production-82226605771a)
 - [StackOverflow - GZIP](https://stackoverflow.com/questions/44739374/serve-gzip-html-page-in-node)
 - [StackOverflow - Express + GZIP](https://stackoverflow.com/questions/6370478/express-gzip-static-content)
+- [Optimize React Build for Production with Webpack](https://michalzalecki.com/optimize-react-build-for-production-with-webpack/)
+- [Webpack 4 Mode and Optimization](https://medium.com/webpack/webpack-4-mode-and-optimization-5423a6bc597a)
 
 ## ESLint, Prettier, Stylelint Code Quality
 
