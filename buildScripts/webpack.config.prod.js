@@ -26,7 +26,7 @@ module.exports = {
     path: publicPath,
     publicPath: '',
     filename: 'js/[name].[hash].js',
-    chunkFilename: 'js/[name].[hash:6].js',
+    chunkFilename: 'js/[name].[hash].js',
   },
   devtool: 'source-map',
   module: {
