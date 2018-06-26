@@ -7,6 +7,7 @@ import express from 'express';
 import path from 'path';
 import { Signale } from 'signale';
 import compress from 'compression';
+import history from 'connect-history-api-fallback';
 import { prodSignale } from './optionSignale';
 
 /* eslint-disable no-console */
@@ -40,6 +41,8 @@ app.use(
     },
   })
 );
+
+app.use(history()); // middleware to proxy request for SPA as history fallback
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
