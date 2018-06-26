@@ -29,6 +29,7 @@
 - [Structuring projects and naming components in React](https://hackernoon.com/structuring-projects-and-naming-components-in-react-1261b6e18d76)
 - [Using Destructure and Spread in React Components](https://www.carlrippon.com/writing-concise-react-components-with-destructure-assignment-and-spread/)
 - [Tips on Creating Reusable Components](https://dev.to/ganderzz/tips-on-creating-reusable-components-376j)
+- [Atomic Design With React and Bit: Simplify a Complex UI](https://blog.bitsrc.io/simplify-complex-ui-by-implementing-the-atomic-design-in-react-with-bit-f4ad116ec8db)
 
 ## Redux References
 
@@ -104,3 +105,4 @@
 - [Async actions in Redux with RxJS and Redux Observable](https://dev.to/andrejnaumovski/async-actions-in-redux-with-rxjs-and-redux-observable-efg)
 - [State appears as empty object in "react" dev tools](https://stackoverflow.com/questions/43948798/state-appears-as-empty-object-in-redux-dev-tools)
 - [What's the difference between “super()” and “super(props)” in React when using es6 classes?](https://stackoverflow.com/questions/30571875/whats-the-difference-between-super-and-superprops-in-react-when-using-e?rq=1)
+- [Web App Routing with fallback](https://glebbahmutov.com/blog/routing-with-fallback/)
