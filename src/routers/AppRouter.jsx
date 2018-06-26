@@ -9,8 +9,9 @@ import history from '../routers/dev-history';
 
 // Components
 import DashboardPage from '../components/DashboardPage';
-import ExpenseDashboardPage from '../components/ExpenseDashboardPage';
-import IncomeDashboardPage from '../components/IncomeDashboardPage';
+import { AsyncExpenseDashboardPage, AsyncIncomeDashboardPage } from './AsyncRoutes';
+// import ExpenseDashboardPage from '../components/ExpenseDashboardPage';
+// import IncomeDashboardPage from '../components/IncomeDashboardPage';
 import AddExpensePage from '../components/AddExpensePage'; // eslint-disable-line
 import AddIncomePage from '../components/AddIncomePage'; // eslint-disable-line
 import EditExpensePage from '../components/EditExpensePage'; // eslint-disable-line
@@ -33,8 +34,8 @@ const AppRouter = () => (
     <Switch>
       <PublicRoute path="/" component={LoginPage} exact />
       <PrivateRoute path="/dashboard" component={DashboardPage} />
-      <PrivateRoute path="/expense-dashboard" component={ExpenseDashboardPage} />
-      <PrivateRoute path="/income-dashboard" component={IncomeDashboardPage} />
+      <PrivateRoute path="/expense-dashboard" component={AsyncExpenseDashboardPage} />
+      <PrivateRoute path="/income-dashboard" component={AsyncIncomeDashboardPage} />
       <PrivateRoute path="/create-expense" component={AddExpensePage} />
       <PrivateRoute path="/create-income" component={AddIncomePage} />
       {/* This is the same as express routes, :id will be pass as props.match.params key in EditExpensePage dynamically */}

@@ -11,7 +11,7 @@ import Header from '../components/Header'; // eslint-disable-line
 export const PrivateRoute = ({ isAuthenticated, component: ComponentPage, ...rest }) => (
   <Route
     {...rest}
-    component={props =>
+    render={props =>
       isAuthenticated ? (
         <div>
           <Header />
