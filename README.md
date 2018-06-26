@@ -82,6 +82,7 @@
 ## Production Build Guides & Using GZIP
 
 - [Webpack Production Build Tips](https://medium.com/netscape/webpack-3-react-production-build-tips-d20507dba99a)
+- [Webpack 4 Code Splitting using SplitChunksPlugin](https://itnext.io/react-router-and-webpack-v4-code-splitting-using-splitchunksplugin-f0a48f110312)
 - [Two Quick Ways to reduce react app size in Production](https://medium.com/@rajaraodv/two-quick-ways-to-reduce-react-apps-size-in-production-82226605771a)
 - [StackOverflow - GZIP](https://stackoverflow.com/questions/44739374/serve-gzip-html-page-in-node)
 - [StackOverflow - Express + GZIP](https://stackoverflow.com/questions/6370478/express-gzip-static-content)
