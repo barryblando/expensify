@@ -1,3 +1,5 @@
+import { ADD_INCOME, EDIT_INCOME, REMOVE_INCOME, SET_INCOMES } from '../constants';
+
 // ------------------------------------------
 // Incomes Reducer
 // ------------------------------------------
@@ -5,11 +7,11 @@ const incomeReducerDefaultState = [];
 
 export default (state = incomeReducerDefaultState, action) => {
   switch (action.type) {
-    case 'ADD_INCOME':
+    case ADD_INCOME:
       return [...state, action.income];
-    case 'REMOVE_INCOME':
+    case REMOVE_INCOME:
       return state.filter(({ id }) => id !== action.id); // filtered out if not match
-    case 'EDIT_INCOME':
+    case EDIT_INCOME:
       return state.map(income => {
         if (income.id === action.id) {
           return {
@@ -19,7 +21,7 @@ export default (state = incomeReducerDefaultState, action) => {
         }
         return income; // if no changes return
       });
-    case 'SET_INCOMES':
+    case SET_INCOMES:
       return action.incomes;
     default:
       return state;
