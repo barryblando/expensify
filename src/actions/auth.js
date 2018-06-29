@@ -1,6 +1,10 @@
 import { firebase, googleAuthProvider } from '../firebase/firebase';
 import { LOGIN, LOGOUT } from '../constants';
 
+// --------------------------------------------------
+// ASYNC ACTION CREATORS FOR AUTH REDUCER
+// --------------------------------------------------
+
 // will set uid if startLogin has been dispatch
 export const login = uid => ({
   type: LOGIN,

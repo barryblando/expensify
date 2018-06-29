@@ -1,9 +1,9 @@
 import database from '../firebase/firebase';
 import { ADD_INCOME, EDIT_INCOME, REMOVE_INCOME, SET_INCOMES } from '../constants';
 
-// ------------------------------------------
-// ASYNC ACTIONS FOR INCOME ARRAY REDUCER
-// ------------------------------------------
+// --------------------------------------------------
+// ASYNC ACTION CREATORS FOR INCOME ARRAY REDUCER
+// --------------------------------------------------
 
 // -- ADD_INCOME --
 export const addIncome = income => ({
