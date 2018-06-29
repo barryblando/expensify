@@ -44,6 +44,35 @@
 - [10 Tips for Better Redux Architecture](https://medium.com/javascript-scene/10-tips-for-better-redux-architecture-69250425af44)
 - [Using Redux DevTools in Production](https://medium.com/@zalmoxis/using-redux-devtools-in-production-4c5b56c5600f)
 
+## Redux Rules
+
+```markdown
+If you use Redux correctly, you’re going to get major benefits:
+
+- Eliminate timing dependency bugs (No race of Async Request & Render sequence)
+- Enable deterministic view renders (Isolated from network I/O and state updates)
+- Enable deterministic state reproduction (Transactional)
+- Enable easy undo/redo features
+- Simplify debugging
+- Become a time traveler
+
+But for any of that to work, you have to remember some rules:
+
+- Reducers must be pure functions
+- Reducers must be the single source of truth for their state
+- Reducer state should always be Serializable
+- Reducer state should not contain functions
+
+Also keep in mind:
+
+- Some Apps don’t need Redux
+- Use constants for action types
+- Use action creators to decouple action logic from dispatch callers
+- Use ES6 parameter defaults for self-describing signatures
+- Use selectors for calculated state and decoupling
+- Always use TDD!
+```
+
 ## Test Suite
 
 - [Jest](https://facebook.github.io/jest/)
@@ -67,7 +96,7 @@
 - [Issues 2016 - RHL](https://github.com/gaearon/react-hot-loader/issues/243)
 - [Hooking up React](https://lawrencewhiteside.com/writing/article/webpack-beyond-the-basics/hooking-up-react/)
 
-## Babel Stage 2 & 3 Plugin [will update after stage 4]
+## Babel Stage 2 & 3 Plugin [will update after stage 3]
 
 - [transform-object-rest-spread (Stage 3)](https://babeljs.io/docs/plugins/transform-object-rest-spread/)
 - [transform-class-properties (Stage 2)](https://babeljs.io/docs/plugins/transform-class-properties/)
