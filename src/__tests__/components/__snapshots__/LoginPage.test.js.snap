@@ -17,6 +17,7 @@ exports[`should render Login Page correctly 1`] = `
     </p>
     <button
       className="button button--login"
+      type="button"
     >
       Login with Google
     </button>

@@ -4,15 +4,16 @@ import { AddExpensePage } from '../../components/AddExpensePage';
 import { expenses } from '../fixtures/expenses';
 
 describe('Add Expense Page', () => {
-  let startAddExpense;
+  let AddExpense;
   let history;
   let wrapper;
 
   beforeEach(() => {
     // Spies means creating fake function to make assertions on it
-    startAddExpense = jest.fn(); // 1st spy
+    // right now we're creating spy for AddExpense dispatch prop & history
+    AddExpense = jest.fn(); // 1st spy
     history = { push: jest.fn() }; // 2nd spy
-    wrapper = shallow(<AddExpensePage startAddExpense={startAddExpense} history={history} />);
+    wrapper = shallow(<AddExpensePage AddExpense={AddExpense} history={history} />);
   });
 
   test('should render AddExpensePage correctly', () => {
@@ -22,6 +23,6 @@ describe('Add Expense Page', () => {
   test('should handle editExpense', () => {
     wrapper.find('Form').prop('onSubmit')(expenses[1]);
     expect(history.push).toHaveBeenLastCalledWith('/expense-dashboard'); // expect history to have been last called with '/' route
-    expect(startAddExpense).toHaveBeenLastCalledWith(expenses[1]);
+    expect(AddExpense).toHaveBeenLastCalledWith(expenses[1]);
   });
 });

@@ -39,6 +39,7 @@ exports[`should render Header correctly 1`] = `
         <button
           className="button button--logout"
           onClick={[Function]}
+          type="button"
         >
           Logout
         </button>

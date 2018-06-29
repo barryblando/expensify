@@ -6,28 +6,29 @@ import { ListFilters } from '../../components/ListFilters';
 import { filters, altFilters } from '../fixtures/filters';
 
 describe('Expense List Filters', () => {
-  let setTextFilter;
-  let sortByDate;
-  let sortByAmount;
-  let setStartDate;
-  let setEndDate;
+  let changeTextFilter;
+  let sortDate;
+  let sortAmount;
+  let changeStartDate;
+  let changeEndDate;
   let wrapper;
 
   beforeEach(() => {
     // Spies means creating fake function to make assertions on it
-    setTextFilter = jest.fn();
-    sortByDate = jest.fn();
-    sortByAmount = jest.fn();
-    setStartDate = jest.fn();
-    setEndDate = jest.fn();
+    // create spy for each dispatcher prop
+    changeTextFilter = jest.fn();
+    sortDate = jest.fn();
+    sortAmount = jest.fn();
+    changeStartDate = jest.fn();
+    changeEndDate = jest.fn();
     wrapper = shallow(
       <ListFilters
         filters={filters}
-        setTextFilter={setTextFilter}
-        sortByDate={sortByDate}
-        sortByAmount={sortByAmount}
-        setStartDate={setStartDate}
-        setEndDate={setEndDate}
+        changeTextFilter={changeTextFilter}
+        sortDate={sortDate}
+        sortAmount={sortAmount}
+        changeStartDate={changeStartDate}
+        changeEndDate={changeEndDate}
       />
     );
   });
@@ -49,7 +50,7 @@ describe('Expense List Filters', () => {
     wrapper.find('input').simulate('change', {
       target: { value },
     });
-    expect(setTextFilter).toHaveBeenLastCalledWith(value);
+    expect(changeTextFilter).toHaveBeenLastCalledWith(value);
   });
 
   test('should sort by date', () => {
@@ -60,7 +61,7 @@ describe('Expense List Filters', () => {
     wrapper.find('select').simulate('change', {
       target: { value },
     });
-    expect(sortByDate).toHaveBeenLastCalledWith();
+    expect(sortDate).toHaveBeenLastCalledWith();
   });
 
   test('should sort by amount', () => {
@@ -69,7 +70,7 @@ describe('Expense List Filters', () => {
       target: { value },
     });
     // expect sortByAmount was called
-    expect(sortByAmount).toHaveBeenLastCalledWith();
+    expect(sortAmount).toHaveBeenLastCalledWith();
   });
 
   test('should handle date changes ', () => {
@@ -78,8 +79,8 @@ describe('Expense List Filters', () => {
     console.log({ startDate, endDate });
     // find DateRangePicker and its prop onDatesChange then pass startDate, endDte on it then assert
     wrapper.find(DateRangePicker).prop('onDatesChange')({ startDate, endDate });
-    expect(setStartDate).toHaveBeenLastCalledWith(startDate);
-    expect(setEndDate).toHaveBeenLastCalledWith(endDate);
+    expect(changeStartDate).toHaveBeenLastCalledWith(startDate);
+    expect(changeEndDate).toHaveBeenLastCalledWith(endDate);
   });
 
   test('should handle date changes', () => {

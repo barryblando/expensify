@@ -4,21 +4,21 @@ import { EditExpensePage } from '../../components/EditExpensePage';
 import { expenses } from '../fixtures/expenses';
 
 describe('Edit Expense Page', () => {
-  let startEditExpense;
-  let startRemoveExpense;
+  let EditExpense;
+  let RemoveExpense;
   let history;
   let wrapper;
 
   // Runs a function before each of the tests in this file runs.
   beforeEach(() => {
     // Spies means creating fake function to make assertions on it
-    startEditExpense = jest.fn(); // 1st spy
-    startRemoveExpense = jest.fn(); // 2nd spy
+    EditExpense = jest.fn(); // 1st spy
+    RemoveExpense = jest.fn(); // 2nd spy
     history = { push: jest.fn() }; // 3rd spy
     wrapper = shallow(
       <EditExpensePage
-        startEditExpense={startEditExpense}
-        startRemoveExpense={startRemoveExpense}
+        EditExpense={EditExpense}
+        RemoveExpense={RemoveExpense}
         history={history}
         expense={expenses[2]}
       />
@@ -32,12 +32,12 @@ describe('Edit Expense Page', () => {
   test('should handle editExpense', () => {
     wrapper.find('Form').prop('onSubmit')(expenses[2]);
     expect(history.push).toHaveBeenLastCalledWith('/expense-dashboard'); // expect history to have been last called with '/' route
-    expect(startEditExpense).toHaveBeenLastCalledWith(expenses[2].id, expenses[2]);
+    expect(EditExpense).toHaveBeenLastCalledWith(expenses[2].id, expenses[2]);
   });
 
   test('should handle removeExpense', () => {
     wrapper.find('button').simulate('click');
     expect(history.push).toHaveBeenLastCalledWith('/expense-dashboard'); // expect history to have been last called with '/' route
-    expect(startRemoveExpense).toHaveBeenLastCalledWith({ id: expenses[2].id }); // expect to be {"id":"3"}
+    expect(RemoveExpense).toHaveBeenLastCalledWith({ id: expenses[2].id }); // expect to be {"id":"3"}
   });
 });

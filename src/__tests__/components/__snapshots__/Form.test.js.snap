@@ -94,7 +94,8 @@ exports[`Expense Form should render ExpenseForm correctly 1`] = `
     regular={false}
     renderCalendarInfo={null}
     renderDayContents={null}
-    renderMonth={null}
+    renderMonthElement={null}
+    renderMonthText={null}
     reopenPickerOnClearDate={false}
     required={false}
     screenReaderInputMessage=""
@@ -116,8 +117,9 @@ exports[`Expense Form should render ExpenseForm correctly 1`] = `
   <div>
     <button
       className="button button--add"
+      type="submit"
     >
-      Add
+      Save
     </button>
   </div>
 </form>
@@ -217,7 +219,8 @@ exports[`Expense Form should render ExpenseForm with expense data 1`] = `
     regular={false}
     renderCalendarInfo={null}
     renderDayContents={null}
-    renderMonth={null}
+    renderMonthElement={null}
+    renderMonthText={null}
     reopenPickerOnClearDate={false}
     required={false}
     screenReaderInputMessage=""
@@ -239,6 +242,7 @@ exports[`Expense Form should render ExpenseForm with expense data 1`] = `
   <div>
     <button
       className="button button--add"
+      type="submit"
     >
       Save
     </button>
@@ -340,7 +344,8 @@ exports[`Expense Form should render error for invalid form submission 1`] = `
     regular={false}
     renderCalendarInfo={null}
     renderDayContents={null}
-    renderMonth={null}
+    renderMonthElement={null}
+    renderMonthText={null}
     reopenPickerOnClearDate={false}
     required={false}
     screenReaderInputMessage=""
@@ -362,8 +367,9 @@ exports[`Expense Form should render error for invalid form submission 1`] = `
   <div>
     <button
       className="button button--add"
+      type="submit"
     >
-      Add
+      Save
     </button>
   </div>
 </form>
@@ -468,7 +474,8 @@ exports[`Expense Form should render error for invalid form submission 2`] = `
     regular={false}
     renderCalendarInfo={null}
     renderDayContents={null}
-    renderMonth={null}
+    renderMonthElement={null}
+    renderMonthText={null}
     reopenPickerOnClearDate={false}
     required={false}
     screenReaderInputMessage=""
@@ -490,8 +497,9 @@ exports[`Expense Form should render error for invalid form submission 2`] = `
   <div>
     <button
       className="button button--add"
+      type="submit"
     >
-      Add
+      Save
     </button>
   </div>
 </form>

@@ -40,6 +40,7 @@ exports[`Edit Expense Page should render EditExpensePage correctly 1`] = `
     <button
       className="button button--remove"
       onClick={[Function]}
+      type="button"
     >
       Remove Expense
     </button>
