@@ -5,13 +5,6 @@ import { createLogger } from 'redux-logger';
 import history from '../routers/dev-history';
 import rootReducer from '../reducers/index';
 
-// ------------------------------------------
-// Store Creation using combineReducer
-// for Multiple Reducers, when dispatching
-// its gonna be dispatch to both reducers,
-// but use switch to separate it by type
-// ------------------------------------------
-
 // Create an object for the default data
 const defaultState = {
   expenses: [],
