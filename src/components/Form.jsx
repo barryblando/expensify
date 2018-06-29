@@ -68,17 +68,19 @@ export default class Form extends Component {
   // ------------------------------------
   onSubmit = e => {
     e.preventDefault(); // prevent full page refresh
+    const { description, amount, createdAt, note } = this.state;
+    const { onSubmit } = this.props;
     // check if there's no description & amount then set error
-    if (!this.state.description || !this.state.amount) {
+    if (!description || !amount) {
       this.setState(() => ({ error: 'Please provide description and amount' }));
     } else {
       this.setState(() => ({ error: '' }));
       // Pass data back to Component that uses Form (Add & Edit Income or Add & Edit Expense) in order to dispatch
-      this.props.onSubmit({
-        description: this.state.description,
-        amount: parseFloat(this.state.amount, 10) * 100,
-        createdAt: this.state.createdAt.valueOf(),
-        note: this.state.note,
+      onSubmit({
+        description,
+        amount: parseFloat(amount, 10) * 100,
+        createdAt: createdAt.valueOf(),
+        note,
       });
     }
   };
@@ -87,40 +89,32 @@ export default class Form extends Component {
   // RENDER COMPONENTS
   // ------------------------------------
   render() {
+    const { description, amount, createdAt, note, error, calendarFocused } = this.state;
     return (
       <form className="form" onSubmit={this.onSubmit}>
-        {this.state.error && <p className="form__error">{this.state.error}</p>}
+        {error && <p className="form__error">{error}</p>}
         <input
           type="text"
           placeholder="Description"
           autoFocus // eslint-disable-line
           className="text-input"
-          value={this.state.description}
+          value={description}
           onChange={this.onDescriptionChange}
         />
-        <input
-          type="text"
-          placeholder="Amount"
-          className="text-input"
-          value={this.state.amount}
-          onChange={this.onAmountChange}
-        />
+        <input type="text" placeholder="Amount" className="text-input" value={amount} onChange={this.onAmountChange} />
         <SingleDatePicker
-          date={this.state.createdAt}
+          date={createdAt}
           onDateChange={this.onDateChange}
-          focused={this.state.calendarFocused}
+          focused={calendarFocused}
           onFocusChange={this.onFocusChange}
           numberOfMonths={1}
           isOutsideRange={() => false}
         />
-        <textarea
-          placeholder="Add a note (optional)"
-          className="textarea"
-          value={this.state.note}
-          onChange={this.onNoteChange}
-        />
+        <textarea placeholder="Add a note (optional)" className="textarea" value={note} onChange={this.onNoteChange} />
         <div>
-          <button className="button button--add">Save</button>
+          <button className="button button--add" type="submit">
+            Save
+          </button>
         </div>
       </form>
     );

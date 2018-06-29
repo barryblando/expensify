@@ -7,9 +7,10 @@ import { startAddIncome } from '../actions/incomes';
 // export the unconnected component for Testing
 export class AddIncomePage extends Component {
   onSubmit = income => {
-    this.props.startAddIncome(income);
+    const { AddIncome, history } = this.props;
+    AddIncome(income);
     // go back to dashboard by Accessing props from react router
-    this.props.history.push('/income-dashboard');
+    history.push('/income-dashboard');
   };
 
   render() {
@@ -35,7 +36,7 @@ export class AddIncomePage extends Component {
 // pass this dispatcher as prop on AddExpensePage
 // This is the way to return dispatcher function, allowing to obstruct them away from the component itself
 const mapDispatchToProps = dispatch => ({
-  startAddIncome: income => dispatch(startAddIncome(income)),
+  AddIncome: income => dispatch(startAddIncome(income)),
 });
 
 // set mapStateToProps to undefined 'cause we're not using it

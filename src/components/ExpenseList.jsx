@@ -7,7 +7,7 @@ import selectExpenses from '../selectors/expenses';
 // When the store changes the component gets re-rendered w/ new values
 // </reference https://redux.js.org/faq/react-redux#why-is-my-component-re-rendering-too-often
 // export this unconnected Component for snapshot test case
-export const ExpenseList = props => (
+export const ExpenseList = ({ expenses }) => (
   <div className="content-container">
     <div className="list-header">
       <div className="show-for-mobile">Expenses</div>
@@ -16,12 +16,12 @@ export const ExpenseList = props => (
     </div>
     {/* To pass state expense. spread it out through the props in ExpenseListItem so it can be destruct */}
     <div className="list-body">
-      {props.expenses.length === 0 ? (
+      {expenses.length === 0 ? (
         <div className="list-item list-item--message">
           <span>No Expenses</span>
         </div>
       ) : (
-        props.expenses.map(expense => <ExpenseListItem {...expense} key={expense.id} />)
+        expenses.map(expense => <ExpenseListItem {...expense} key={expense.id} />)
       )}
     </div>
   </div>

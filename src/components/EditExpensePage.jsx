@@ -5,22 +5,21 @@ import Form from './Form';
 import { startEditExpense, startRemoveExpense } from '../actions/expenses';
 
 export class EditExpensePage extends Component {
-  // React Router pass props object to components
-  // so that it can be manipulate dynamically
-  onSubmit = expense => {
+  onSubmit = expenseData => {
+    const { EditExpense, history, expense } = this.props;
     // Dispatch the action to edit the expense
-    this.props.startEditExpense(this.props.expense.id, expense);
-    console.log('updated:', expense);
-    // Redirect to the dashboard
-    this.props.history.push('/expense-dashboard');
+    EditExpense(expense.id, expenseData);
+    history.push('/expense-dashboard');
   };
 
   onRemove = () => {
-    this.props.startRemoveExpense({ id: this.props.expense.id }); // data
-    this.props.history.push('/expense-dashboard');
+    const { RemoveExpense, history, expense } = this.props;
+    RemoveExpense({ id: expense.id }); // data
+    history.push('/expense-dashboard');
   };
 
   render() {
+    const { expense } = this.props;
     return (
       <div>
         <div className="page-header">
@@ -33,8 +32,8 @@ export class EditExpensePage extends Component {
         </div>
         <div className="content-container">
           {/* Pass prop expense & onSubmit to ExpenseForm */}
-          <Form expense={this.props.expense} onSubmit={this.onSubmit} />
-          <button className="button button--remove" onClick={this.onRemove}>
+          <Form expense={expense} onSubmit={this.onSubmit} />
+          <button className="button button--remove" type="button" onClick={this.onRemove}>
             Remove Expense
           </button>
         </div>
@@ -43,19 +42,34 @@ export class EditExpensePage extends Component {
   }
 }
 
-// Find the expense that needs to update, access props that are passed in by HOC
-const mapStateToProps = (state, props) => ({
-  expense: state.expenses.find(expense => expense.id === props.match.params.id), // if found put that object to expense
+// Find the expense that needs to update, access props that are passed in by HOC props.match
+const mapStateToProps = (state, { match }) => ({
+  expense: state.expenses.find(expense => expense.id === match.params.id), // if found put that object to expense
 });
 
 // Pass dispatchers as props
 const mapDispatchToProps = dispatch => ({
-  startEditExpense: (id, expense) => dispatch(startEditExpense(id, expense)),
-  startRemoveExpense: data => dispatch(startRemoveExpense(data)),
+  EditExpense: (id, expense) => dispatch(startEditExpense(id, expense)),
+  RemoveExpense: data => dispatch(startRemoveExpense(data)),
 });
 
+// React Router pass props object to components so that it can be manipulate dynamically
 // React Router render HOC(i.e connect) then passes the props through and allows to add new ones
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(EditExpensePage);
+
+// -- HOC ? let's say our WrappedComponent is EditExpensePage --
+// const connect = (injectedStateProp, injectedDispatchProp) => {
+//   **CLOSURE**
+//   - we can still have access to variable StateProp & DispatchProp 'cause of scope chain & lexical env
+//   return (WrappedComponent) => {
+//     - props here are values injected by other Component (e.g Router that passes down match prop)
+//     - return function that returns WrappedComponent w/ props to render
+//     return (props) => <WrappedComponent {...injectedStateProp} {...injectedDispatchProp} {...props} />
+//   };
+// };
+//
+//   **CURRYING**
+// connect(mapStateToProps, mapDispatchToProps)(EditExpensePage);

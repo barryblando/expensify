@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import IncomeListItem from './IncomeListItem';
 import selectIncomes from '../selectors/incomes';
 
-export const IncomeList = props => (
+export const IncomeList = ({ incomes }) => (
   <div className="content-container">
     <div className="list-header">
       <div className="show-for-mobile">Incomes</div>
@@ -11,12 +11,12 @@ export const IncomeList = props => (
       <div className="show-for-desktop">Amount</div>
     </div>
     <div className="list-body">
-      {props.incomes.length === 0 ? (
+      {incomes.length === 0 ? (
         <div className="list-item list-item--message">
           <span>No Incomes</span>
         </div>
       ) : (
-        props.incomes.map(income => <IncomeListItem {...income} key={income.id} />)
+        incomes.map(income => <IncomeListItem {...income} key={income.id} />)
       )}
     </div>
   </div>

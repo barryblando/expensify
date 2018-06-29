@@ -18,20 +18,22 @@ class ErrorBoundary extends Component {
   }
 
   render() {
-    if (this.state.errorInfo) {
+    const { errorInfo, hasError } = this.state;
+    const { children } = this.props;
+    if (errorInfo) {
       return (
         <div className="content-container">
           <div className="error-boundary">
             <h2>Oh No! Something went wrong.</h2>
-            {this.state.hasError && this.state.hasError.toString()}
+            {hasError && hasError.toString()}
             <br />
-            {this.state.errorInfo.componentStack}
+            {errorInfo.componentStack}
           </div>
         </div>
       );
     }
     // else, just render children
-    return this.props.children;
+    return children;
   }
 }
 
