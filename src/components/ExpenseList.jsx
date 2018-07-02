@@ -37,10 +37,3 @@ const mapStateToProps = state => ({
 // mapStateToProps in connect determines what information/state from the store we want our ExpenseList to access
 // Implicitly Export default the Connected Component
 export default connect(mapStateToProps)(ExpenseList);
-
-// -- HOC ? let's say WrappedComponent(i.e ExpenseList) --
-// const connect = (injectedStateProp, injectedDispatchProp) => WrappedComponent => {
-//   props here are values injected by other Component (e.g Router that passes down match prop)
-//   const connect = props => <WrappedComponent {...injectedStateProp} {...injectedDispatchProp} {...props} />
-//   return connect;
-// }
