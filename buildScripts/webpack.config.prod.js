@@ -95,7 +95,7 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash].css',
-      chunkFilename: 'css/[id].[hash].css',
+      chunkFilename: 'css/[name].[hash].css',
     }),
     new webpack.LoaderOptionsPlugin({
       options: {
@@ -144,9 +144,9 @@ module.exports = {
         //   test: /[\\/]node_modules[\\/]/,
         //   priority: -10,
         // },
-        // Styles
         default: false,
         vendors: false,
+        // Styles
         styles: {
           name: 'styles',
           test: /\.css$/,
