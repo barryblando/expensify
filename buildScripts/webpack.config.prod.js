@@ -4,7 +4,7 @@
 import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import autoprefixer from 'autoprefixer';
@@ -40,26 +40,18 @@ module.exports = {
         },
       },
       {
-        test: /\.s?css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                sourceMap: true,
-              },
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath,
             },
-            'postcss-loader',
-            {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: true,
-              },
-            },
-          ],
-          publicPath,
-        }),
+          },
+          'css-loader?sourceMap',
+          'postcss-loader',
+          'sass-loader?sourceMap',
+        ],
       },
     ],
   },
@@ -101,9 +93,9 @@ module.exports = {
         minifyURLs: true,
       },
     }),
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: 'css/[name].[hash].css',
-      allChunks: true,
+      chunkFilename: 'css/[id].[hash].css',
     }),
     new webpack.LoaderOptionsPlugin({
       options: {
@@ -143,14 +135,23 @@ module.exports = {
       maxInitialRequests: 3,
       name: true,
       cacheGroups: {
-        default: {
-          minChunks: 1,
-          priority: -20,
-          reuseExistingChunk: true,
-        },
-        vendors: {
-          test: /[\\/]node_modules[\\/]/,
-          priority: -10,
+        // default: {
+        //   minChunks: 1,
+        //   priority: -20,
+        //   reuseExistingChunk: true,
+        // },
+        // vendors: {
+        //   test: /[\\/]node_modules[\\/]/,
+        //   priority: -10,
+        // },
+        // Styles
+        default: false,
+        vendors: false,
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          enforce: true,
         },
         vendor: {
           // name of the chunk
