@@ -58,14 +58,14 @@ console.log(store.getState().auth.uid);
 
 render(<LoadingPage />, document.getElementById('app'));
 
-// this callback function in onAuthStateChange runs every single time the auth state change, including the first load of the app
-// i.e by dispatching startLogin / startLogout
+// this callback function in onAuthStateChange runs every single time the auth state change,
+// including the first load of the app (i.e by dispatching startLogin / startLogout)
 firebase.auth().onAuthStateChanged(user => {
   // if there's a user authenticated
   if (user) {
     // dispatch action login to store uid
     store.dispatch(login(user.uid));
-    // dispatch action setExpenses & get the authenticated uid from the state
+    // dispatch action setExpensesIncomes & get the authenticated uid from the state
     store.dispatch(setExpensesIncomes()).then(() => {
       renderApp();
       if (history.location.pathname === '/') {
