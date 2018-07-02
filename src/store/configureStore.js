@@ -17,15 +17,23 @@ const defaultState = {
   },
 };
 
-const logger = createLogger(); // to log prevState & nextState
+const loggerMiddleware = createLogger(); // to log prevState & nextState
 
+// INFO: All compose does is let you write deeply nested function transformations without the rightward drift of the code.
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const configureStore = createStore(
-  connectRouter(history)(rootReducer), // new root reducer with router state
-  defaultState,
-  composeEnhancers(applyMiddleware(routerMiddleware(history), thunkMiddleware, logger))
-);
+const configureStore =
+  process.env.NODE_ENV !== 'production'
+    ? createStore(
+        connectRouter(history)(rootReducer), // new root reducer with router state
+        defaultState,
+        composeEnhancers(applyMiddleware(routerMiddleware(history), thunkMiddleware, loggerMiddleware))
+      )
+    : createStore(
+        connectRouter(history)(rootReducer), // new root reducer with router state
+        defaultState,
+        applyMiddleware(routerMiddleware(history), thunkMiddleware)
+      );
 
 // </reference https://stackoverflow.com/questions/47343572/react-hot-reload-with-redux
 if (module.hot) {
