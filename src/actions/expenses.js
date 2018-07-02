@@ -13,9 +13,9 @@ export const addExpense = expense => ({
   expense,
 });
 
-// In redux-thunk, we can now be able to create asynchronous actions by using (Higher Order Function)
-// we're now listening to actions, whenever this action gets triggered it's going to return a function and
-// trigger redux-thunk & give access to dispatch & getState and to dispatch addExpense
+// In redux-thunk, we can now be able to create asynchronous action by using (HOF)
+// whenever this thunk function gets triggered it's going to return a function and
+// can access now to dispatch & getState and to dispatch normal(addExpense) action
 export const startAddExpense = (expenseData = {}) => (dispatch, getState) => {
   const uid = getState().auth.uid; // eslint-disable-line
   const { description = '', note = '', amount = 0, createdAt = 0 } = expenseData;

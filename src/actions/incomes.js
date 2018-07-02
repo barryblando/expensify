@@ -11,7 +11,6 @@ export const addIncome = income => ({
   income,
 });
 
-// By using redux thunk, you can be able to create asynchronous actions
 export const startAddIncome = (incomeData = {}) => (dispatch, getState) => {
   const uid = getState().auth.uid; // eslint-disable-line
   const { description = '', note = '', amount = 0, createdAt = 0 } = incomeData;
