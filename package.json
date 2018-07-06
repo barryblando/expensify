@@ -8,12 +8,7 @@
   "license": "Apache-2.0",
   "private": false,
   "quokka": {
-    "babel": {
-      "presets": [
-        "env",
-        "react"
-      ]
-    },
+    "babel": true,
     "installPackageCommand": "yarn add {packageName}"
   },
   "engines": {
