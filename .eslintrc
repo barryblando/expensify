@@ -60,7 +60,12 @@
         "props": false
       }
     ],
-    "no-console": 0,
+    "no-console": [
+      "warn"
+    ],
+    "no-var": [
+      "error"
+    ],
     "import/prefer-default-export": 0,
     "import": 0,
     "func-names": 0,
