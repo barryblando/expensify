@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import moment from 'moment';
 import numeral from 'numeral';
 import { Line } from 'react-chartjs-2';
@@ -131,9 +130,4 @@ const Chart = ({ expenses, incomes }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  expenses: state.expenses,
-  incomes: state.incomes,
-});
-
-export default connect(mapStateToProps)(Chart);
+export default Chart;
