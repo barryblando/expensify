@@ -22,10 +22,10 @@ import history from './routers/dev-history';
 import { firebase } from './firebase/firebase';
 
 // store configured, can now use dispatch, getState, & subscribe
-import configureStore from './store/configureStore';
-import { startSetExpenses } from './actions/expenses';
-import { startSetIncomes } from './actions/incomes';
-import { login, logout } from './actions/auth';
+import configureStore from './redux/store/configureStore';
+import { startSetExpenses } from './redux/actions/expenses';
+import { startSetIncomes } from './redux/actions/incomes';
+import { login, logout } from './redux/actions/auth';
 
 const store = configureStore;
 
@@ -54,8 +54,6 @@ function setExpensesIncomes() {
   };
 }
 
-console.log(store.getState().auth.uid);
-
 render(<LoadingPage />, document.getElementById('app'));
 
 // this callback function in onAuthStateChange runs every single time the auth state change,
@@ -71,12 +69,10 @@ firebase.auth().onAuthStateChanged(user => {
       if (history.location.pathname === '/') {
         push('/dashboard');
       }
-      console.log('logged in:', user.uid);
     });
   } else {
     store.dispatch(logout());
     renderApp();
     push('/');
-    console.log('logged out');
   }
 });
