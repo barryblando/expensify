@@ -23,18 +23,16 @@
 - [React Router DOM v4 Tutorial](https://www.techiediaries.com/react-router-dom-v4/)
 - [Stateful vs Stateless Functional Components in React](https://code.tutsplus.com/tutorials/stateful-vs-stateless-functional-components-in-react--cms-29541)
 - [When to use Component or PureComponent](https://codeburst.io/when-to-use-component-or-purecomponent-a60cfad01a81)
-- [React — Composing Higher-Order Components (HOCs)](https://medium.com/dailyjs/react-composing-higher-order-components-hocs-3a5288e78f55)
+- [React — Composing Higher-Order Components (HOC)](https://medium.com/dailyjs/react-composing-higher-order-components-hocs-3a5288e78f55)
 - [React + Redux Architecture](https://github.com/hirviid/react-redux-architecture)
 - [React Internals - How React Works (Used React 15, a bit outdated but good grasp is what you need)](http://www.mattgreer.org/articles/react-internals-part-one-basic-rendering/)
-- [Structuring projects and naming components in React](https://hackernoon.com/structuring-projects-and-naming-components-in-react-1261b6e18d76)
 - [Using Destructure and Spread in React Components](https://www.carlrippon.com/writing-concise-react-components-with-destructure-assignment-and-spread/)
-- [Tips on Creating Reusable Components](https://dev.to/ganderzz/tips-on-creating-reusable-components-376j)
-- [Atomic Design With React and Bit: Simplify a Complex UI](https://blog.bitsrc.io/simplify-complex-ui-by-implementing-the-atomic-design-in-react-with-bit-f4ad116ec8db)
 
 ## Redux References
 
 - [What Does Redux Do? (and when should you use it?)](https://daveceddia.com/what-does-redux-do/)
 - [How Redux Works: A Counter-Example](https://daveceddia.com/how-does-redux-work/)
+- [What is Redux: A Designer's Guide](https://www.smashingmagazine.com/2018/07/redux-designers-guide/)
 - [My take on Redux Architecture](http://krasimirtsonev.com/blog/article/my-take-on-redux-architecture)
 - [Async Operations in React Redux Applications](https://www.sitepoint.com/async-operations-react-redux-applications/)
 - [Understanding compose functions in redux](https://stackoverflow.com/questions/41357897/understanding-compose-functions-in-redux)
@@ -72,6 +70,14 @@ Also keep in mind:
 - Use selectors for calculated state and decoupling
 - Always use TDD!
 ```
+
+## Structuring Project
+
+- [How to Structure Your React Project](https://daveceddia.com/react-project-structure/)
+- [Presentational and Container Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
+- [Structuring projects and naming components in React](https://hackernoon.com/structuring-projects-and-naming-components-in-react-1261b6e18d76)
+- [Tips on Creating Reusable Components](https://dev.to/ganderzz/tips-on-creating-reusable-components-376j)
+- [Atomic Design With React and Bit: Simplify a Complex UI](https://blog.bitsrc.io/simplify-complex-ui-by-implementing-the-atomic-design-in-react-with-bit-f4ad116ec8db)
 
 ## Test Suite
 
@@ -137,3 +143,5 @@ Also keep in mind:
 - [State appears as empty object in "react" dev tools](https://stackoverflow.com/questions/43948798/state-appears-as-empty-object-in-redux-dev-tools)
 - [What's the difference between “super()” and “super(props)” in React when using es6 classes?](https://stackoverflow.com/questions/30571875/whats-the-difference-between-super-and-superprops-in-react-when-using-e?rq=1)
 - [Web App Routing with fallback](https://glebbahmutov.com/blog/routing-with-fallback/)
+- [Adds Unnecessary Brackets in JSX arrow function](https://github.com/prettier/prettier/issues/1291)
+- [Access Property of an Object in JS using Object.keys](https://stackoverflow.com/questions/983267/how-to-access-the-first-property-of-an-object-in-javascript)
