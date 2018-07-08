@@ -18,6 +18,21 @@ const publicPath = path.join(__dirname, '..', 'public');
 module.exports = {
   mode: 'production',
   entry: {
+    vendor: [
+      'babel-polyfill',
+      'react',
+      'react-dom',
+      'react-redux',
+      'react-router-dom',
+      'redux',
+      'redux-thunk',
+      'react-dates',
+      'react-modal',
+      'react-loadable',
+      'chart.js',
+      'react-chartjs-2',
+      'moment',
+    ],
     index: ['babel-polyfill', path.resolve(sourcePath, 'index.js')],
   },
   output: {
