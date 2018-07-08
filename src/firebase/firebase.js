@@ -12,6 +12,9 @@ const config = {
   messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
 };
 
+// lock the variables from mutating
+Object.freeze(config);
+
 firebase.initializeApp(config);
 
 const database = firebase.database();
