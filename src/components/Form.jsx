@@ -9,7 +9,7 @@ export default class Form extends Component {
   // --------------------------------------------------
   constructor(props) {
     super(props);
-    const isProp = props.expense ? 'expense' : 'income';
+    const isProp = Object.keys(props)[1];
     this.state = {
       // if props expense/income exist then use the current data that passed down otherwise use default
       description: props[isProp] ? props[isProp].description : '',
