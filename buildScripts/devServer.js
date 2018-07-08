@@ -9,7 +9,7 @@ import webpackConfig from './webpack.config.dev';
 import { devSignale } from './optionSignale';
 
 const options = {
-  contentBase: path.resolve(__dirname, '..', 'app'),
+  contentBase: path.resolve(__dirname, '..', 'public'),
   historyApiFallback: true, // Fallback HTML if there's 404 for client side routing (will update)
   hot: true,
   host: 'localhost',

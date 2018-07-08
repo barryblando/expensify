@@ -11,13 +11,11 @@ DotEnv.config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-console.log(`Using file '.env.${process.env.NODE_ENV}' for env variable`);
-
 module.exports = {
   mode: 'development',
   entry: ['babel-polyfill', './src/index.js'],
   output: {
-    path: path.join(__dirname, '..', 'app'),
+    path: path.join(__dirname, '..', 'public'),
     publicPath: '/',
     filename: 'bundle.js',
   },
@@ -51,7 +49,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(), // Enable HMR for dev config only
     new HtmlWebpackPlugin({
       inject: true,
-      template: 'app/index.html',
+      template: 'public/index.html',
     }),
   ],
 };

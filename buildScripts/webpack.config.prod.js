@@ -15,9 +15,6 @@ import AsyncChunkNames from 'webpack-async-chunk-names-plugin';
 const sourcePath = path.join(__dirname, '..', 'src');
 const publicPath = path.join(__dirname, '..', 'public');
 
-console.log(path.resolve(sourcePath, 'index.js'));
-console.log('WEBPACK ENV:', process.env.NODE_ENV);
-
 module.exports = {
   mode: 'production',
   entry: {
@@ -48,9 +45,9 @@ module.exports = {
               publicPath,
             },
           },
-          'css-loader?sourceMap',
+          'css-loader?',
           'postcss-loader',
-          'sass-loader?sourceMap',
+          'sass-loader',
         ],
       },
     ],
@@ -68,6 +65,9 @@ module.exports = {
       'process.env.FIREBASE_PROJECT_ID': JSON.stringify(process.env.FIREBASE_PROJECT_ID),
       'process.env.FIREBASE_STORAGE_BUCKET': JSON.stringify(process.env.FIREBASE_STORAGE_BUCKET),
       'process.env.FIREBASE_MESSAGING_SENDER_ID': JSON.stringify(process.env.FIREBASE_MESSAGING_SENDER_ID),
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      },
     }),
     new CopyWebpackPlugin([{ from: './src/images', to: 'images' }]),
     new WebpackMd5Hash(),
@@ -75,14 +75,11 @@ module.exports = {
     new webpack.HashedModuleIdsPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, '..', 'app/index.html'),
-      path: publicPath,
-      filename: 'index.html',
       inject: true,
+      template: path.join(__dirname, '..', 'public/index.html'),
       minify: {
-        collapseWhitespace: true,
-        collapseInlineTagWhitespace: true,
         removeComments: true,
+        collapseWhitespace: true,
         removeRedundantAttributes: true,
         useShortDoctype: true,
         removeEmptyAttributes: true,
@@ -118,7 +115,7 @@ module.exports = {
     minimize: true,
     minimizer: [
       new UglifyJsPlugin({
-        sourceMap: true,
+        sourceMap: false,
         uglifyOptions: {
           compress: {
             inline: false,
