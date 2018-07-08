@@ -5,19 +5,23 @@ import { ConnectedRouter } from 'connected-react-router';
 // Hot Module Replacement
 import { hot } from 'react-hot-loader'; // eslint-disable-line
 
-import history from '../routers/dev-history';
+import history from './dev-history';
+
+// Containers
+import DashboardPage from '../containers/DashboardPage';
+
+// Async Routes
+import { AsyncExpenseDashboardPage, AsyncIncomeDashboardPage } from './AsyncRoutes';
 
 // Components
-import DashboardPage from '../components/DashboardPage';
-import { AsyncExpenseDashboardPage, AsyncIncomeDashboardPage } from './AsyncRoutes';
 // import ExpenseDashboardPage from '../components/ExpenseDashboardPage';
 // import IncomeDashboardPage from '../components/IncomeDashboardPage';
-import AddExpensePage from '../components/AddExpensePage'; // eslint-disable-line
-import AddIncomePage from '../components/AddIncomePage'; // eslint-disable-line
-import EditExpensePage from '../components/EditExpensePage'; // eslint-disable-line
-import EditIncomePage from '../components/EditIncomePage'; // eslint-disable-line
+import AddExpensePage from '../containers/Expense/AddPage'; // eslint-disable-line
+import AddIncomePage from '../containers/Income/AddPage'; // eslint-disable-line
+import EditExpensePage from '../containers/Expense/EditPage'; // eslint-disable-line
+import EditIncomePage from '../containers/Income/EditPage'; // eslint-disable-line
 import HelpPage from '../components/HelpPage';
-import LoginPage from '../components/LoginPage'; // eslint-disable-line
+import LoginPage from '../containers/LoginPage'; // eslint-disable-line
 import NotFoundPage from '../components/404';
 import PrivateRoute from './PrivateRoute'; // eslint-disable-line
 import PublicRoute from './PublicRoute'; // eslint-disable-line

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
-import Header from '../components/Header'; // eslint-disable-line
+import Header from '../containers/Header'; // eslint-disable-line
 
 // PrivateRoute wrapper around Route Components, in order to add some conditional logic
 // To determined if users are authenticated or not, rendering private components or redirecting
