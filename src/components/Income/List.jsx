@@ -1,9 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import IncomeListItem from './IncomeListItem';
-import selectIncomes from '../selectors/incomes';
+import IncomeListItem from './ListItem';
 
-export const IncomeList = ({ incomes }) => (
+export const List = ({ incomes }) => (
   <div className="content-container">
     <div className="list-header">
       <div className="show-for-mobile">Incomes</div>
@@ -22,8 +20,4 @@ export const IncomeList = ({ incomes }) => (
   </div>
 );
 
-const mapStateToProps = state => ({
-  incomes: selectIncomes(state.incomes, state.filters),
-});
-
-export default connect(mapStateToProps)(IncomeList);
+export default List;
