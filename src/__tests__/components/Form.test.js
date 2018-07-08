@@ -76,7 +76,7 @@ describe('Expense Form', () => {
 
   test('should call onSubmit prop for valid form submission', () => {
     const onSubmitSpy = jest.fn(); // using this spy we can access onSubmit prop
-    const wrapper = shallow(<Form expense={expenses[0]} onSubmit={onSubmitSpy} />);
+    const wrapper = shallow(<Form onSubmit={onSubmitSpy} expense={expenses[0]} />);
     wrapper.find('form').simulate('submit', {
       preventDefault: () => {},
     });

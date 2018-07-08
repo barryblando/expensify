@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { shallow } from 'enzyme';
 import { DateRangePicker } from 'react-dates';
-import { ListFilters } from '../../components/ListFilters';
+import { ListFilters } from '../../containers/ListFilters';
 import { filters, altFilters } from '../fixtures/filters';
 
 describe('Expense List Filters', () => {
