@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Dashboard correctly 1`] = `
+<Connect(ExpenseDashboardPage)
+  expenseCount={2}
+  expenses={
+    Object {
+      "amount": 195,
+      "createdAt": 0,
+      "description": "Gum",
+      "id": "1",
+      "note": "",
+    }
+  }
+  expensesTotal={243}
+/>
+`;

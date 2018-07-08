@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Header correctly 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="content-container"
+  >
+    <div
+      className="header__content"
+    >
+      <Link
+        className="header__title"
+        replace={false}
+        to="/dashboard"
+      >
+        <h1>
+          Expensify
+        </h1>
+      </Link>
+      <div
+        className="header__navigation"
+      >
+        <Link
+          className="button button--expense"
+          replace={false}
+          to="/expense-dashboard"
+        >
+          Expense
+        </Link>
+        <Link
+          className="button button--income"
+          replace={false}
+          to="/income-dashboard"
+        >
+          Income
+        </Link>
+        <button
+          className="button button--logout"
+          onClick={[Function]}
+          type="button"
+        >
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+`;

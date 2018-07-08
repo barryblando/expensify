@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Add Expense Page should render AddExpensePage correctly 1`] = `
+<div>
+  <div
+    className="page-header"
+  >
+    <div
+      className="content-container u-justify-content"
+    >
+      <h1
+        className="page-header__title"
+      >
+        Add Expense
+      </h1>
+      <Link
+        className="button button--back"
+        replace={false}
+        to="/expense-dashboard"
+      >
+        Back
+      </Link>
+    </div>
+  </div>
+  <div
+    className="content-container"
+  >
+    <Form
+      onSubmit={[Function]}
+    />
+  </div>
+</div>
+`;
