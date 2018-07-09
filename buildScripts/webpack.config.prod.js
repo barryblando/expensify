@@ -33,7 +33,7 @@ module.exports = {
       'react-chartjs-2',
       'moment',
     ],
-    index: ['babel-polyfill', path.resolve(sourcePath, 'index.js')],
+    index: [path.resolve(sourcePath, 'index.js')],
   },
   output: {
     path: publicPath,
