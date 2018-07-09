@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 // components
 import ExpensesSummary from '../../components/Summary';
-import ExpenseList from '../../components/Expense/List';
+import Lists from '../../components/List';
 
 // container
 import ListFilters from '../ListFilters'; /* eslint-disable-line */
@@ -20,7 +20,7 @@ const ExpenseDashboardPage = ({ expenseCount, expensesTotal, expenses }) => (
   <div>
     <ExpensesSummary Total={expensesTotal} Count={expenseCount} expense />
     <ListFilters />
-    <ExpenseList expenses={expenses} />
+    <Lists expenses={expenses} />
   </div>
 );
 
