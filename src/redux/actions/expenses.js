@@ -106,8 +106,9 @@ export const startSetExpenses = () => (dispatch, getState) => {
       // console.log('RawData: ', rawData);
       // </reference https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
       const expenses = Object.keys(rawData).reduce((prev, current) => {
+        // console.log('Current: ', current);
         prev.push({ ...rawData[current], id: current });
-        // console.log('Previous: ', prev, 'Current: ', current);
+        // console.table(prev);
         return prev;
       }, []);
 
