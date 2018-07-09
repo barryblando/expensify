@@ -10,7 +10,7 @@ import { devSignale } from './optionSignale';
 
 const options = {
   contentBase: path.resolve(__dirname, '..', 'public'),
-  historyApiFallback: true, // Fallback HTML if there's 404 for client side routing (will update)
+  historyApiFallback: true, // Fallback HTML if there's 404, must be `true` for SPAs
   hot: true,
   host: 'localhost',
   // open: true,
