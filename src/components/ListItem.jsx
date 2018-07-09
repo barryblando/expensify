@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import numeral from 'numeral';
-import { ISO_DATE_FORMAT, CURRENCY_FORMAT } from '../../constants';
+import { ISO_DATE_FORMAT, CURRENCY_FORMAT } from '../constants';
 
-const ExpenseListItem = ({ id, description, amount, createdAt }) => (
+const ListItem = ({ id, description, amount, createdAt }) => (
   <Link className="list-item" to={`/edit-expense/${id}`}>
     <div>
       <h3 className="list-item__title">{description}</h3>
@@ -14,4 +14,4 @@ const ExpenseListItem = ({ id, description, amount, createdAt }) => (
   </Link>
 );
 
-export default ExpenseListItem;
+export default ListItem;
