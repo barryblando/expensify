@@ -30,7 +30,8 @@ exports[`should render ExpenseList with empty message 1`] = `
       className="list-item list-item--message"
     >
       <span>
-        No Expenses
+        No 
+        Expenses
       </span>
     </div>
   </div>
@@ -63,7 +64,7 @@ exports[`should render ExpenseList with expenses 1`] = `
   <div
     className="list-body"
   >
-    <ExpenseListItem
+    <ListItem
       amount={195}
       createdAt={0}
       description="Gum"
@@ -71,7 +72,7 @@ exports[`should render ExpenseList with expenses 1`] = `
       key="1"
       note=""
     />
-    <ExpenseListItem
+    <ListItem
       amount={1095000}
       createdAt={-345600000}
       description="Rent"
@@ -79,7 +80,7 @@ exports[`should render ExpenseList with expenses 1`] = `
       key="2"
       note=""
     />
-    <ExpenseListItem
+    <ListItem
       amount={4500}
       createdAt={345600000}
       description="Credit Card"
