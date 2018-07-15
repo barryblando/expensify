@@ -14,6 +14,7 @@ class IndecisionApp extends React.Component {
       options: [],
     };
   }
+
   // LIFE CYCLE Built-in METHODS - can be access only in class based Components, slow than stateless functions
   //  -componentDidMount - fires up in load, i.e fetching & loading data
   //  -componentDidUpdate - Updates when there's change in state, i.e saving data
@@ -69,7 +70,7 @@ class IndecisionApp extends React.Component {
   handleAddOption(option) {
     if (!option) {
       return 'Enter valid option to add';
-    } else if (this.state.options.indexOf(option) > -1) {
+    } if (this.state.options.indexOf(option) > -1) {
       // if found match in array, P.S -1 is not found in indexOf.
       return 'This option already exists';
     }
@@ -174,6 +175,7 @@ class AddOption extends React.Component {
       e.target.elements.option.value = '';
     }
   }
+
   /* Don't forget to put div, every jsx syntax needs root element in order to render (like div) */
   render() {
     return (
@@ -188,6 +190,6 @@ class AddOption extends React.Component {
   }
 }
 
-// render IndecisionApp & its Components & sub Components to REACT DOM
+// Create & Render Instance of IndecisionApp & its Components & sub Components to DOM
 ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
 // ReactDOM.render(<IndecisionApp options={[]}/>, document.getElementById('app'));
