@@ -4,22 +4,26 @@ import ListItems from './ListItem';
 export const List = props => {
   let defaultTxt = null;
   let desktopTxt = null;
+  let path = null;
   let rawData = null;
 
   switch (Object.keys(props)[0]) {
     case 'expenses':
       defaultTxt = 'Expenses';
       desktopTxt = 'Expense';
+      path = 'edit-expense';
       rawData = props.expenses;
       break;
     case 'incomes':
       defaultTxt = 'Incomes';
       desktopTxt = 'Income';
+      path = 'edit-income';
       rawData = props.incomes;
       break;
     default:
       defaultTxt = null;
       desktopTxt = null;
+      path = null;
       rawData = null;
   }
 
@@ -37,7 +41,7 @@ export const List = props => {
             <span>No {defaultTxt}</span>
           </div>
         ) : (
-          rawData.map(data => <ListItems {...data} key={data.id} />)
+          rawData.map(data => <ListItems {...data} key={data.id} pathLink={path} />)
         )}
       </div>
     </div>
