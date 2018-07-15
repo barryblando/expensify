@@ -24,9 +24,14 @@
 - [Stateful vs Stateless Functional Components in React](https://code.tutsplus.com/tutorials/stateful-vs-stateless-functional-components-in-react--cms-29541)
 - [When to use Component or PureComponent](https://codeburst.io/when-to-use-component-or-purecomponent-a60cfad01a81)
 - [React — Composing Higher-Order Components (HOC)](https://medium.com/dailyjs/react-composing-higher-order-components-hocs-3a5288e78f55)
-- [React + Redux Architecture](https://github.com/hirviid/react-redux-architecture)
 - [React Internals - How React Works (Used React 15, a bit outdated but good grasp is what you need)](http://www.mattgreer.org/articles/react-internals-part-one-basic-rendering/)
 - [Using Destructure and Spread in React Components](https://www.carlrippon.com/writing-concise-react-components-with-destructure-assignment-and-spread/)
+- [Our Best Practices for Writing React Components](https://engineering.musefind.com/our-best-practices-for-writing-react-components-dec3eb5c3fc8)
+- [React Components – Props and States in ReactJS with Examples](https://www.edureka.co/blog/react-components/)
+- [React Lifecycle Methods- how and when to use them](https://engineering.musefind.com/react-lifecycle-methods-how-and-when-to-use-them-2111a1b692b1)
+- [ReactJs component lifecycle methods  -  A deep dive](https://hackernoon.com/reactjs-component-lifecycle-methods-a-deep-dive-38275d9d13c0)
+- [How to Benchmark React Components: The Quick and Dirty Guide](https://engineering.musefind.com/how-to-benchmark-react-components-the-quick-and-dirty-guide-f595baf1014c)
+- [Build a NavBar & Side Drawer](https://www.academind.com/learn/react/snippets/navbar-side-drawer/)
 
 ## Redux References
 
@@ -41,6 +46,10 @@
 - [React + Redux Architecture : Separation of Concerns](https://medium.com/prod-io/react-redux-architecture-part-1-separation-of-concerns-812da3b08b46)
 - [10 Tips for Better Redux Architecture](https://medium.com/javascript-scene/10-tips-for-better-redux-architecture-69250425af44)
 - [Using Redux DevTools in Production](https://medium.com/@zalmoxis/using-redux-devtools-in-production-4c5b56c5600f)
+- [React + Redux Architecture](https://github.com/hirviid/react-redux-architecture)
+- [React + Redux : Architecture Overview](https://articles.coltpini.com/react-redux-architecture-overview-7b3e52004b6e)
+- [Getting Started with React, Redux and Immutable: a Test-Driven Tutorial (Part 1)](http://blog.theodo.fr/2016/03/getting-started-with-react-redux-and-immutable-a-test-driven-tutorial-part-1/)
+- [Redux Step by Step: A Simple and Robust Workflow for Real Life Apps](https://hackernoon.com/redux-step-by-step-a-simple-and-robust-workflow-for-real-life-apps-1fdf7df46092)
 
 ## Redux Rules
 
