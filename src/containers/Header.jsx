@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { startLogout } from '../redux/actions/auth';
 
-import ToolBar from '../components/Toolbar/ToolBar';
+import ToolBar from '../components/ToolBar/ToolBar';
 import SideDrawer from '../components/SideDrawer/SideDrawer';
-import BackDrop from '../components/Backdrop/BackDrop';
+import BackDrop from '../components/BackDrop/BackDrop';
 
 export class Header extends Component {
   state = {
