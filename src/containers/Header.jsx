@@ -1,30 +1,49 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+// import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { startLogout } from '../redux/actions/auth';
 
-export const Header = ({ startLogout: logout }) => (
-  <header className="header">
-    <div className="content-container">
-      <div className="header__content">
-        <Link className="header__title" to="/dashboard">
-          <h1>Expensify</h1>
-        </Link>
-        <div className="header__navigation">
-          <Link className="button button--expense" to="/expense-dashboard">
-            Expense
-          </Link>
-          <Link className="button button--income" to="/income-dashboard">
-            Income
-          </Link>
-          <button className="button button--logout" type="button" onClick={logout}>
-            Logout
-          </button>
+import ToolBar from '../components/Toolbar/ToolBar';
+import SideDrawer from '../components/SideDrawer/SideDrawer';
+import BackDrop from '../components/Backdrop/BackDrop';
+
+export class Header extends Component {
+  state = {
+    sideDrawerOpen: false,
+  };
+
+  drawerToggleClickHandler = () => {
+    // good practice use prevState when toggling state
+    this.setState(prevState => ({
+      sideDrawerOpen: !prevState.sideDrawerOpen,
+    }));
+  };
+
+  backdropClickHandler = () => {
+    this.setState({ sideDrawerOpen: false });
+  };
+
+  render() {
+    const { startLogout: logout } = this.props;
+    const { sideDrawerOpen } = this.state;
+
+    let backdrop;
+
+    if (sideDrawerOpen) {
+      backdrop = <BackDrop closeHandler={this.backdropClickHandler} />;
+    }
+
+    return (
+      <header className="toolbar">
+        <div className="content-container">
+          <ToolBar drawerClickHandler={this.drawerToggleClickHandler} logoutClickHandler={logout} />
+          <SideDrawer logoutClickHandler={logout} show={sideDrawerOpen} />
+          {backdrop}
         </div>
-      </div>
-    </div>
-  </header>
-);
+      </header>
+    );
+  }
+}
 
 const mapDispatchToProps = dispatch => ({
   startLogout: () => dispatch(startLogout()),
