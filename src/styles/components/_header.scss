@@ -2,20 +2,6 @@
   background: $color-primary;
   width: 100%;
 
-  &__title {
-    color: $color-white;
-    text-decoration: none;
-
-    @include respond(atSmall) {
-      margin-right: auto;
-    }
-  }
-
-  &__title h1 {
-    font-weight: 700;
-    margin: 0;
-  }
-
   &__content {
     display: flex;
     align-items: center;
@@ -25,18 +11,5 @@
       flex-direction: row;
       padding: $s-size 0;
     }
-  }
-
-  &__navigation {
-    display: flex;
-    margin-bottom: $m-size;
-
-    @include respond(atSmall) {
-      margin-bottom: 0;
-    }
-  }
-
-  &__navigation a {
-    margin-right: $s-size;
   }
 }

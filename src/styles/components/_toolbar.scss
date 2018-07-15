@@ -1,0 +1,75 @@
+.toolbar {
+  // position: fixed;
+  width: 100%;
+  background: $color-primary;
+  height: 80px;
+
+  &__logo {
+    margin-left: 1rem;
+
+    @include respond(atSmall) {
+      margin-left: 0;
+    }
+  }
+
+  &__navigation {
+    padding-top: $s-size;
+    display: flex;
+    align-items: center;
+  }
+
+  &__navigation-items {
+    display: none;
+
+    @include respond(atSmall) {
+      display: inline-block;
+    }
+  }
+
+  &__navigation-items ul {
+    list-style: none;
+    display: flex;
+  }
+
+  &__navigation-items ul li {
+    padding: 0 0.5rem;
+  }
+
+  &__navigation-items .link {
+    color: white;
+    text-decoration: none;
+  }
+
+  &__navigation-items .link:hover,
+  &__navigation-items .link:active  {
+    color: #fa923f;
+    text-decoration: none;
+  }
+
+  &__logo-title {
+    color: $color-white;
+    text-decoration: none;
+
+    @include respond(atSmall) {
+      margin-right: auto;
+    }
+  }
+
+  &__logo-title h1 {
+    font-weight: 700;
+    margin: 0;
+  }
+
+  &__button {
+    border: 0;
+    background: none;
+  }
+
+  &__toggle-button {
+    display: inline-block;
+
+    @include respond(atSmall) {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+.chart {
+  display: none;
+
+  @include respond(atSmall) {
+    display: block;
+  }
+}
