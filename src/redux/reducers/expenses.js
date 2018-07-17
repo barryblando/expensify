@@ -22,7 +22,7 @@ export default (state = expenseReducerDefaultState, action) => {
         if (expense.id === action.id) {
           // return brand new object
           return {
-            ...expense, // grab all current properties in expense object
+            ...expense, // grab all properties from current expense object
             ...action.updates, // override the ones in current expense object that are pass down by updates
           };
         }
