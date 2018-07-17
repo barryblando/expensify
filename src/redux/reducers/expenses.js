@@ -17,6 +17,7 @@ export default (state = expenseReducerDefaultState, action) => {
       // destruct expense array object only id in filter, filtered out if not match
       return state.filter(({ id }) => id !== action.id);
     case EDIT_EXPENSE:
+      // construct new state array containing previous objects and the updated one
       return state.map(expense => {
         // check if current expense iterating over match to action id
         if (expense.id === action.id) {
