@@ -2,20 +2,23 @@ import { ADD_EXPENSE, EDIT_EXPENSE, REMOVE_EXPENSE, SET_EXPENSES } from '../cons
 
 // ------------------------------------------
 // Expenses Reducer (PURE FUNCTION)
+// Make state transactional as possible
 // ------------------------------------------
 const expenseReducerDefaultState = [];
 
 export default (state = expenseReducerDefaultState, action) => {
   switch (action.type) {
     case ADD_EXPENSE:
-      // using spread op to create new array state rather than changing the prevState & to prevent side effects
+      // Make object & array immutable as possible
+      // using spread operator to create new array state rather than mutating the prevState
+      // & to prevent side effects. [...copying prevState, adding newObject]
       return [...state, action.expense];
     case REMOVE_EXPENSE:
       // destruct expense array object only id in filter, filtered out if not match
       return state.filter(({ id }) => id !== action.id);
     case EDIT_EXPENSE:
       return state.map(expense => {
-        // check if current expense iterating over by map match to action id
+        // check if current expense iterating over match to action id
         if (expense.id === action.id) {
           // return brand new object
           return {
