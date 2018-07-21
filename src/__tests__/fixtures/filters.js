@@ -1,17 +1,33 @@
 import moment from 'moment';
 
 const filters = {
-  text: '',
-  sortBy: 'date',
-  startDate: undefined,
-  endDate: undefined,
+  expenses: {
+    text: '',
+    sortBy: 'date',
+    startDate: undefined,
+    endDate: undefined,
+  },
+  incomes: {
+    text: '',
+    sortBy: 'amount',
+    startDate: undefined,
+    endDate: undefined,
+  },
 };
 
 const altFilters = {
-  text: 'bills',
-  sortBy: 'amount',
-  startDate: moment(0),
-  endDate: moment(0).add(3, 'days'),
+  expenses: {
+    text: 'Development',
+    sortBy: 'date',
+    startDate: moment(0),
+    endDate: moment(0).add(3, 'days'),
+  },
+  incomes: {
+    text: 'Client Fees',
+    sortBy: 'amount',
+    startDate: moment().startOf('month'),
+    endDate: moment(0).add(2, 'days'),
+  },
 };
 
 export { filters, altFilters };
