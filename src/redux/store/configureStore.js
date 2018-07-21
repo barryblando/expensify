@@ -10,10 +10,18 @@ const defaultState = {
   expenses: [],
   incomes: [],
   filters: {
-    text: '',
-    sortBy: 'date',
-    startDate: undefined,
-    endDate: undefined,
+    expenses: {
+      text: '',
+      sortBy: 'date',
+      startDate: undefined,
+      endDate: undefined,
+    },
+    incomes: {
+      text: '',
+      sortBy: 'amount',
+      startDate: undefined,
+      endDate: undefined,
+    },
   },
 };
 
