@@ -108,39 +108,80 @@ const expensesReducer = (state = expenseReducerDefaultState, action) => {
 // Filter Reducer
 // ------------------------------------------
 const filterReducerDefaultState = {
-  text: '',
-  sortBy: 'date',
-  startDate: undefined,
-  endDate: undefined,
+  expenses: {
+    text: '',
+    sortBy: 'date',
+    startDate: 2, // for dateRangePicker filter
+    endDate: 3, // for dateRangePicker filter
+  },
+  incomes: {
+    text: '',
+    sortBy: 'amount',
+    startDate: 4, // for dateRangePicker filter
+    endDate: 5, // for dateRangePicker filter
+  },
 };
 
+const filter1 = {
+  ...filterReducerDefaultState,
+  incomes: {
+    ...filterReducerDefaultState.incomes,
+    text: 'Moo',
+  },
+};
+
+const filter2 = {
+  ...filterReducerDefaultState,
+  expenses: {
+    ...filterReducerDefaultState.expenses,
+    sortBy: 'amount',
+  },
+};
+
+console.log(filter1); // ?
+console.log(filter2); // ?
+
 const filtersReducer = (state = filterReducerDefaultState, action) => {
-  // console.log('Filters Running..');
   switch (action.type) {
     case 'SET_TEXT_FILTER':
       return {
         ...state,
-        text: action.text,
+        [action.filterType]: {
+          ...state[action.filterType],
+          text: action.text,
+        },
       };
     case 'SORT_BY_AMOUNT':
       return {
         ...state,
-        sortBy: 'amount',
+        [action.filterType]: {
+          ...state[action.filterType],
+          sortBy: 'amount',
+        },
       };
     case 'SORT_BY_DATE':
       return {
         ...state,
-        sortBy: 'date',
+        [action.filterType]: {
+          ...state[action.filterType],
+          sortBy: 'date',
+        },
       };
     case 'SET_START_DATE':
       return {
         ...state,
-        startDate: action.startDate,
+        [action.filterType]: {
+          ...state[action.filterType],
+          startDate: action.startDate,
+        },
       };
     case 'SET_END_DATE':
       return {
         ...state,
-        endDate: action.endDate,
+        [action.filterType]: {
+          ...state[action.filterType],
+          endDate: action.endDate,
+        },
       };
     default:
       return state;
