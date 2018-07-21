@@ -5,10 +5,18 @@ import { SET_TEXT_FILTER, SORT_BY_AMOUNT, SORT_BY_DATE, SET_START_DATE, SET_END_
 // Filter Reducer
 // ------------------------------------------
 const filterReducerDefaultState = {
-  text: '',
-  sortBy: 'date',
-  startDate: moment().startOf('month'), // for dateRangePicker filter
-  endDate: moment().endOf('month'), // for dateRangePicker filter
+  expenses: {
+    text: '',
+    sortBy: 'date',
+    startDate: moment().startOf('month'), // for dateRangePicker filter
+    endDate: moment().endOf('month'), // for dateRangePicker filter
+  },
+  incomes: {
+    text: '',
+    sortBy: 'amount',
+    startDate: moment().startOf('month'),
+    endDate: moment().endOf('month'),
+  },
 };
 
 export default (state = filterReducerDefaultState, action) => {
@@ -16,27 +24,42 @@ export default (state = filterReducerDefaultState, action) => {
     case SET_TEXT_FILTER:
       return {
         ...state,
-        text: action.text,
+        [action.filterType]: {
+          ...state[action.filterType],
+          text: action.text,
+        },
       };
     case SORT_BY_AMOUNT:
       return {
         ...state,
-        sortBy: 'amount',
+        [action.filterType]: {
+          ...state[action.filterType],
+          sortBy: 'amount',
+        },
       };
     case SORT_BY_DATE:
       return {
         ...state,
-        sortBy: 'date',
+        [action.filterType]: {
+          ...state[action.filterType],
+          sortBy: 'date',
+        },
       };
     case SET_START_DATE:
       return {
         ...state,
-        startDate: action.startDate,
+        [action.filterType]: {
+          ...state[action.filterType],
+          startDate: action.startDate,
+        },
       };
     case SET_END_DATE:
       return {
         ...state,
-        endDate: action.endDate,
+        [action.filterType]: {
+          ...state[action.filterType],
+          endDate: action.endDate,
+        },
       };
     default:
       return state;
