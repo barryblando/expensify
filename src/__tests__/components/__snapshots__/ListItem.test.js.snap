@@ -4,7 +4,7 @@ exports[`should render ExpenseListItem with expenses 1`] = `
 <Link
   className="list-item"
   replace={false}
-  to="/edit-expense/1"
+  to="/undefined/1"
 >
   <div>
     <h3

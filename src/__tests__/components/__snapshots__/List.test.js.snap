@@ -71,6 +71,7 @@ exports[`should render ExpenseList with expenses 1`] = `
       id="1"
       key="1"
       note=""
+      pathLink="edit-expense"
     />
     <ListItem
       amount={1095000}
@@ -79,6 +80,7 @@ exports[`should render ExpenseList with expenses 1`] = `
       id="2"
       key="2"
       note=""
+      pathLink="edit-expense"
     />
     <ListItem
       amount={4500}
@@ -87,6 +89,7 @@ exports[`should render ExpenseList with expenses 1`] = `
       id="3"
       key="3"
       note=""
+      pathLink="edit-expense"
     />
   </div>
 </div>
