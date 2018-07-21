@@ -96,18 +96,23 @@ const defaultProps = {
 ListFilters.defaultProps = defaultProps;
 
 // Access state filters
-const mapStateToProps = state => ({
-  filters: state.filters,
+const mapStateToProps = (state, props) => ({
+  filters: state.filters[Object.keys(props)[0]],
 });
 
 // Pass this dispatchers as props
-const mapDispatchToProps = dispatch => ({
-  changeTextFilter: text => dispatch(setTextFilter(text)),
-  sortDate: () => dispatch(sortByDate()),
-  sortAmount: () => dispatch(sortByAmount()),
-  changeStartDate: startDate => dispatch(setStartDate(startDate)),
-  changeEndDate: endDate => dispatch(setEndDate(endDate)),
-});
+const mapDispatchToProps = (dispatch, props) => {
+  // access prop passed by Dashboard on ListFilters
+  const filterType = Object.keys(props)[0];
+
+  return {
+    changeTextFilter: text => dispatch(setTextFilter(text, filterType)),
+    sortDate: () => dispatch(sortByDate(filterType)),
+    sortAmount: () => dispatch(sortByAmount(filterType)),
+    changeStartDate: startDate => dispatch(setStartDate(startDate, filterType)),
+    changeEndDate: endDate => dispatch(setEndDate(endDate, filterType)),
+  };
+};
 
 export default connect(
   mapStateToProps,
