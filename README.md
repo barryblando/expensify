@@ -32,6 +32,9 @@
 - [ReactJs component lifecycle methods  -  A deep dive](https://hackernoon.com/reactjs-component-lifecycle-methods-a-deep-dive-38275d9d13c0)
 - [How to Benchmark React Components: The Quick and Dirty Guide](https://engineering.musefind.com/how-to-benchmark-react-components-the-quick-and-dirty-guide-f595baf1014c)
 - [Build a NavBar & Side Drawer](https://www.academind.com/learn/react/snippets/navbar-side-drawer/)
+- [React.js Forms: Controlled Components](https://lorenstewart.me/2016/10/31/react-js-forms-controlled-components/)
+- [Building forms using React — everything you need to know](https://www.codementor.io/blizzerand/building-forms-using-react-everything-you-need-to-know-iz3eyoq4y)
+- [Extracting Logic from React Components](https://javascriptplayground.com/react-extracting-logic/)
 
 ## Redux References
 
