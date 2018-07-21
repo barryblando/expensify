@@ -19,14 +19,14 @@ import selectExpenses from '../../redux/selectors/expenses';
 const ExpenseDashboardPage = ({ expenseCount, expensesTotal, expenses }) => (
   <div>
     <ExpensesSummary Total={expensesTotal} Count={expenseCount} expense />
-    <ListFilters />
+    <ListFilters expenses="expenses" />
     <Lists expenses={expenses} />
   </div>
 );
 
 // when connected, this maps the redux store to access and pass state to component as props
 const mapStateToProps = state => {
-  const visibleExpenses = selectExpenses(state.expenses, state.filters);
+  const visibleExpenses = selectExpenses(state.expenses, state.filters.expenses);
   // get the length & total of the visible expenses
   return {
     expenseCount: visibleExpenses.length,
