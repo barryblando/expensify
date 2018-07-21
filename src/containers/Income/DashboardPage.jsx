@@ -12,13 +12,13 @@ import selectIncomes from '../../redux/selectors/incomes';
 const IncomeDashboardPage = ({ incomeCount, incomesTotal, incomes }) => (
   <div>
     <IncomesSummary Total={incomesTotal} Count={incomeCount} income />
-    <ListFilters />
+    <ListFilters incomes="incomes" />
     <Lists incomes={incomes} />
   </div>
 );
 
 const mapStateToProps = state => {
-  const visibleIncomes = selectIncomes(state.incomes, state.filters);
+  const visibleIncomes = selectIncomes(state.incomes, state.filters.incomes);
   return {
     incomeCount: visibleIncomes.length,
     incomesTotal: selectIncomesTotal(visibleIncomes),
