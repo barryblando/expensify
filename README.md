@@ -107,6 +107,24 @@ Also keep in mind:
   ],
 ```
 
+## Debugging React App
+
+```json
+{
+  "type": "chrome",
+  "request": "launch",
+  "name": "Launch Chrome",
+  "url": "http://localhost:5000",
+  "webRoot": "${workspaceRoot}/src",
+  "userDataDir": "${workspaceRoot}/.vscode/chrome",
+  "sourceMaps": true,
+  "sourceMapPathOverrides": {
+    "webpack:///./src/*": "${webRoot}/*"
+  },
+  "runtimeArgs": ["--disable-session-crashed-bubble", "--disable-infobars"]
+}
+```
+
 ## Webpack Dev Server & React-Hot-Loader
 
 - [React Hot Reloader Github](https://github.com/gaearon/react-hot-loader)
