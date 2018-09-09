@@ -1,0 +1,21 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  align-self: flex-end;
+
+  li {
+    margin: 0 5px;
+
+    & button {
+      padding: 5px 1rem;
+      border-style: none;
+      background-color: $color-tertiary;
+      color: $color-off-white;
+    }
+
+    & button:disabled {
+      background: $color-light-grey;
+    }
+  }
+}
