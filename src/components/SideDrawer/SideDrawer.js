@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 const sideDrawer = ({ logoutClickHandler: logout, show }) => {
   let drawerClasses = 'side-drawer';
 
+  // if show add class selector open
   if (show) {
     drawerClasses = 'side-drawer open';
   }

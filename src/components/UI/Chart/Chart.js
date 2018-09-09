@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import numeral from 'numeral';
 import { Line } from 'react-chartjs-2';
-import { ISO_DATE_FORMAT, CURRENCY_FORMAT } from '../constants';
+import { ISO_DATE_FORMAT, CURRENCY_FORMAT } from '../../../constants';
 
 const Chart = ({ expenses, incomes }) => {
   const chartData = {

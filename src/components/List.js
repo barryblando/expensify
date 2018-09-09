@@ -1,11 +1,13 @@
 import React from 'react';
-import ListItems from './ListItem';
+import ListItem from './ListItem';
 
 export const List = props => {
   let defaultTxt = null;
   let desktopTxt = null;
   let path = null;
   let rawData = null;
+
+  console.log('[List] props: ', props[Object.keys(props)[0]]);
 
   switch (Object.keys(props)[0]) {
     case 'expenses':
@@ -41,7 +43,7 @@ export const List = props => {
             <span>No {defaultTxt}</span>
           </div>
         ) : (
-          rawData.map(data => <ListItems {...data} key={data.id} pathLink={path} />)
+          rawData.map(data => <ListItem {...data} key={data.id} pathLink={path} />)
         )}
       </div>
     </div>
