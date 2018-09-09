@@ -19,7 +19,7 @@ module.exports = {
   mode: 'production',
   entry: {
     vendor: [
-      'babel-polyfill',
+      '@babel/polyfill',
       'react',
       'react-dom',
       'react-redux',
@@ -33,7 +33,7 @@ module.exports = {
       'react-chartjs-2',
       'moment',
     ],
-    index: ['babel-polyfill', path.resolve(sourcePath, 'index.js')],
+    index: ['@babel/polyfill', path.resolve(sourcePath, 'index.js')],
   },
   output: {
     path: publicPath,
