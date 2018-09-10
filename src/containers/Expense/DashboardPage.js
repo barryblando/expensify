@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // components
 import ExpensesSummary from '../../components/Summary';
 import Lists from '../../components/List';
+import Pagination from '../../components/Pagination/Pagination';
 
 // container
 import ListFilters from '../ListFilters'; /* eslint-disable-line */
@@ -16,13 +17,30 @@ import selectExpenses from '../../redux/selectors/expenses';
 // When the store changes the component gets re-rendered w/ new values
 // </reference https://redux.js.org/faq/react-redux#why-is-my-component-re-rendering-too-often
 // export this unconnected Component for snapshot test case
-const ExpenseDashboardPage = ({ expenseCount, expensesTotal, expenses }) => (
-  <div>
-    <ExpensesSummary Total={expensesTotal} Count={expenseCount} expense />
-    <ListFilters expenses="expenses" />
-    <Lists expenses={expenses} />
-  </div>
-);
+class ExpenseDashboardPage extends Component {
+  state = {
+    pageOfItems: [],
+  };
+
+  onChangePage = pageOfItems => {
+    // update state with new page of items
+    this.setState({ pageOfItems });
+  };
+
+  render() {
+    const { expenseCount, expensesTotal, expenses } = this.props;
+    const { pageOfItems } = this.state;
+
+    return (
+      <div>
+        <ExpensesSummary Total={expensesTotal} Count={expenseCount} expense />
+        <ListFilters expenses="expenses" />
+        <Lists expenses={pageOfItems} />
+        <Pagination items={expenses} onChangePage={this.onChangePage} pageSize={5} />
+      </div>
+    );
+  }
+}
 
 // when connected, this maps the redux store to access and pass state to component as props
 const mapStateToProps = state => {
@@ -35,7 +53,7 @@ const mapStateToProps = state => {
   };
 };
 
-// Connect component to redux store using Higher Order Component (i.e connect)
+// Connect component to redux store using connect
 // mapStateToProps in connect determines what information/state from the store we want our ExpenseList to access
 // Implicitly Export default the Connected Component
 export default connect(mapStateToProps)(ExpenseDashboardPage);

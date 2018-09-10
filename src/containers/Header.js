@@ -12,6 +12,7 @@ export class Header extends Component {
     sideDrawerOpen: false,
   };
 
+  // -- Handle hamburger menu open SideDrawer --
   drawerToggleClickHandler = () => {
     // good practice use prevState when toggling state
     this.setState(prevState => ({
@@ -19,6 +20,7 @@ export class Header extends Component {
     }));
   };
 
+  // -- Handle backdrop close SideDrawer --
   backdropClickHandler = () => {
     this.setState({ sideDrawerOpen: false });
   };
@@ -29,6 +31,7 @@ export class Header extends Component {
 
     let backdrop;
 
+    // if true then add BackDrop behind SideDrawer
     if (sideDrawerOpen) {
       backdrop = <BackDrop closeHandler={this.backdropClickHandler} />;
     }

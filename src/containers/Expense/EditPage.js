@@ -45,7 +45,8 @@ export class EditExpensePage extends Component {
 
 // Find the expense that needs to update, access props that are passed in by HOC props.match
 const mapStateToProps = (state, { match }) => ({
-  expense: state.expenses.find(expense => expense.id === match.params.id), // if found put that object to expense
+  // if found put that object to a property expense which can be be use in here
+  expense: state.expenses.find(expense => expense.id === match.params.id),
 });
 
 // Pass dispatchers as props
@@ -55,7 +56,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 // React Router pass props object to components so that it can be manipulate dynamically
-// React Router render HOC(i.e connect) then passes the props through and allows to add new ones
+// React Router render HOC(i.e component which return by connect) then passes the props through and allows to add new ones
 export default connect(
   mapStateToProps,
   mapDispatchToProps
@@ -63,7 +64,7 @@ export default connect(
 
 // -- HOC ? let's say our WrappedComponent is EditExpensePage --
 // const connect = (injectedStateProp, injectedDispatchProp) => {
-//   **CLOSURE**
+//   **CLOSURE&CURRYING**
 //   - we can still have access to variable StateProp & DispatchProp 'cause of scope chain & lexical env
 //   return (WrappedComponent) => {
 //     - props here are values injected by other Component (e.g Router that passes down match prop)
@@ -72,5 +73,5 @@ export default connect(
 //   };
 // };
 //
-//   **CURRYING**
+//   **PARTIAL APPLICATION**
 // connect(mapStateToProps, mapDispatchToProps)(EditExpensePage);

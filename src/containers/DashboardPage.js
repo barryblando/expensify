@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Chart from '../components/Chart';
+import Chart from '../components/UI/Chart/Chart';
 
 const DashboardPage = ({ expenses, incomes }) => (
   <div>
