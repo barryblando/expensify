@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  *
  * Keys help React identify which items have changed, are added, or are removed.
@@ -9,7 +10,7 @@ function ListItem(props) {
 }
 
 function NumberList(props) {
-  const {numbers} = { props.numbers };
+  const { numbers } = { props };
   const listItems = numbers.map(number => (
     // Correct! Key should be specified inside the array.
     <ListItem key={number.toString()} value={number} />

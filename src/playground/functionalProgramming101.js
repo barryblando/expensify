@@ -1,3 +1,4 @@
+/* eslint-disable */
 // REMEMBER: Arrays & Objects are reference type
 
 // #1. Pure Function - Predictable return state
@@ -103,6 +104,31 @@ function numberSum(number) {
 const total = numberSum(numbers);
 total; // ?
 
+const reviews = [4.5, 4.0, 5.0, 2.0, 1.0, 5.0, 3.0, 4.0, 1.0, 5.0, 4.5, 3.0, 2.5, 2.0];
+
+// 1. Using the reduce function, create an object that
+// has properties for each review value, where the value
+// of the property is the number of reviews with that score.
+// for example, the answer should be shaped like this:
+// { 4.5: 1, 4.0: 2 ...}
+
+const reviewSummary = reviews.reduce((obj, item) => {
+  // check if there's object key:value exist or set to zero to work with at all and store it on count
+  const count = obj[item] || 0; // ?
+  [item] // ?
+  obj[item] // ?
+  // copy all obj then add/update the item that is on queue
+  return { ...obj, [item]: count + 1 };
+}, { '4.5': 2 });
+
+console.log(reviewSummary);
+//
+// TIP: checkout computed properties discussed here:
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#Computed_property_names
+// solution can be found at:
+// https://jsbin.com/himuzuw/1/edit?js,console
+
+
 // #5 Filter - Get the portion of an array
 
 const EvenOddNumbers = [6, 8, 3, 14, 1, 9, 10];
@@ -112,3 +138,59 @@ function getEvenNumbers(numerals) {
 }
 
 console.log(getEvenNumbers(EvenOddNumbers));
+
+const ingredients = [{ name: 'cheese', quantity: 2 }, { name: 'meat', quantity: 1 }, { name: 'salad', quantity: 1 }];
+
+const addItem = (arrObj, newObj) => [...arrObj, newObj];
+
+const nextWeekShoppingList = addItem(ingredients, { name: 'bacon', quantity: 2 });
+
+nextWeekShoppingList; // ?
+
+// 1. create a constant named friends,
+// which is an array that contains 2
+// names of your choosing.
+
+const friends = [
+  { name: 'Barbara' },
+  { name: 'Barry' },
+];
+
+console.log(friends);
+
+// 2. Create a new constant named updatedFriends,
+// which includes the friends array values plus
+// one additional name
+
+const newFriend = { name: 'Leigha' };
+const updatedFriends = [...friends, newFriend];
+
+console.log(updatedFriends);
+
+// 3. Create a new constant named friendNameLengths,
+// which is based on the array updatedFriends,
+// but instead of having the friends names,
+// have the array store the length of each persons name
+
+const friendNameLengths = updatedFriends.map(friend => friend.name.length);
+
+console.log(friendNameLengths);
+
+const friendLove = updatedFriends.map(friend => {
+  if(friend.name === 'Leigha') {
+    return {
+        ...friend,
+        love: 'Barry'
+    }
+  }
+  return friend;
+});
+
+console.log(friendLove); // ?
+
+// 4. Create a new constant named shorterNamedFriends,
+// which will be a list of the friends except the friend with the longest name.
+
+const shorterNameFriends = updatedFriends.filter(friend => friend.name.length < 7);
+
+console.log(shorterNameFriends);

@@ -41,7 +41,7 @@ const settings = {
 // assigning fallback / default values
 const { width, height = 100, color, fontSize = 25 } = settings;
 
-// Object destructuring w/ variable renaming (:) & default values (i.e ReactJS)
+// Object destructuring w/ variable renaming (:) & default values (=)
 const { width: w = 400, height: h = 500 } = { width: 800 };
 
 console.log(`Width: ${w}`);

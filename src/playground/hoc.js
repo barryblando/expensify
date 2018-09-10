@@ -34,3 +34,40 @@ const AdminInfo = withAdminWarning(Info);
 
 render(<AdminInfo isAdmin={false} info="There are the details" />, document.getElementById('app'));
 // render(<AuthInfo isAuthenticated info="There are the details" />, document.getElementById('app'));
+
+// Part of FunctionalProgramming101
+// FUNCTIONs are first class citizens in javascript, why? take a look at this
+
+// 1. Can be pass as an argument
+function createSafeVersion(func) {
+  /** CLOSURE **/
+  // 2. Can be return by a function
+  return function(n, message) {
+    if (n !== null && typeof n === 'number') {
+      if (message !== null && typeof message === 'string') {
+        return func(n, message);
+      }
+    }
+  }
+}
+
+function printMessageNTimes(n, message) {
+  for (let i = 0; i < n; i++) { console.log(message) }
+}
+
+function getNthLetter(n, string) {
+  return string.chartAt(n);
+}
+
+function getSubstringOfLength(n, string) {
+  return string.substring(0, n);
+}
+
+// 3. Can be assign to variables
+let printMessageNTimesSafe = createSafeVersion(printMessageNTimes);
+let getNthLetterSafe = createSafeVersion(getNthLetter);
+let getSubstringOfLengthSafe = createSafeVersion(getSubstringOfLength);
+
+printMessageNTimesSafe(4, 'Banana'); // 'Banana Banana Banana Banana'
+getNthLetterSafe(2, 'Javascript'); // 'v'
+getSubstringOfLengthSafe(5, 'Hello and welcome'); // 'Hello'
