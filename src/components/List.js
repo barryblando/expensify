@@ -7,8 +7,6 @@ export const List = props => {
   let path = null;
   let rawData = null;
 
-  console.log('[List] props: ', props[Object.keys(props)[0]]);
-
   switch (Object.keys(props)[0]) {
     case 'expenses':
       defaultTxt = 'Expenses';
