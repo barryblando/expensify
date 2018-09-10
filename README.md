@@ -1,4 +1,4 @@
-# EXPENSIFY
+# EXPENSIFY [Upgraded to Babel 7]
 
 ## Development Features
 
@@ -14,6 +14,7 @@
 
 ## React References
 
+- [Full-Stack React Articles](https://www.fullstackreact.com/articles/)
 - [Pure React](https://daveceddia.com/pure-react/)
 - [Full-Stack React - The Complete Guide to ReactJS and Friends](https://www.fullstackreact.com/)
 - [Alligator.io - React](https://alligator.io/react/)
@@ -134,8 +135,8 @@ Also keep in mind:
 
 ## Babel Stage 2 & 3 Plugin [will update after stage 3]
 
-- [transform-object-rest-spread (Stage 3)](https://babeljs.io/docs/plugins/transform-object-rest-spread/)
-- [transform-class-properties (Stage 2)](https://babeljs.io/docs/plugins/transform-class-properties/)
+- [plugin-proposal-object-rest-spread (Stage 4)](https://babeljs.io/docs/en/next/babel-plugin-proposal-object-rest-spread.html)
+- [plugin-proposal-class-properties (Stage 2)](https://babeljs.io/docs/en/next/babel-plugin-proposal-class-properties.html)
 
 ## Third Party Component Used
 
