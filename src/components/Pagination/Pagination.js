@@ -9,7 +9,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-  initialPage: 0,
+  initialPage: 1,
   pageSize: 5,
 };
 
@@ -17,31 +17,35 @@ class Pagination extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pager: {}
+      pager: {},
     };
   }
 
   componentDidMount() {
+    const { items, initialPage } = this.props;
+
     // set page if items array isn't empty
-    if (this.props.items && this.props.items.length) {
-      this.setPage(this.props.initialPage);
+    if (items && items.length) {
+      this.setPage(initialPage);
     }
   }
 
   componentDidUpdate(prevProps, prevState) {
+    const { items, initialPage } = this.props;
+
     // reset page if items array has changed
-    if (this.props.items !== prevProps.items) {
-      this.setPage(this.props.initialPage);
+    if (items !== prevProps.items) {
+      this.setPage(initialPage);
     }
   }
 
   setPage = page => {
-    const { items, pageSize } = this.props;
-    let pager = this.state.pager;
+    const { items, pageSize, onChangePage } = this.props;
+    let { pager } = this.state;
 
-    if (page < 0 || page > pager.totalPages) {
-      return;
-    }
+    // if (page < 0 || page > pager.totalPages) {
+    //   return;
+    // }
 
     // get new pager object for specified page
     pager = this.getPager(items.length, page, pageSize);
@@ -53,21 +57,18 @@ class Pagination extends Component {
     this.setState({ pager });
 
     // call change page function in parent component
-    this.props.onChangePage(pageOfItems);
-  }
+    onChangePage(pageOfItems);
+  };
 
-  getPager = (totalItems, currentPage, pageSize) => {
-    // default to first page
-    currentPage = currentPage || 1;
-
-    // default page size is 10
-    pageSize = pageSize || 5;
-
+  // default to first page = 1 & page size is 10
+  getPager = (totalItems, currentPage = 1, pageSize = 5) => {
     // calculate total pages
     const totalPages = Math.ceil(totalItems / pageSize);
 
     let startPage;
     let endPage;
+
+    /* eslint-disable */
     if (totalPages <= 10) {
       // less than 10 total pages so show all
       startPage = 1;
@@ -85,6 +86,7 @@ class Pagination extends Component {
         endPage = currentPage + 4;
       }
     }
+    /* eslint-enable */
 
     // calculate start and end item indexes
     const startIndex = (currentPage - 1) * pageSize;
@@ -105,10 +107,10 @@ class Pagination extends Component {
       endIndex,
       pages,
     };
-  }
+  };
 
   render() {
-    const pager = this.state.pager;
+    const { pager } = this.state;
 
     if (!pager.pages || pager.pages.length <= 1) {
       // don't display pager if there is only 1 page
@@ -118,33 +120,39 @@ class Pagination extends Component {
     return (
       <ul className="pagination">
         <li>
-          <button
-            onClick={() => this.setPage(1)}
-            disabled={pager.currentPage === 1 ? true : false}
-            >{'<<'}</button>
+          <button type="button" onClick={() => this.setPage(1)} disabled={pager.currentPage === 1}>
+            {'<<'}
+          </button>
         </li>
         <li>
-          <button
-            onClick={() => this.setPage(pager.currentPage - 1)}
-            disabled={pager.currentPage === 1 ? true : false}
-            >Prev</button>
+          <button type="button" onClick={() => this.setPage(pager.currentPage - 1)} disabled={pager.currentPage === 1}>
+            Prev
+          </button>
         </li>
-        {pager.pages.map((page, index) => (
-          <li key={index} className={pager.currentPage === page ? 'active' : ''}>
-            <button onClick={() => this.setPage(page)}>{page}</button>
+        {pager.pages.map(page => (
+          <li key={page} className={pager.currentPage === page ? 'active' : ''}>
+            <button type="button" onClick={() => this.setPage(page)}>
+              {page}
+            </button>
           </li>
         ))}
         <li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
           <button
+            type="button"
             onClick={() => this.setPage(pager.currentPage + 1)}
-            disabled={pager.currentPage === pager.totalPages ? true : false}
-          >Next</button>
+            disabled={pager.currentPage === pager.totalPages}
+          >
+            Next
+          </button>
         </li>
         <li>
           <button
+            type="button"
             onClick={() => this.setPage(pager.totalPages)}
-            disabled={pager.currentPage === pager.totalPages ? true : false}
-            >{'>>'}</button>
+            disabled={pager.currentPage === pager.totalPages}
+          >
+            {'>>'}
+          </button>
         </li>
       </ul>
     );
