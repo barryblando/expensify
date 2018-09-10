@@ -13,7 +13,11 @@ export const PrivateRoute = ({ isAuthenticated, component: ComponentPage, ...res
     {...rest}
     render={props =>
       isAuthenticated ? (
-        <div>
+        <div
+          style={{
+            marginBottom: '2rem',
+          }}
+        >
           <Header />
           {/* Create instance of Component & pass props i.e history, match, etc. from Route */}
           <ComponentPage {...props} />
